@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Profiling | BlueAxis Media</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        /* ── BASE ── */
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            padding-top: 25px;
+            background: #f5f7fa;
+        }
+
+        /* ── HERO SECTION ── */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 30px;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: rgba(35, 52, 115, 257);
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-btn:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                padding: 60px 15px;
+                border-radius: 12px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btn {
+                padding: 10px 22px;
+                font-size: 1rem;
+            }
+        }
+
+        /* ── ABOUT CARD (Introduction) ── */
+        .about-section {
+            max-width: 100%;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8fbff, #eef6ff);
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-card {
+            max-width: 900px;
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-card h2 {
+            font-size: 2.4rem;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            color: #333;
+        }
+
+        .about-card p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .brand {
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .highlight {
+            color: #3a81a7;
+            font-weight: 600;
+        }
+
+        .emphasis {
+            color: #1d5cad;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .about-card {
+                padding: 30px 20px;
+            }
+
+            .about-card h2 {
+                font-size: 1.9rem;
+            }
+
+            .about-card p {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* ── CONTENT LIST SECTION ── */
+        .content-list-section {
+            max-width: 100%;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #ffffff, #f0f8ff);
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 45px 50px;
+            text-align: center;
+        }
+
+        .content-list-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0a2540;
+            margin-bottom: 25px;
+        }
+
+        .content-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 640px;
+            margin: 0 auto 20px;
+        }
+
+        .content-list li {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            color: #444;
+        }
+
+        .content-list li::before {
+            content: "✔";
+            color: #0078d7;
+            font-weight: bold;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .stat-text {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #d62424;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .content-list-section {
+                padding: 30px 20px;
+            }
+
+            .content-list-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ── FEATURES SECTION (dark gradient card) ── */
+        .content-section1 {
+            position: relative;
+            padding: 40px 10%;
+            text-align: center;
+            /* background: linear-gradient(135deg, rgb(65,106,163), rgba(218,32,33,255)); */
+            color: rgb(29, 24, 24);
+            border-radius: 50px;
+            overflow: hidden;
+            margin: 20px 16px;
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            animation: floatingBackground 8s linear infinite;
+        }
+
+        @keyframes floatingBackground {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #00A6FF, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtext {
+            font-size: 1.1rem;
+            color: #141313;
+            margin-bottom: 20px;
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            width: 280px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0px 12px 25px rgba(0, 166, 255, 0.35);
+        }
+
+        .feature-card img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: #fde86e;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .closing-text {
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-top: 30px;
+            background: linear-gradient(90deg, #FFD700, #00A6FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .content-section1 {
+                padding: 50px 5%;
+                border-radius: 24px;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .feature-card {
+                width: 100%;
+            }
+        }
+
+        /* ── PILLARS (cards grid) ── */
+        .pillars-section {
+            padding: 20px 5%;
+            background: #f7f9fc;
+        }
+
+        .pillars-section .text-center h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0a2540;
+        }
+
+        .pillars-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .pillar-card {
+            position: relative;
+            width: 320px;
+            min-height: 360px;
+            padding: 20px 20px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            overflow: hidden;
+            transition: all 0.3s ease;
+
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .pillar-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .pillar-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .pillar-line {
+            width: 60px;
+            height: 4px;
+            margin: 12px auto 15px;
+            border-radius: 2px;
+        }
+
+        .pillar-blue {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+        }
+
+        .pillar-orange {
+            background: linear-gradient(90deg, #ff7a18, #ffb347);
+        }
+
+        .pillar-green {
+            background: linear-gradient(90deg, #00c853, #64dd17);
+        }
+
+        .pillar-list {
+            text-align: left;
+            padding-left: 18px;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .pillar-list li {
+            margin-bottom: 8px;
+            list-style: none;
+            position: relative;
+        }
+
+        .pillar-list li::before {
+            content: "✅";
+            margin-right: 8px;
+        }
+
+        .highlight-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0056d2;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .pillars-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pillar-card {
+                width: 90%;
+            }
+        }
+
+        /* ── LEAD GEN SERVICES (dark section) ── */
+        .lead-gen-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 20px 16px;
+        }
+
+        .lead-heading {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ffeb3b, #ff6b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lead-subtext {
+            font-size: 1.15rem;
+            margin-bottom: 35px;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .lead-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .lead-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 28px 22px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lead-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.18);
+        }
+
+        .lead-card i {
+            font-size: 38px;
+            color: #ffeb3b;
+            margin-bottom: 12px;
+        }
+
+        .lead-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .lead-card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        /* ── CTA SECTION ── */
+        .cta-section {
+            background: linear-gradient(135deg, #3f7fda, rgba(218, 32, 33, 1));
+            padding: 40px 50px;
+            text-align: center;
+            color: white;
+            border-radius: 20px;
+            margin: 20px 16px;
+        }
+
+        .cta-section h2 {
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 13px 30px;
+            background: rgba(35, 52, 115, 1);
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 40px 20px;
+                margin: 20px 10px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-top {
+            background: linear-gradient(135deg, #007bff, rgba(19, 59, 129, 255));
+            padding: 60px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .footer-card {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer-icon {
+            width: 60px;
+            height: 60px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 12px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .footer-icon:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .footer-card h5 {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .footer-card p a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-card p a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            background: #111;
+            color: #ddd;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00c6ff;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 6px;
+            color: #fff;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: black;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .footer-top .footer-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .footer-bottom {
+                text-align: center;
+            }
+
+            .footer-links li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .social-icons {
+                margin-top: 10px;
+            }
+        }
+
+        /* ════════════════════════════════════════
+           RESPONSIVE BREAKPOINTS
+        ════════════════════════════════════════ */
+
+        /* ── Tablet & below (≤992px) ── */
+        @media (max-width: 992px) {
+
+            /* Navbar: logo slightly smaller */
+            .navbar-brand img {
+                height: 55px;
+            }
+
+            .navbar {
+                height: 70px;
+            }
+
+            /* Hero */
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            /* About card */
+            .about-card {
+                padding: 35px 28px;
+            }
+
+            .about-card h2 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            /* Content list */
+            .content-list-section {
+                padding: 35px 30px;
+                margin: 30px 16px;
+            }
+
+            /* Features: 2-col */
+            .features-container {
+                gap: 18px;
+            }
+
+            .feature-card {
+                width: calc(50% - 18px);
+            }
+
+            /* Pillars: 2-col */
+            .pillars-container {
+                gap: 20px;
+            }
+
+            .pillar-card {
+                width: calc(50% - 20px);
+                min-width: 260px;
+            }
+
+            /* Lead services: 2-col */
+            .lead-services {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            /* CTA */
+            .cta-section {
+                padding: 50px 30px;
+            }
+        }
+
+        /* ── Mobile (≤768px) ── */
+        @media (max-width: 768px) {
+
+            body {
+                padding-top: 15px;
+            }
+
+            /* Navbar */
+            .navbar {
+                height: 65px;
+            }
+
+            .navbar-brand img {
+                height: 48px;
+            }
+
+            /* Collapse menu spacing */
+            .navbar-nav {
+                padding: 12px 0;
+                gap: 4px;
+            }
+
+            .nav-link {
+                padding: 8px 12px !important;
+            }
+
+            /* Hero */
+            .hero-section {
+                border-radius: 10px;
+                padding: 50px 16px;
+            }
+
+            .hero-content {
+                padding: 20px 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.65rem;
+                line-height: 1.25;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .hero-btn {
+                padding: 10px 24px;
+                font-size: 0.95rem;
+            }
+
+            /* About section */
+            .about-section {
+                padding: 50px 16px;
+            }
+
+            .about-card {
+                padding: 28px 20px;
+                border-radius: 14px;
+            }
+
+            .about-card h2 {
+                font-size: 1.55rem;
+                letter-spacing: 0.5px;
+            }
+
+            .about-card p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            /* Content list */
+            .content-list-section {
+                margin: 24px 16px;
+                padding: 28px 20px;
+                border-radius: 14px;
+            }
+
+            .content-list-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .content-list li {
+                font-size: 1rem;
+            }
+
+            .stat-text {
+                font-size: 1rem;
+            }
+
+            /* Features section */
+            .content-section1 {
+                padding: 40px 16px;
+                border-radius: 20px;
+                margin: 0 10px 24px;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .section-subtext {
+                font-size: 0.95rem;
+            }
+
+            .features-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .feature-card {
+                width: 100%;
+                max-width: 380px;
+                padding: 20px 18px;
+            }
+
+            .feature-card h3 {
+                font-size: 1.05rem;
+            }
+
+            .feature-card p {
+                font-size: 0.9rem;
+            }
+
+            .closing-text {
+                font-size: 1rem;
+            }
+
+            /* Pillars */
+            /* .pillars-section { padding: 40px 16px; }
+            .pillars-section .text-center h2 { font-size: 1.35rem; }
+            .pillars-container { flex-direction: column; align-items: center; gap: 20px; }
+            .pillar-card { width: 100%; max-width: 400px; min-height: unset; padding: 16px 18px 24px; }
+            .pillar-img { height: 140px; border-radius: 12px; }
+            .pillar-title { font-size: 1.15rem; }
+            .pillar-list { font-size: 0.9rem; }
+            .highlight-text { font-size: 1rem; } */
+
+            /* Lead gen */
+            .lead-gen-section {
+                padding: 40px 16px;
+                border-radius: 14px;
+                margin: 0 10px 24px;
+            }
+
+            .lead-heading {
+                font-size: 1.5rem;
+            }
+
+            .lead-subtext {
+                font-size: 1rem;
+            }
+
+            .lead-services {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .lead-card {
+                padding: 22px 18px;
+                border-radius: 12px;
+            }
+
+            .lead-card i {
+                font-size: 32px;
+            }
+
+            .lead-card h3 {
+                font-size: 1.05rem;
+            }
+
+            .lead-card p {
+                font-size: 0.9rem;
+            }
+
+            /* CTA */
+            .cta-section {
+                padding: 40px 20px;
+                margin: 0 10px 24px;
+                border-radius: 14px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .cta-button {
+                padding: 11px 24px;
+                font-size: 1rem;
+            }
+
+            /* Footer */
+            .footer-top {
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            .footer-card {
+                width: 100%;
+                max-width: 340px;
+                padding: 20px;
+            }
+
+            .footer-bottom {
+                text-align: center;
+            }
+
+            .footer-links {
+                text-align: center;
+            }
+
+            .footer-links li {
+                display: inline-block;
+                margin: 4px 6px;
+            }
+
+            .social-icons {
+                margin-top: 12px;
+                justify-content: center;
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* ── Small mobile (≤480px) ── */
+        @media (max-width: 480px) {
+
+            .hero-content h1 {
+                font-size: 1.35rem;
+            }
+
+            .hero-content p {
+                font-size: 0.92rem;
+            }
+
+            .about-card h2 {
+                font-size: 1.3rem;
+            }
+
+            .about-card p {
+                font-size: 0.95rem;
+            }
+
+            .content-list-section h2 {
+                font-size: 1.15rem;
+            }
+
+            .content-list li {
+                font-size: 0.92rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .pillar-img {
+                height: 120px;
+            }
+
+            .pillar-title {
+                font-size: 1.05rem;
+            }
+
+            .lead-heading {
+                font-size: 1.25rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.15rem;
+            }
+
+            /* Footer links stack fully on very small screens */
+            .footer-links li {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+
+        /* ── Landscape phones (max-height: 500px, landscape) ── */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero-section {
+                height: auto;
+                padding: 40px 16px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+
+
+
+        /* Icon badge */
+        .pillar-icon-badge {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .pillar-card:hover .pillar-icon-badge {
+            transform: scale(1.1);
+        }
+
+        .pillar-icon-badge svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .badge-blue {
+            background: #dbeafe;
+        }
+
+        .badge-blue svg {
+            stroke: #1d5cad;
+        }
+
+        .badge-amber {
+            background: #fef3c7;
+        }
+
+        .badge-amber svg {
+            stroke: #b45309;
+        }
+
+        .badge-green {
+            background: #dcfce7;
+        }
+
+        .badge-green svg {
+            stroke: #15803d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── NAVBAR ── -->
+    <!-- Navbar starts -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom bg-white shadow-sm">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold text-uppercase" href="../index.html">
+                <img src="../assets/images/blueaxisLogo.png" alt="Blueaxis Media">
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="../index.html">Home</a></li>
+
+                    <!-- What We Provide Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="whatWeProvideDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            What We Do
+                        </a>
+
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/whatwedo.html">Expertise & Services</a></li>
+                            <li><a class="dropdown-item"
+                                    href="/what_we_provide/account-based-marketing.html">Account-Based Marketing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/what_we_provide/multi-channel-lead.html">Multi-Channel
+                                    Lead</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/contact_discovery.html">Content
+                                    Syndication</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/emailmarketing.html">Email Marketing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/what_we_provide/dataappend.html">Data Append &
+                                    Cleansing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/demadgeneration.html">Demand
+                                    Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/appoinmentgeneration.html">Appointment
+                                    Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/accountprofiling.html">Account
+                                    Profiling</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="/focus_sectors.html">Focus Audiences</a></li>
+
+                    <!-- Resources Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/blog.html">Blog</a></li>
+                            <li><a class="dropdown-item" target="_blank"
+                                    href="https://thetechgossip.com/resources/">Repository</a></li>
+                            <li><a class="dropdown-item" href="/article.html">Articles</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- About Us Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            About Us
+                        </a>
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/overview.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="/ourstory.html">Our Story</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar Scroll Effect & Dropdown Behavior -->
+    <script>
+        document.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar-custom");
+            if (window.scrollY > 50) {
+                navbar.classList.add("navbar-transparent");
+                navbar.classList.add("shadow-sm");
+            } else {
+                navbar.classList.remove("navbar-transparent");
+            }
+        });
+
+        // Ensure only one dropdown is open at a time (hybrid hover-click behavior)
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdowns = document.querySelectorAll('.navbar .nav-item.dropdown');
+
+            function closeOtherDropdowns(currentDropdown) {
+                dropdowns.forEach(other => {
+                    if (other !== currentDropdown) {
+                        const toggle = other.querySelector('.dropdown-toggle');
+                        const menu = other.querySelector('.dropdown-menu');
+                        if (toggle) {
+                            toggle.classList.remove('show');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                        if (menu) {
+                            menu.classList.remove('show');
+                        }
+                    }
+                });
+            }
+
+            dropdowns.forEach(dropdown => {
+                // For desktop: hover opens it, but we must make sure others with .show are closed
+                dropdown.addEventListener('mouseenter', function () {
+                    if (window.innerWidth >= 992) {
+                        closeOtherDropdowns(dropdown);
+                    }
+                });
+
+                // For mobile/desktop click: Bootstrap will toggle the current one, but we close others
+                const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', function () {
+                        closeOtherDropdowns(dropdown);
+                    });
+                }
+            });
+        });
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #0E3A62;
+            --secondary: #30528D;
+            --accent: #30BCE8;
+            --red-accent: #DA2021;
+        }
+
+        /* Navbar Base */
+        .navbar-custom {
+            background: #93b1d8;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        /* Logo height control */
+
+        .navbar {
+            min-height: 80px;
+            /* increase navbar height */
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            /* control logo size */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Nav links */
+        .navbar-custom .nav-link {
+            color: #1a1a1a;
+            font-weight: 600;
+            padding: 8px 15px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover underline animation */
+        .navbar-custom .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #30528D;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #30528D;
+        }
+
+        .navbar-custom .nav-link:hover::after,
+        .navbar-custom .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Dropdown menu */
+        .navbar-custom .dropdown-menu {
+            border-radius: 10px;
+            padding: 10px 0;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            animation: dropdownFade 0.3s ease;
+        }
+
+        /* Dropdown items */
+        .dropdown-item {
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+            color: #1a1a1a;
+        }
+
+        .dropdown-item:hover {
+            background-color: #30528D;
+            color: #fff;
+        }
+
+        /* Dropdown animation */
+        /* Hover dropdown (Desktop only) */
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0;
+            }
+        }
+
+        /* MOBILE NAV FIX */
+        @media (max-width: 991px) {
+
+            .navbar-collapse {
+                position: absolute;
+                top: 80px;
+                /* same as navbar height */
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                padding: 15px 20px;
+                border-top: 1px solid #eee;
+
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                z-index: 999;
+            }
+
+            .navbar-nav {
+                gap: 10px;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 12px 10px;
+                border-radius: 8px;
+            }
+
+            .nav-link:hover {
+                background: #f1f5ff;
+            }
+
+            /* Dropdown fix */
+            .dropdown-menu {
+                position: static !important;
+                box-shadow: none;
+                border: none;
+                padding-left: 10px;
+            }
+
+            .dropdown-item {
+                padding: 8px 10px;
+            }
+        }
+
+
+        /* Mobile view */
+        @media (max-width: 991px) {
+            .navbar-custom {
+                background: #ffffff;
+            }
+        }
+    </style>
+
+    <!-- ── HERO ── -->
+    <div class="hero-section mt-5">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="fw-bold text-uppercase">
+                BlueAxis Media: Better Account Profiling, More Conversions
+            </h1>
+            <p>Know Your Best Accounts. Engage at the Right Time. Win More Deals.</p>
+            <a href="../contact.html" class="hero-btn">Get Started</a>
+        </div>
+    </div>
+
+    <!-- ── INTRODUCTION ── -->
+    <div class="about-section">
+        <div class="about-card">
+            <h2 class="fw-bold text-uppercase">
+                Welcome to <span class="brand">BlueAxis Media</span>
+            </h2>
+            <p>
+                Account profiling is the <strong>#1 strategy for B2B precision</strong>. By building
+                <span class="highlight">deep, data-driven profiles</span> of your best accounts, you can
+                craft <span class="highlight">hyper-personalized outreach</span> that drives real revenue.
+            </p>
+            <p>
+                At <span class="emphasis">BlueAxis Media</span>, we help businesses identify, understand,
+                and engage their most valuable accounts — turning prospects into
+                <strong>long-term partners.</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- ── AI-DRIVEN PROFILING LIST ── -->
+    <div class="content-list-section">
+        <h2 class="fw-bold text-uppercase">
+            AI-Driven Profiling: <span class="brand">Better Targeting</span>
+        </h2>
+        <ul class="content-list">
+            <li>Analyse large datasets to create full customer profiles</li>
+            <li>Identify key decision-makers and personalise outreach</li>
+            <li>Engage with hyper-relevant messaging at scale</li>
+        </ul>
+        <p class="stat-text">AI profiling increases conversions by 50%!</p>
+    </div>
+
+    <!-- ── OMNICHANNEL FEATURES ── -->
+    <section class="content-section1">
+        <div class="animated-bg"></div>
+        <h2 class="section-title animate-on-scroll fw-bold text-uppercase">
+            Omnichannel Data Integration: Consistent Engagement
+        </h2>
+        <p class="section-subtext animate-on-scroll">
+            Sync customer data across email, LinkedIn, calls & web to ensure aligned messaging across all touchpoints.
+        </p>
+        <p class="section-subtext animate-on-scroll">
+            <strong style="color:#FFD700;">Omnichannel increases engagement by 250%!</strong>
+        </p>
+        <div class="features-container">
+            <div class="feature-card animate-on-scroll">
+                <img src="../assets/images/account1.png" alt="Data Sync">
+                <h3>Data Sync</h3>
+                <p>Sync customer data across all platforms seamlessly.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <img src="../assets/images/Acoount2.png" alt="Aligned Messaging">
+                <h3>Aligned Messaging</h3>
+                <p>Ensure consistent messaging across all channels.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <img src="../assets/images/Account3.png" alt="Collaboration">
+                <h3>Improved Collaboration</h3>
+                <p>Enhance sales and marketing teamwork for better ROI.</p>
+            </div>
+        </div>
+        <p class="closing-text animate-on-scroll">
+            In a world of fragmented touchpoints, omnichannel integration is the key to seamless customer experiences.
+        </p>
+    </section>
+
+    <!-- ── REAL-TIME INTENT PILLARS ── -->
+    <!-- ── REAL-TIME INTENT PILLARS ── -->
+    <div class="pillars-section">
+        <div class="py-4 text-center">
+            <h2 class="fw-bold text-uppercase">Real-Time Intent Analysis: Perfect Timing</h2>
+            <p class="text-muted mt-2">Track buyer signals and act at the right moment to maximise results.</p>
+        </div>
+
+        <div class="pillars-container">
+
+            <!-- Card 1 -->
+            <div class="pillar-card" style="background:#EDF5FF;">
+                <div class="pillar-icon-badge badge-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M6.3 6.3a8 8 0 0 0 0 11.4" />
+                        <path d="M17.7 6.3a8 8 0 0 1 0 11.4" />
+                        <path d="M3.5 3.5a14 14 0 0 0 0 17" />
+                        <path d="M20.5 3.5a14 14 0 0 1 0 17" />
+                    </svg>
+                </div>
+
+                <h3 class="pillar-title">Track Buyer Signals</h3>
+                <div class="pillar-line pillar-blue"></div>
+                <ul class="pillar-list">
+                    <li>Identify prospects at peak interest with real-time intent data.</li>
+                    <li>Monitor online behaviour to predict buying intent.</li>
+                </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="pillar-card" style="background:#FFFBEF;">
+                <div class="pillar-icon-badge badge-amber">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                </div>
+
+                <h3 class="pillar-title">Trigger Outreach</h3>
+                <div class="pillar-line pillar-orange"></div>
+                <ul class="pillar-list">
+                    <li>Engage decision-makers when they're ready to buy.</li>
+                    <li>Automate personalised outreach for timely connections.</li>
+                </ul>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="pillar-card" style="background:#F0FFF4;">
+                <div class="pillar-icon-badge badge-green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                        <path
+                            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                    </svg>
+                </div>
+                <h3 class="pillar-title">Be First to Market</h3>
+                <div class="pillar-line pillar-green"></div>
+                <ul class="pillar-list">
+                    <li>Act quickly to capitalise on emerging opportunities.</li>
+                    <li>Gain a competitive edge by being the first to engage.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4">
+            <p class="highlight-text">Intent-driven marketing increases pipeline efficiency by 60%!</p>
+        </div>
+    </div>
+    <!-- ── LEAD GEN SERVICES ── -->
+    <div class="lead-gen-section">
+        <h2 class="lead-heading fw-bold text-uppercase">Get More Sales with BlueAxis Media</h2>
+        <p class="lead-subtext">Let's build a better ABM strategy that drives growth.</p>
+        <div class="lead-services">
+            <div class="lead-card">
+                <i class="fas fa-user-check"></i>
+                <h3>AI Profiling</h3>
+                <p>Know your audience inside out with advanced AI insights.</p>
+            </div>
+            <div class="lead-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Omnichannel</h3>
+                <p>Keep messaging seamless across all platforms.</p>
+            </div>
+            <div class="lead-card">
+                <i class="fas fa-envelope-open-text"></i>
+                <h3>Intent-Based Outreach</h3>
+                <p>Engage prospects at the right moment with precision.</p>
+            </div>
+            <div class="lead-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>ABM Strategy</h3>
+                <p>Drive growth with a tailored account-based marketing approach.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="cta-section">
+        <h2 class="fw-bold text-uppercase">Contact BlueAxis Media Today!</h2>
+        <p style="font-size:1.1rem; margin-bottom:25px; opacity:0.9;">
+            Ready to unlock the power of precise account profiling?
+        </p>
+        <a href="../contact.html" class="cta-button">Get in Touch</a>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-top py-5">
+            <div class="container d-flex flex-wrap justify-content-center gap-4">
+                <div class="footer-card">
+                    <div class="footer-icon"><i class="fas fa-envelope"></i></div>
+                    <h5>Email Us</h5>
+                    <p><a href="mailto:info@blueaxismedia.com">info@blueaxismedia.com</a></p>
+                </div>
+                <div class="footer-card">
+                    <div class="footer-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h5>Our Office</h5>
+                    <p><a href="https://www.google.com/maps/place/Pune,+Maharashtra,+India+411014" target="_blank">Pune,
+                            Maharashtra, India 411014</a></p>
+                </div>
+                <div class="footer-card">
+                    <div class="footer-icon"><i class="fas fa-phone"></i></div>
+                    <h5>Call Us</h5>
+                    <p><a href="tel:+919021568448">+91 90215 68448</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-4">
+            <div
+                class="container text-center text-md-start d-md-flex justify-content-between align-items-center flex-wrap gap-3">
+                <ul class="footer-links mb-2 mb-md-0">
+                    <li><a href="../footerpages/Privacy_policy.html">Privacy Policy</a></li>
+                    <li><a href="../footerpages/CaseStudies.html">Case Studies</a></li>
+                    <li><a href="../footerpages/Gdpr.html">GDPR</a></li>
+                    <li><a href="../footerpages/termconditions.html">Terms & Conditions</a></li>
+                    <li><a href="../footerpages/Media_Kit.html">Media Kit</a></li>
+                </ul>
+                <div>
+                    <p class="mb-2 mb-md-0">&copy; 2026 <strong>Blueaxis Media</strong>. All rights reserved.</p>
+                    <div class="social-icons mt-2">
+                        <a target="_blank" href="https://x.com/KoinetMedia"><i class="fab fa-twitter"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/KoiNetMedia/"><i
+                                class="fab fa-facebook"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/koinetmedia1/"><i
+                                class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/company/koinet-media/posts/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll reveal
+        document.addEventListener("DOMContentLoaded", function () {
+            const els = document.querySelectorAll(".animate-on-scroll");
+            function reveal() {
+                els.forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                        el.style.opacity = 1;
+                        el.style.transform = "translateY(0px)";
+                    }
+                });
+            }
+            window.addEventListener("scroll", reveal);
+            reveal();
+        });
+
+        // Close navbar on outside click behavior
+        document.addEventListener('click', function (event) {
+            var navbar = document.getElementById('navbarNav');
+            var toggler = document.querySelector('.navbar-toggler');
+            if (navbar.classList.contains('show') && !navbar.contains(event.target) && !toggler.contains(event.target)) {
+                toggler.click();
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>account-blueaxis</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        /* Basic Reset */
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            padding-top: 25px;
+        }
+
+        /* Content Sections */
+
+        .content-section {
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            color: #0078d7;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .content-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-list li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-list li::before {
+            content: "✔";
+            color: #0078d7;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* CTA Section */
+
+        .cta-section {
+            background: linear-gradient(135deg, #3f7fda, rgba(218, 32, 33, 1));
+
+            padding: 50px;
+            text-align: center;
+            color: white;
+            border-radius: 8px;
+            margin: 20px 10%;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section .cta-button {
+            display: inline-block;
+            padding: 12px 28px;
+            background: rgba(35, 52, 115, 257);
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-section .cta-button:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.2);
+        }
+
+        /* Responsive Design */
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 30px 5%;
+            }
+
+            .cta-section {
+                margin: 10px 5%;
+            }
+
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .header-content p {
+                font-size: 1rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body style="font-family:Arial, Helvetica, sans-serif;">
+    <!-- Navbar -->
+    <!-- Navbar starts -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom bg-white shadow-sm">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold text-uppercase" href="../index.html">
+                <img src="../assets/images/blueaxisLogo.png" alt="Blueaxis Media">
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="../index.html">Home</a></li>
+
+                    <!-- What We Provide Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="whatWeProvideDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            What We Do
+                        </a>
+
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/whatwedo.html">Expertise & Services</a></li>
+                            <li><a class="dropdown-item"
+                                    href="/what_we_provide/account-based-marketing.html">Account-Based Marketing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/what_we_provide/multi-channel-lead.html">Multi-Channel
+                                    Lead</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/contact_discovery.html">Content
+                                    Syndication</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/emailmarketing.html">Email Marketing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/what_we_provide/dataappend.html">Data Append &
+                                    Cleansing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/demadgeneration.html">Demand
+                                    Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/appoinmentgeneration.html">Appointment
+                                    Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/accountprofiling.html">Account
+                                    Profiling</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="/focus_sectors.html">Focus Audiences</a></li>
+
+                    <!-- Resources Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/blog.html">Blog</a></li>
+                            <li><a class="dropdown-item" target="_blank"
+                                    href="https://thetechgossip.com/resources/">Repository</a></li>
+                            <li><a class="dropdown-item" href="/article.html">Articles</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- About Us Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            About Us
+                        </a>
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/overview.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="/ourstory.html">Our Story</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar Scroll Effect & Dropdown Behavior -->
+    <script>
+        document.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar-custom");
+            if (window.scrollY > 50) {
+                navbar.classList.add("navbar-transparent");
+                navbar.classList.add("shadow-sm");
+            } else {
+                navbar.classList.remove("navbar-transparent");
+            }
+        });
+
+        // Ensure only one dropdown is open at a time (hybrid hover-click behavior)
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdowns = document.querySelectorAll('.navbar .nav-item.dropdown');
+
+            function closeOtherDropdowns(currentDropdown) {
+                dropdowns.forEach(other => {
+                    if (other !== currentDropdown) {
+                        const toggle = other.querySelector('.dropdown-toggle');
+                        const menu = other.querySelector('.dropdown-menu');
+                        if (toggle) {
+                            toggle.classList.remove('show');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                        if (menu) {
+                            menu.classList.remove('show');
+                        }
+                    }
+                });
+            }
+
+            dropdowns.forEach(dropdown => {
+                // For desktop: hover opens it, but we must make sure others with .show are closed
+                dropdown.addEventListener('mouseenter', function () {
+                    if (window.innerWidth >= 992) {
+                        closeOtherDropdowns(dropdown);
+                    }
+                });
+
+                // For mobile/desktop click: Bootstrap will toggle the current one, but we close others
+                const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', function () {
+                        closeOtherDropdowns(dropdown);
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #0E3A62;
+            --secondary: #30528D;
+            --accent: #30BCE8;
+            --red-accent: #DA2021;
+        }
+
+        /* Navbar Base */
+        .navbar-custom {
+            background: #93b1d8;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        /* Logo height control */
+
+        .navbar {
+            min-height: 80px;
+            /* increase navbar height */
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            /* control logo size */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Nav links */
+        .navbar-custom .nav-link {
+            color: #1a1a1a;
+            font-weight: 600;
+            padding: 8px 15px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover underline animation */
+        .navbar-custom .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #30528D;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #30528D;
+        }
+
+        .navbar-custom .nav-link:hover::after,
+        .navbar-custom .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Dropdown menu */
+        .navbar-custom .dropdown-menu {
+            border-radius: 10px;
+            padding: 10px 0;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            animation: dropdownFade 0.3s ease;
+        }
+
+        /* Dropdown items */
+        .dropdown-item {
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+            color: #1a1a1a;
+        }
+
+        .dropdown-item:hover {
+            background-color: #30528D;
+            color: #fff;
+        }
+
+        /* Dropdown animation */
+        /* Hover dropdown (Desktop only) */
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0;
+            }
+        }
+
+        /* MOBILE NAV FIX */
+        @media (max-width: 991px) {
+
+            .navbar-collapse {
+                position: absolute;
+                top: 80px;
+                /* same as navbar height */
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                padding: 15px 20px;
+                border-top: 1px solid #eee;
+
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                z-index: 999;
+            }
+
+            .navbar-nav {
+                gap: 10px;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 12px 10px;
+                border-radius: 8px;
+            }
+
+            .nav-link:hover {
+                background: #f1f5ff;
+            }
+
+            /* Dropdown fix */
+            .dropdown-menu {
+                position: static !important;
+                box-shadow: none;
+                border: none;
+                padding-left: 10px;
+            }
+
+            .dropdown-item {
+                padding: 8px 10px;
+            }
+        }
+
+
+        /* Mobile view */
+        @media (max-width: 991px) {
+            .navbar-custom {
+                background: #ffffff;
+            }
+        }
+    </style>
+
+    <!-- Navbar end -->
+
+
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Header Section -->
+    <!-- HERO / HEADER SECTION -->
+    <div class="hero-section mt-5">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="fw-bold text-uppercase">
+                BlueAxis Media: The Future of ABM is Here – Are You Ready?
+            </h1>
+            <p>Target Smarter. Engage Better. Convert Faster.</p>
+            <a href="../contact.html" class="hero-btn">Get Started</a>
+        </div>
+    </div>
+
+    <style>
+        /* HERO SECTION */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 360px;
+            /* background: url('../images/1.webp') no-repeat center center / cover; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        /* OVERLAY */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));
+            z-index: 1;
+        }
+
+        /* CONTENT */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 30px;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        /* BUTTON */
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: rgba(35, 52, 115, 257);
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-btn:hover {
+            background: #0056b3;
+
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.2);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                padding: 60px 15px;
+                border-radius: 12px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btn {
+                padding: 10px 22px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <!-- Introduction Section -->
+    <!-- CONTENT SECTION -->
+    <div class="about-section">
+        <div class="about-card">
+            <h2 class="fw-bold text-uppercase">
+                Welcome to <span class="brand">BlueAxis Media</span>
+            </h2>
+
+            <p>
+                ABM is the <strong>#1 strategy for B2B success in the USA</strong> — and for good reason.
+                By focusing on <span class="highlight">high-value accounts</span> and crafting
+                <span class="highlight">personalized marketing experiences</span>, businesses can
+                <strong>build real connections</strong> and drive revenue like never before.
+            </p>
+
+            <p>
+                At <span class="emphasis">BlueAxis Media</span>, we help businesses take ABM to the next
+                level with cutting-edge strategies that turn prospects into long-term partners.
+                As we move into 2026, here’s how we’re
+                <strong>redefining ABM for maximum impact.</strong>
+            </p>
+        </div>
+    </div>
+
+    <style>
+        /* SECTION */
+        .about-section {
+            width: 100%;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8fbff, #eef6ff);
+            display: flex;
+            justify-content: center;
+        }
+
+        .brand {
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* CARD */
+        .about-card {
+            max-width: 900px;
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* HEADING */
+        .about-card h2 {
+            font-size: 2.4rem;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        /* BRAND */
+        .brand {
+            color: rgba(33, 55, 113, 255);
+        }
+
+        /* TEXT */
+        .about-card p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        /* HIGHLIGHT */
+        .highlight {
+            color: #3a81a7;
+            font-weight: 600;
+        }
+
+        /* EMPHASIS */
+        .emphasis {
+            color: #ff6f61;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .about-card {
+                padding: 30px 20px;
+            }
+
+            .about-card h2 {
+                font-size: 1.9rem;
+            }
+
+            .about-card p {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+
+
+    <script>
+        // JavaScript to create sparkles
+        for (let i = 0; i < 20; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            document.querySelector('.sparkle-container').appendChild(sparkle);
+        }
+    </script>
+
+
+    <!-- What's Coming Big Section -->
+    <section class="content-section1 py-5 mx-4">
+        <div class="animated-bg"></div>
+        <!-- Background Animation -->
+
+        <h2 class="head">
+            Redefining ABM for Maximum Impact
+        </h2>
+
+        <p class="section-subtext animate-on-scroll">
+            No one-size-fits-all marketing. Today, AI is making ABM more powerful than ever by allowing businesses to:
+        </p>
+
+        <p class="section-subtext animate-on-scroll">
+            At BlueAxis Media, we use the latest technology to:
+        </p>
+
+        <div class="features-container">
+            <div class="feature-card animate-on-scroll">
+                <img src="../assets/images/AI-b2b.webp" alt="AI Icon">
+                <h3>Analyze Huge Datasets</h3>
+                <p>to understand exactly what customers need.</p>
+            </div>
+
+            <div class="feature-card animate-on-scroll">
+                <img src="../assets/images/automation_b2b.png" alt="Automation Icon">
+                <h3>Deliver Super-Targeted Messaging</h3>
+                <p>to key decision-makers effectively.</p>
+            </div>
+
+            <div class="feature-card animate-on-scroll">
+                <img src="../assets/images/interactive_b2b.jpg" alt="Interactive Icon">
+                <h3>Personalize Content at Scale</h3>
+                <p>with zero extra effort.</p>
+            </div>
+        </div>
+
+        <p class="closing-text animate-on-scroll">
+            With AI-powered ABM, your marketing doesn’t just <span class="highlight">reach</span> high-value accounts—it
+            speaks directly to their pain points, making conversion faster and easier than ever.
+        </p>
+    </section>
+
+    <style>
+        /* Section Styling */
+        .content-section1 {
+            position: relative;
+            padding: 60px 10%;
+            text-align: center;
+            background: linear-gradient(135deg, rgb(65, 106, 163), rgba(218, 32, 33, 255));
+            color: white;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        /* Floating Background Animation */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background: url('particles-bg.png') no-repeat center center/cover; */
+            opacity: 0.2;
+            animation: floatingBackground 8s linear infinite;
+        }
+
+        @keyframes floatingBackground {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .head {
+            background: linear-gradient(90deg, #f0da32, #3db6f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #dbe5eb, #c4b875);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Subtext */
+        .section-subtext {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        /* Highlights */
+        /* .highlight {
+        color: #00A6FF;
+        font-weight: 600;
+    } */
+
+        .emphasis {
+            color: rgba(33, 55, 113, 255);
+            font-weight: 700;
+        }
+
+        /* Features Container */
+        .features-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            width: 280px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0px 12px 25px rgba(0, 166, 255, 0.35);
+        }
+
+        .feature-card img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: #fde86e;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        /* Closing Text */
+        .closing-text {
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-top: 30px;
+            background: linear-gradient(90deg, #FFD700, #00A6FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-section1 {
+                padding: 50px 5%;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .features-container {
+                gap: 20px;
+            }
+
+            .feature-card {
+                width: 100%;
+            }
+
+            .section-subtext,
+            .closing-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+
+    <!-- JavaScript for Scroll Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll(".animate-on-scroll");
+
+            function revealOnScroll() {
+                elements.forEach((el) => {
+                    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                        el.style.opacity = 1;
+                        el.style.transform = "translateY(0px)";
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+
+    <!-- The 3 Pillars Section -->
+    <div class="pillars-section py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-heading fw-bold text-uppercase tracking-widest">
+                Companies using AI in ABM see 30% more engagement! Let’s get you there.
+            </h2>
+            <p>Omnichannel ABM: Be Everywhere Your Prospects Are</p>
+            <p>Your prospects don’t engage on just one platform—so why limit your outreach? <span
+                    class="emphasis">BlueAxis Media</span>'s omnichannel ABM strategy ensures your message is consistent
+                across:</p>
+        </div>
+
+        <div class="pillars-container">
+            <!-- Pillar 1 - Content Syndication -->
+            <div class="pillar-card" style="background-color: #c8ebf1;">
+                <img src="../assets/images/content-synd.png" alt="Content Syndication" class="pillar-img">
+                <h3 class="pillar-title">Content Syndication</h3>
+                <div class="pillar-line pillar-blue"></div>
+                <ul class="pillar-list">
+                    <li>Email, LinkedIn and social media</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 2 - Cross-Platform Nurturing -->
+            <div class="pillar-card" style="background-color: #eed4a5;">
+                <img src="../assets/images/nurturing.jpg" alt="Cross-Platform Nurturing" class="pillar-img">
+                <h3 class="pillar-title">Cross-Platform Nurturing</h3>
+                <div class="pillar-line pillar-orange"></div>
+                <ul class="pillar-list">
+                    <li>Retargeting ads & programmatic campaigns</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 3 - Data Compliance & Transparency -->
+            <div class="pillar-card" style="background-color: #ccf8d9;">
+                <img src="../assets/images/transparency.webp" alt="Data Compliance & Transparency" class="pillar-img">
+                <h3 class="pillar-title">Data Compliance & Transparency</h3>
+                <div class="pillar-line pillar-green"></div>
+                <ul class="pillar-list">
+                    <li>Personalized landing pages & video outreach</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="text-center mt-4">
+            By aligning marketing and sales across multiple touchpoints, <span class="emphasis">BlueAxis Media</span>
+            creates a seamless experience that builds trust and brings decision-makers closer to a deal.
+        </p>
+    </div>
+
+    <style>
+        /* Pillars Section */
+        .pillars-section {
+            padding: 60px 5%;
+            background: #f7f9fc;
+        }
+
+        /* Pillars Container */
+        .pillars-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* Individual Pillar Card */
+        /* Pillar Card */
+        .pillar-card {
+            position: relative;
+            width: 320px;
+            min-height: 350px;
+            padding: 20px 20px 30px;
+            /* removed 100px top padding */
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            overflow: hidden;
+            /* now safe */
+            transition: all 0.3s ease;
+        }
+
+        /* Image Fix */
+        .pillar-img {
+            width: 100%;
+            height: 160px;
+            /* control image height */
+            object-fit: cover;
+            /* full image fill nicely */
+            border-radius: 15px;
+            /* soft edges */
+            margin-bottom: 20px;
+            /* spacing from title */
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* Pillar Title */
+        .pillar-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #222;
+            margin-top: 80px;
+        }
+
+        /* Pillar Divider Line */
+        .pillar-line {
+            width: 60px;
+            height: 5px;
+            margin: 12px auto;
+            border-radius: 5px;
+        }
+
+        .pillar-blue {
+            background: #007bff;
+        }
+
+        .pillar-orange {
+            background: #ff9800;
+        }
+
+        .pillar-green {
+            background: #4caf50;
+        }
+
+        /* Pillar List */
+        .pillar-list {
+            text-align: left;
+            padding-left: 20px;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        .pillar-list li {
+            position: relative;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .pillar-list li::before {
+            content: "✅";
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        /* Emphasis Text */
+        /* .emphasis {
+        font-weight: bold;
+        color: #007bff;
+    } */
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pillars-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pillar-card {
+                width: 90%;
+                padding-top: 80px;
+                margin-bottom: 30px;
+            }
+
+            .pillar-img {
+                width: 100px;
+                height: 100px;
+                top: -50px;
+            }
+        }
+    </style>
+    <!--  -->
+    <div class="container mt-5">
+        <div class="row d-flex align-items-center justify-content-center text-center">
+            <!-- Accordion Section -->
+            <div class="col-lg-6 col-md-8">
+                <h2 class="lead-heading fw-bold text-uppercase tracking-widest">
+                    Companies that use omnichannel ABM see 2x higher conversion rates. Let’s make it happen for you!
+                </h2>
+
+                <div class="accordion accordion-flush modern-accordion" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                <i class="fas fa-user-check me-2"></i> Real-Time Intent Data
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                Watch buyer behavior to see interest before they contact us. <br>
+                                <b>Engage at the right time with the right message.</b> <br>
+                                Anticipate needs and connect with prospects before competitors. <br>
+                                <span class="emphasis">BlueAxis Media</span> ensures timely engagement.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                <i class="fas fa-bullhorn me-2"></i> ABM Strategies for 2026
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                AI-Driven Personalization – Talk to decision-makers. <br>
+                                Omnichannel Engagement – Be where your prospects are. <br>
+                                Real-Time Intent Data – Engage at the right moment. <br>
+                                The future of ABM is here—<span class="emphasis">BlueAxis Media</span> keeps you ahead!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                <i class="fas fa-chart-line me-2"></i> CRM & Data Enrichment
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                Supercharge ABM with enriched data. <br>
+                                High-value accounts are waiting—<span class="emphasis">BlueAxis Media</span> will help
+                                you capture them.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Section -->
+            <div class="col-lg-6 col-md-8 text-center mt-4 mt-lg-0">
+                <img src="../assets/images/lead_gen.webp" class="img-fluid rounded-4 shadow-lg"
+                    alt="Lead Generation Image">
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Lead Heading */
+        .lead-heading {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        /* Modern Accordion */
+        .modern-accordion .accordion-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .modern-accordion .accordion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+
+        .accordion-button {
+            font-weight: 600;
+            font-size: 1.05rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(6px);
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            /* color: #fff; */
+        }
+
+        .accordion-button:hover {
+            background: rgba(22, 21, 21, 0.2);
+        }
+
+        .accordion-button i {
+            color: #00A6FF;
+            font-size: 18px;
+        }
+
+        /* Accordion Body */
+        .accordion-body {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            color: #141414;
+            line-height: 1.6;
+        }
+
+        /* Emphasis text */
+        .emphasis {
+            color: #1d5cad;
+            font-weight: bold;
+        }
+
+        /* Image styling */
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .lead-heading {
+                font-size: 24px;
+            }
+        }
+    </style>
+
+
+    <!-- Lead Generation Services -->
+
+
+    <!-- Lead Generation Growth Engine Section -->
+    <!-- <section class="lead-gen-container">
+        <div class="lead-gen-content">
+            <h2 class="lead-gen-heading">🚀 Turn Your <span>Lead Gen</span> into a <span>Growth Engine</span></h2>
+            <p class="lead-gen-subtext">
+                At <b>KoiNet Media</b>, we specialize in <b>automating, personalizing, and optimizing</b> lead generation strategies that attract the right prospects and drive real business growth.
+            </p>
+
+            <div class="lead-gen-list">
+                <div class="lead-gen-item">
+                    <span class="lead-icon">📈</span>
+                    <div class="lead-text">
+                        <h3>B2B & B2C Businesses</h3>
+                        <p>Looking to scale lead generation with data-driven strategies.</p>
+                    </div>
+                </div>
+
+                <div class="lead-gen-item">
+                    <span class="lead-icon">🚀</span>
+                    <div class="lead-text">
+                        <h3>Startups & Enterprises</h3>
+                        <p>Boosting conversion rates with AI-powered targeting.</p>
+                    </div>
+                </div>
+
+                <div class="lead-gen-item">
+                    <span class="lead-icon">🤖</span>
+                    <div class="lead-text">
+                        <h3>AI-Driven Personalization</h3>
+                        <p>Automating and optimizing your lead nurturing process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <style>
+        /* Lead Gen Section */
+
+        .lead-gen-container {
+            background: linear-gradient(135deg, #ffffff, #f4f6fc);
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 50px auto;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-in-out forwards;
+        }
+
+        /* Heading */
+
+        .lead-gen-heading {
+            font-size: 42px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #222;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-in-out forwards;
+        }
+
+        /* Gradient Effect for Highlighted Words */
+
+        .lead-gen-heading span {
+            background: linear-gradient(90deg, #ff4d4d, #ff9900);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Subtext */
+
+        .lead-gen-subtext {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        /* List Container */
+
+        .lead-gen-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 1.8s ease-in-out forwards;
+        }
+
+        /* Individual List Item */
+
+        .lead-gen-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        /* Hover Effect */
+
+        .lead-gen-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Icon */
+
+        .lead-icon {
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ff9900;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            min-width: 50px;
+            min-height: 50px;
+        }
+
+        /* List Text */
+
+        .lead-text h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .lead-text p {
+            font-size: 16px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* Animations */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <!-- CTA Section -->
+    <div class="cta-section ">
+        <h2 class="fw-bold text-uppercase tracking-widest"> Ready to scale your lead gen? Let’s do this!</h2>
+        <p>Partner with BlueAxis Media and take your multi-channel lead gen to the next level.</p>
+        <a href="../contact.html " class="cta-button "> Get in Touch</a>
+    </div>
+
+
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Footer Top (Blue Section) -->
+        <div class="footer-top py-5">
+            <div class="container d-flex flex-wrap justify-content-center gap-4">
+                <!-- Email -->
+
+
+                <div class="footer-card">
+                    <div class="footer-icon"><i class="fas fa-envelope"></i></div>
+                    <h5>Email Us</h5>
+                    <p><a href="mailto:info@koinetmedia.com">info@blueaxismedia.com</a></p>
+                </div>
+                <!-- Office -->
+                <div class="footer-card">
+                    <div class="footer-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h5>Our Office</h5>
+                    <p><a href="https://www.google.com/maps/place/Pune,+Maharashtra,+India+411014" target="_blank">Pune,
+                            Maharashtra, India 411014</a></p>
+                </div>
+                <!-- Call -->
+                <div class="footer-card">
+                    <div class="footer-icon"><i class="fas fa-phone"></i></div>
+                    <h5>Call Us</h5>
+                    <p><a href="tel:+919021568448">+91 90215 68448</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom (Black Section) -->
+        <div class="footer-bottom py-4">
+            <div
+                class="container text-center text-md-start d-md-flex justify-content-between align-items-center flex-wrap gap-3">
+                <ul class="footer-links mb-2 mb-md-0">
+                    <li><a href="../footerpages/Privacy_policy.html">Privacy Policy</a></li>
+                    <li><a href="footerpages/CaseStudies.html">Case Studies</a></li>
+                    <li><a href="../footerpages/Gdpr.html">GDPR</a></li>
+                    <li><a href="../footerpages/termconditions.html">Terms & Conditions</a></li>
+                    <li><a href="../footerpages/Media_Kit.html">Media Kit</a></li>
+                </ul>
+                <div>
+                    <p class="mb-2 mb-md-0">&copy; 2026 <strong>Blueaxis Media</strong>. All rights reserved.</p>
+                    <div class="social-icons mt-2">
+                        <a target="_blank" href="https://x.com/KoinetMedia"><i class="fab fa-twitter"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/KoiNetMedia/"><i
+                                class="fab fa-facebook"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/koinetmedia1/"><i
+                                class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/company/koinet-media/posts/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* General Footer */
+        footer {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Blue Top Section */
+        .footer-top {
+            background: linear-gradient(135deg, #007bff, rgba(19, 59, 129, 255));
+            padding: 60px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .footer-card {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer-icon {
+            width: 60px;
+            height: 60px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 12px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .footer-icon:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .footer-card h5 {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .footer-card p a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-card p a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* Black Bottom Section */
+        .footer-bottom {
+            background: #111;
+            color: #ddd;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00c6ff;
+        }
+
+        /* Social Icons */
+        .social-icons a {
+            display: inline-block;
+            margin: 0 6px;
+            color: #fff;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+            background: black;
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .footer-top .footer-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .footer-bottom {
+                text-align: center;
+            }
+
+            .footer-links li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .social-icons {
+                margin-top: 10px;
+            }
+        }
+    </style>
+
+    <!-- footer end -->
+
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Close navbar when clicking outside
+        document.addEventListener('click', function (event) {
+            var navbar = document.getElementById('navbarNav');
+            var toggler = document.querySelector('.navbar-toggler');
+            if (navbar && navbar.classList.contains('show')) {
+                if (!navbar.contains(event.target) && !toggler.contains(event.target)) {
+                    toggler.click();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

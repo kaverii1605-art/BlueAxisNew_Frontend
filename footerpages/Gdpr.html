@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>GDPR</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="../img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        /* ── Global responsive reset ── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            max-width: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        img,
+        video,
+        iframe,
+        table {
+            max-width: 100%;
+            height: auto;
+        }
+
+        p,
+        li,
+        td,
+        th,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .container,
+        .container-fluid,
+        .row {
+            max-width: 100%;
+        }
+
+        .container,
+        .container-fluid {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            .fs-3 {
+                font-size: 1.1rem !important;
+            }
+
+            h1 {
+                font-size: 1.6rem !important;
+            }
+        }
+
+        /* ── Footer Styling ── */
+        .footer {
+            background: #1e1e1e;
+            color: #ffffff;
+            padding-top: 50px;
+        }
+
+        .footer-top {
+            background: #ffffff;
+            padding: 40px 0;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+
+        .footer-top h4 {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .footer-top p {
+            color: #555;
+        }
+
+        .footer-icon {
+            width: 60px;
+            height: 60px;
+            background: #1A8AE6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 15px;
+        }
+
+        .footer-bottom {
+            padding: 30px 0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .footer-links li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #1A8AE6;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 8px;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #1A8AE6;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ── NAVBAR ── -->
+    <!-- Navbar starts -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom bg-white shadow-sm">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold text-uppercase" href="/index.html">
+                <img src="../assets/images/blueaxisLogo.png" alt="Blueaxis Media">
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler custom-toggler" type="button" id="mobileMenuToggler">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/index.html">Home</a></li>
+
+                    <!-- What We Provide Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="whatWeProvideDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            What We Do
+                        </a>
+
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/whatwedo.html">Expertise & Services</a></li>
+                            <li><a class="dropdown-item"
+                                    href="/what_we_provide/account-based-marketing.html">Account-Based Marketing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/what_we_provide/multi-channel-lead.html">Multi-Channel
+                                    Lead</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/contact_discovery.html">Content
+                                    Syndication</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/emailmarketing.html">Email Marketing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/what_we_provide/dataappend.html">Data Append &
+                                    Cleansing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/demadgeneration.html">Demand
+                                    Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/appoinmentgeneration.html">Appointment
+                                    Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/accountprofiling.html">Account
+                                    Profiling</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="/focus_sectors.html">Focus Audiences</a></li>
+
+                    <!-- Resources Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/blog.html">Blog</a></li>
+                            <li><a class="dropdown-item" target="_blank"
+                                    href="https://thetechgossip.com/resources/">Repository</a></li>
+                            <li><a class="dropdown-item" href="/article.html">Articles</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- About Us Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            About Us
+                        </a>
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/overview.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="/ourstory.html">Our Story</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar Scroll Effect & Dropdown Behavior -->
+    <script>
+        document.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar-custom");
+            if (window.scrollY > 50) {
+                navbar.classList.add("navbar-transparent");
+                navbar.classList.add("shadow-sm");
+            } else {
+                navbar.classList.remove("navbar-transparent");
+            }
+        });
+
+        // Ensure perfect hybrid hover-and-lock behavior as requested
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdowns = document.querySelectorAll('.navbar .nav-item.dropdown');
+
+            function unlockOtherDropdowns(currentDropdown) {
+                dropdowns.forEach(other => {
+                    if (other !== currentDropdown) {
+                        const toggle = other.querySelector('.dropdown-toggle');
+                        const menu = other.querySelector('.dropdown-menu');
+                        if (menu) {
+                            menu.classList.remove('show-clicked');
+                            menu.classList.remove('show'); // clear bootstrap native
+                        }
+                        if (toggle) {
+                            toggle.classList.remove('show');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            }
+
+            dropdowns.forEach(dropdown => {
+                const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+                const menu = dropdown.querySelector('.dropdown-menu');
+
+                // 1. Hover opens the new one AND instantly unlocks/closes previous ones
+                dropdown.addEventListener('mouseenter', function () {
+                    if (window.innerWidth >= 992) {
+                        unlockOtherDropdowns(dropdown);
+                    }
+                });
+
+                // 2. Click toggles the "lock" for the current one
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', function (e) {
+                        // Prevent page jumping if href="#"
+                        if (toggleBtn.getAttribute('href') === '#') {
+                            e.preventDefault();
+                        }
+                        if (window.innerWidth >= 992) {
+                            e.stopPropagation(); // Prevents document click from closing it immediately
+                            if (menu) {
+                                if (menu.classList.contains('show-clicked') || menu.classList.contains('show')) {
+                                    menu.classList.remove('show-clicked');
+                                    menu.classList.remove('show');
+                                } else {
+                                    menu.classList.add('show-clicked');
+                                    menu.classList.add('show');
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+
+            // 3. Click anywhere outside clears all locked menus
+            document.addEventListener('click', function (e) {
+                if (window.innerWidth >= 992) {
+                    dropdowns.forEach(dropdown => {
+                        const menu = dropdown.querySelector('.dropdown-menu');
+                        if (menu && !dropdown.contains(e.target)) {
+                            menu.classList.remove('show-clicked');
+                            menu.classList.remove('show');
+                        }
+                    });
+                }
+            });
+
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+
+            // 1. Manually control the Toggler to guarantee it opens and closes
+            navbarToggler.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                let bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (!bsCollapse) {
+                    bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                }
+                if (navbarCollapse.classList.contains('show')) {
+                    bsCollapse.hide();
+                } else {
+                    bsCollapse.show();
+                }
+            });
+
+            // 2. Close mobile menu when clicking outside or on a regular link
+            document.addEventListener('click', function (event) {
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    const navbarContainer = document.querySelector('.navbar-custom');
+                    const isClickInsideNavbar = navbarContainer.contains(event.target);
+                    // Standard links should still close the menu
+                    const isRegularLink = event.target.classList.contains('nav-link') && !event.target.classList.contains('dropdown-toggle');
+
+                    if (!isClickInsideNavbar || isRegularLink) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse) {
+                            bsCollapse.hide();
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #0E3A62;
+            --secondary: #30528D;
+            --accent: #30BCE8;
+            --red-accent: #DA2021;
+        }
+
+        /* Navbar Base */
+        .navbar-custom {
+            background: #ffffff !important;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+            transition: all 0.3s ease;
+        }
+
+        /* Logo height control */
+        .navbar {
+            min-height: 80px;
+            /* increase navbar height */
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 70px !important;
+            /* control logo size */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Toggler button (hamburger) */
+        .navbar-custom .navbar-toggler {
+            border: 2px solid #30528D !important;
+            border-radius: 6px;
+            padding: 5px 10px;
+            background: transparent;
+        }
+
+        .navbar-custom .navbar-toggler:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        /* Dark icon for light/blue backgrounds */
+        .navbar-custom .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2330528D' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        /* Nav links */
+        .navbar-custom .nav-link {
+            color: #1a1a1a !important;
+            font-weight: 600;
+            padding: 8px 15px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover underline animation */
+        .navbar-custom .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #30528D;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #30528D !important;
+        }
+
+        .navbar-custom .nav-link:hover::after,
+        .navbar-custom .nav-link.active::after {
+            width: 100%;
+            display: block !important;
+        }
+
+        /* Dropdown menu */
+        .navbar-custom .dropdown-menu {
+            border-radius: 10px;
+            padding: 10px 0;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+            animation: dropdownFade 0.3s ease;
+        }
+
+        /* Dropdown items */
+        .dropdown-item {
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+            color: #1a1a1a;
+        }
+
+        .dropdown-item:hover {
+            background-color: #30528D !important;
+            color: #fff !important;
+        }
+
+        /* Dropdown animation */
+        /* Hover/Locked dropdown (Desktop only) */
+        @media (min-width: 992px) {
+
+            .dropdown:hover .dropdown-menu,
+            .dropdown-menu.show-clicked {
+                display: block !important;
+                margin-top: 0;
+            }
+        }
+
+        /* MOBILE NAV FIX */
+        @media (max-width: 991px) {
+
+            .navbar-collapse {
+                position: absolute !important;
+                top: 80px !important;
+                /* same as navbar height */
+                left: 0;
+                width: 100%;
+                z-index: 999;
+                background: transparent;
+            }
+
+            .navbar-collapse.show,
+            .navbar-collapse.collapsing {
+                background: #ffffff !important;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+                border-top: 1px solid #eee;
+            }
+
+            .navbar-nav {
+                padding: 15px 20px !important;
+                gap: 10px;
+                background: #ffffff !important;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 12px 10px !important;
+                border-radius: 8px;
+            }
+
+            .nav-link:hover {
+                background: #f1f5ff !important;
+            }
+
+            /* Dropdown fix */
+            .dropdown-menu {
+                position: static !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding-left: 10px !important;
+            }
+
+            .dropdown-item {
+                padding: 8px 10px !important;
+            }
+        }
+
+        /* Mobile view */
+        @media (max-width: 991px) {
+            .navbar-custom {
+                background: #ffffff !important;
+            }
+        }
+    </style>
+
+    <!-- Page Content -->
+    <div class="container" style="max-width:100%; overflow-x:hidden;">
+        <div class="row" style="margin-left:0; margin-right:0;">
+            <div class="col-12" style="margin-top: 100px; padding-left:0; padding-right:0;">
+                <div>
+                    <h1 class="fw-bold text-uppercase tracking-widest text-center my-5">
+                        <span class="text-primary">G</span>eneral
+                        <span class="text-primary">D</span>ata
+                        <span class="text-primary">P</span>rotection
+                        <span class="text-primary">R</span>egulation (GDPR)
+                    </h1>
+                </div>
+                <div>
+                    <p class="fs-3 fw-bold">GDPR NORMS</p>
+                    <p>The General Data Protection Regulation (GDPR) is an EU legislature that objects to giving the
+                        citizens of the EU better power and authority over their data. Under this by-law, organizations
+                        that handle statistics of EU citizens will
+                        have to obey data and privacy instructions. One of the key necessities according to the GDPR is
+                        changes to the Privacy Policy and the same has been accepted and updated by Digitalzone to
+                        reflect GDPR requirements. We also abide
+                        by its key law i.e. to keep EU citizens informed of how industries gather, use, share, protect
+                        and process their personal data.</p>
+                    <p class="fs-3 fw-bold">TRANSPARENCY TO ACCOMMODATE GDPR</p>
+                    <p>To strongly and strictly abide by GDPR, we ensure that we follow the principle of transparency
+                        that requires all types of information to be precise, easily available when required, easy to
+                        read and should also be clear and written
+                        in understandable language. Further, illustrations and images are also to be used to make it
+                        clear and better to understand. This information should also be made available at appropriate
+                        and easy-to-access sources.</p>
+                    <p class="fs-3 fw-bold">DATA PROTECTION LAW</p>
+                    <p>The Data Protection Act 1998 defines how the organization must procure, handle and store personal
+                        information to sustain with GDPR. These instructions apply regardless of whether data is stored
+                        electronically, on paper or on other
+                        materials. To obey the law, personal information must be taken and used fairly, stored safely
+                        and not disclosed unlawfully. The GDPR act is underpinned by eight important principals. These
+                        say that personal data must:</p>
+                    <ol>
+                        <li>Be treated honestly and legally</li>
+                        <li>Begotten only for precise, legal purposes</li>
+                        <li>Be satisfactory, pertinent and not extreme</li>
+                        <li>Be correct and kept in accordance with the norms</li>
+                        <li>Not be held for any further than needed</li>
+                        <li>Shielded in agreement with the privileges of the data subject</li>
+                        <li>Be protected in suitable ways</li>
+                        <li>Not be shifted outside the European Economic Area (EEA), unless that country or territory
+                            also safeguards an acceptable level of safety.</li>
+                    </ol>
+                    <p class="fs-3 fw-bold">GDPR GENERAL DATA PROTECTION REGULATION AND COMPLIANCE</p>
+                    <p>These caThe BLUEAXIS MEDIA needs to collect and utilize certain information about persons. n
+                        include suppliers, customers, employees, business contracts and other people the group have a
+                        connection with or may need to contact. The GDPR
+                        policy describes how this personal data must meet the company's data protection standards and be
+                        collected, handled and stored to and to comply with the law. The GDPR policy ensures The
+                        BLUEAXIS MEDIA</p>
+                    <ol>
+                        <li>Complies with the data protection regulation and abide by good practices</li>
+                        <li>Shields the privileges of staff, clienteles and associates</li>
+                        <li>Is open to how it supplies and procedures individuals data</li>
+                        <li>Defends itself from the dangers of a data breach.</li>
+                    </ol>
+                    <p class="fs-3 fw-bold">PEOPLE, RISKS AND RESPONSIBILITIES AS PER GDPR</p>
+                    <p>The GDPR policy applies to:</p>
+                    <ol>
+                        <li>The head office of The BLUEAXIS MEDIA</li>
+                        <li>All branches of The BLUEAXIS MEDIA</li>
+                        <li>All staff and volunteers of The BLUEAXIS MEDIA</li>
+                        <li>All contractors, suppliers and other people working on behalf of The BLUEAXIS MEDIA</li>
+                    </ol>
+                    <p>GDPR also applies to all data that the business holds relating to recognizable individuals, even
+                        if that information technically falls outside of the Data Protection Act 1998. This can include:
+                    </p>
+                    <ol>
+                        <li>Names of persons</li>
+                        <li>Residential addresses</li>
+                        <li>Email addresses</li>
+                        <li>Telephone numbers</li>
+                        <li>Plus any other information relating to persons</li>
+                    </ol>
+                    <p class="fs-3 fw-bold">DATA PROTECTION RISKS AS PER GDPR</p>
+                    <p>GDPR policy helps to guard The BLUEAXIS MEDIA from some very real data safety risks, including:
+                    </p>
+                    <p class="fw-bold">Breaches of confidentiality.</p>
+                    <p>For instance, the information being given out inappropriately. Failing to offer choice. For
+                        instance, all persons should be free to choose how the corporation uses data connecting to them.
+                        Reputational</p>
+                    <p>For instance, the company could suffer if hackers effectively gained access to complex data.</p>
+                    <p class="fs-3 fw-bold">RESPONSIBILITIES AS PER GDPR</p>
+                    <p>Everyone who works for or with The BLUEAXIS MEDIA has some accountability for ensuring data is
+                        collected, kept and handled appropriately, particularly when it comes to GDPR. Each team that
+                        handles individual data must ensure that it
+                        is handled and treated in line with the GDPR policy and data protection principles.</p>
+                    <ol>
+                        <li>However, these people have key areas of responsibility:</li>
+                        <li>The board of directors is ultimately accountable for ensuring that BLUEAXIS MEDIA meets its
+                            legal obligations</li>
+                        <li>The Data Protection Officer is responsible for:</li>
+                        <li>Keeping the board efficient on data protection responsibilities, dangers and matters.</li>
+                        <li>Reviewing all data protection measures and related strategies, in line with an agreed
+                            timetable.</li>
+                        <li>Positioning data protection training and information for the people covered by this policy.
+                        </li>
+                        <li>Taking and answering data protection questions from staff and anyone else covered by this
+                            policy.</li>
+                        <li>Dealing with wishes from individuals to see what The BLUEAXIS MEDIA holds about them
+                            [subject access requests].</li>
+                        <li>Examining and approving any contracts or agreements with third parties that may handle the
+                            company's sensitive data.</li>
+                        <li>The IT Manager is responsible for:</li>
+                        <li>Ensuring all organizations, facilities and equipment used for storing data meet acceptable
+                            security standards.</li>
+                        <li>Performing timely checks and scans to ensure security hardware and software is functioning
+                            adequately.</li>
+                        <li>Assessing any third-party services the company is considering using to store or process
+                            data. For instance, cloud computing services.</li>
+                        <li>The Marketing Manager is responsible for:</li>
+                        <li>Approving any data protection declarations connected to communications such as
+                            communications and letters.</li>
+                        <li>Addressing any data protection questions from press or media outlets like newspapers.</li>
+                        <li>Where critical, working with other staff to make sure marketing initiatives stick by data
+                            protection principles.</li>
+                    </ol>
+                    <p class="fs-3 fw-bold">GENERAL STAFF GUIDELINES FOR GDPR</p>
+                    <p>The only people able to access data enclosed by this policy should be those who need it for their
+                        work.</p>
+                    <ol>
+                        <li>Data should not be shared amongst people informally. When access to private information is
+                            required, employees can demand it from their line managers.</li>
+                        <li>The BLUEAXIS MEDIA will provide training to all workers to help them understand their
+                            errands when taking data.</li>
+                        <li>Employees should keep all data safe, by taking sensible protection and following the
+                            guidelines below.</li>
+                        <li>In particular, strong passwords must be used and they should never be made public.</li>
+                        <li>Personal data should not be disclosed to unlawful people, either within the company or
+                            externally.</li>
+                        <li>Data should be regularly studied and reorganized if it is found to be out of date. If no
+                            longer obligatory, it should be erased and disposed of.</li>
+                        <li>Employees should appeal for help from their line manager or the data protection officer if
+                            they are not sure about any feature of data protection.</li>
+                    </ol>
+                    <p class="fs-3 fw-bold">DATA STORAGE ACCORDING TO GDPR</p>
+                    <p>These rules symbolize how and where data should be safely kept and are also laid down as per
+                        GDPR. Queries about storing data safely can be directed to the IT manager or data controller.
+                        When data is stored on paper, it should be kept
+                        in a protected place where illegal people cannot see it. These rules also apply to information
+                        that is usually kept electronically but has been published for some reason:</p>
+                    <ol>
+                        <li>When not required, the paper or files should be kept in a protected drawer or filing
+                            cupboard. Workers should make sure paper and printouts are not left where unofficial people
+                            could see them, like on a printer</li>
+                        <li>Data copies should be shredded and disposed of firmly when no longer required.</li>
+                        <li>When data is stored automatically, it must be protected from unlawful access, accidental
+                            removal and malicious hacking attempts:</li>
+                        <li>Data should be sheltered by strong passwords that are changed frequently and never shared
+                            among workers.</li>
+                        <li>If data is kept on detachable media (like a CD or DVD), these should be kept locked away
+                            safely when not being used.</li>
+                        <li>Data should only be stored on selected drives and servers, and should only be uploaded to
+                            support cloud computing services.</li>
+                        <li>Servers containing individual data should be sited in a secure site, away from general
+                            office spaces.</li>
+                        <li>Data should be backed up regularly. Those backups should be tested frequently, in line with
+                            the company's standard backup procedures.</li>
+                        <li>Data should never be saved straight to laptops or other mobile devices like tablets, iPad or
+                            smartphones.</li>
+                        <li>All servers and systems containing data should be protected by permitted security software
+                            and a firewall.</li>
+                    </ol>
+                    <p class="fs-3 fw-bold">DATA USE AS PER THE GDPR NORMS</p>
+                    <p>Privately held data is of no worth to The BLUEAXIS MEDIA unless the corporation can make use of
+                        it. However, it is when private data is improved and utilized that it can be at the utmost risk
+                        of damage, exploitation or stealing:</p>
+                    <ol>
+                        <li>When working with personal data, employees should make sure that the screens of their
+                            computers are always protected when left unattended.</li>
+                        <li>Private data should not be shared informally. In particular, it should never be sent by
+                            email, as this form of messages is not secure.</li>
+                        <li>Data must be encoded before being shifted electronically. The IT manager can demonstrate how
+                            to send data to official external contacts.</li>
+                        <li>Private data should never be moved outside of the European Economic Area.</li>
+                        <li>Employees should not save duplicates of personal data to their own systems.</li>
+                        <li>Continuously access and keep up-to-date the main copy of any information.</li>
+                    </ol>
+                    <p class="fs-3 fw-bold">DATA ACCURACY FOR GDPR COMPLIANCE</p>
+                    <p>The law requires The BLUEAXIS MEDIA to take rational steps to ensure data is kept correct and up
+                        to date when it comes to GDPR. The more significant it is that the personal data is accurate,
+                        the greater the effort The BLUEAXIS MEDIA should
+                        put into safeguarding its accuracy. It is the responsibility of all employees who work with data
+                        to take judicious steps to safeguard it is kept as accurate and up to date as possible.</p>
+                    <ol>
+                        <li>Data will be held in a few places as needed. Staff should not create any pointless
+                            additional data sets.</li>
+                        <li>Workers should take every chance to make sure that the data is updated. For instance, by
+                            authorizing a customer's details when they call.</li>
+                        <li>The BLUEAXIS MEDIA will make it easy for data subjects to update the data The BLUEAXIS MEDIA
+                            holds about them. For instance, via the company website [www.blueaxismedia.com]</li>
+                        <li>Data should be reorganized as inaccuracies are discovered. For instance, if a customer can
+                            no longer be reached on their stored telephone number, it should be eliminated from the
+                            database.</li>
+                        <li>It is the marketing manager's duty to ensure marketing databases are checked against
+                            company-suppression files every six months.</li>
+                    </ol>
+                    <p class="fs-3 fw-bold">SUBJECT ACCESS REQUESTS IN TERMS OF GDPR</p>
+                    <p>All individuals who are the subject of individual data held by The BLUEAXIS MEDIA are entitled
+                        to:</p>
+                    <ol>
+                        <li>Ask what evidence the company holds about them and why.</li>
+                        <li>Ask how to gain admission to it.</li>
+                        <li>Be knowledgeable about how to keep it up to date.</li>
+                        <li>Be knowledgeable about how the company is meeting its data protection responsibilities.</li>
+                    </ol>
+                    <p class="fw-bold">All individuals who are the subject of individual data held by The BLUEAXIS MEDIA
+                        are entitled to:</p>
+                    <p>Ask what evidence the company holds about them and why.</p>
+                    <p>Ask how to gain admission to it.</p>
+                    <p>Be knowledgeable about how to keep it up to date.</p>
+                    <p>Be knowledgeable about how the company is meeting its data protection responsibilities.</p>
+                    <p>If any person contacts the company requesting for this information, this is called a subject
+                        access request.</p>
+                    <p>Subject access requests from individuals should be made by email, addressed to the data
+                        controller at bharat@blueaxismedia.com the data supervisor can supply a standard request form,
+                        although other persons do not have to use this. Entities
+                        will be charged £10 per topic access request. The data controller will aim to deliver the
+                        relevant data within 14 days.</p>
+                    <p>The data controller will always confirm the individuality of anyone making a subject access
+                        request before passing over any information.</p>
+                    <p class="fs-3 fw-bold">DISCLOSING DATA FOR OTHER REASONS</p>
+                    <p>In certain conditions, GDPR allows personal data to be disclosed to law enforcement agencies
+                        without the agreement of the data subject.</p>
+                    <p>Under these circumstances, The BLUEAXIS MEDIA will disclose demanded data. However, the data
+                        controller will ensure the request is genuine, seeking assistance from the board and from the
+                        company's legal guide where essential.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row text-center">
+                    <!-- Contact via Email -->
+                    <div class="col-md-4">
+                        <div class="footer-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Contact Us via Email</h4>
+                        <p><a href="mailto:info@blueaxismedia.com" class="contact-link">info@blueaxismedia.com</a></p>
+                    </div>
+                    <!-- Office Address -->
+                    <div class="col-md-4">
+                        <div class="footer-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Our Office</h4>
+                        <p><a href="https://www.google.com/maps/place/Pune,+Maharashtra,+India+411014" target="_blank"
+                                class="contact-link">
+                                Pune, Maharashtra, India 411014</a></p>
+                    </div>
+                    <!-- Contact Number -->
+                    <div class="col-md-4">
+                        <div class="footer-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Contact Us</h4>
+                        <p><a href="tel:+919021568448" class="contact-link">+91 90215 68448</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <ul class="footer-links">
+                    <li><a href="../footerpages/Privacy_policy.html">Privacy Policy</a></li>
+                    <li><a href="../footerpages/CaseStudies.html">Case Studies</a></li>
+                    <li><a href="../footerpages/Gdpr.html">GDPR</a></li>
+                    <li><a href="../footerpages/termconditions.html">Terms & Conditions</a></li>
+                    <li><a href="../footerpages/Media_Kit.html">Media Kit</a></li>
+                </ul>
+                <p>&copy; 2026 <strong>BlueAxis Media</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS (single copy only) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-danger btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../lib/wow/wow.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/counterup/counterup.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>

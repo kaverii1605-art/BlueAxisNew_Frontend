@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team & Culture blueaxis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        /* Global styles */
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Styles */
+
+        .header {
+            background: url('header-bg.jpg') center/cover no-repeat;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Banner Section */
+
+        .banner {
+            position: relative;
+            background: url('https://images.squarespace-cdn.com/content/v1/5d000edda2c5c60001275644/1560289148473-DEP4MB1W052CYREKWMKU/feature-background-home.jpg?format=2500w') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .banner p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Breadcrumb */
+
+        .breadcrumb {
+            background: transparent;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Our Leaders Section */
+
+        .leaders-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: #f4f4f9;
+        }
+
+        .leaders-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .leaders-section span {
+            color: #007bff;
+        }
+
+        .underline {
+            width: 60px;
+            height: 3px;
+            background: black;
+            margin: 10px auto;
+        }
+
+        /* Team Section */
+
+        .team-section {
+            background: #f4f4f9;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .team-card {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .team-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .team-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 123, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+
+        .team-overlay h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .team-overlay p {
+            font-size: 1rem;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 5px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body style="font-family:Arial, Helvetica, sans-serif;">
+
+    <!-- ── NAVBAR ── -->
+    <!-- Navbar starts -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom bg-white shadow-sm">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold text-uppercase" href="index.html">
+                <img src="./assets/images/blueaxisLogo.png" alt="Blueaxis Media">
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+
+                    <!-- What We Provide Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="whatWeProvideDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            What We Do
+                        </a>
+
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/whatwedo.html">Expertise & Services</a></li>
+                            <li><a class="dropdown-item"
+                                    href="/what_we_provide/account-based-marketing.html">Account-Based Marketing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/what_we_provide/multi-channel-lead.html">Multi-Channel
+                                    Lead</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/contact_discovery.html">Content
+                                    Syndication</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/emailmarketing.html">Email Marketing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/what_we_provide/dataappend.html">Data Append &
+                                    Cleansing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/demadgeneration.html">Demand
+                                    Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/appoinmentgeneration.html">Appointment
+                                    Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/accountprofiling.html">Account
+                                    Profiling</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="/focus_sectors.html">Focus Audiences</a></li>
+
+                    <!-- Resources Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/blog.html">Blog</a></li>
+                            <li><a class="dropdown-item" target="_blank"
+                                    href="https://thetechgossip.com/resources/">Repository</a></li>
+                            <li><a class="dropdown-item" href="/article.html">Articles</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- About Us Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            About Us
+                        </a>
+                        <ul class="dropdown-menu animate-dropdown">
+                            <li><a class="dropdown-item" href="/overview.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="/ourstory.html">Our Story</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar Scroll Effect & Dropdown Behavior -->
+    <script>
+        document.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar-custom");
+            if (window.scrollY > 50) {
+                navbar.classList.add("navbar-transparent");
+                navbar.classList.add("shadow-sm");
+            } else {
+                navbar.classList.remove("navbar-transparent");
+            }
+        });
+
+        // Ensure only one dropdown is open at a time (hybrid hover-click behavior)
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdowns = document.querySelectorAll('.navbar .nav-item.dropdown');
+
+            function closeOtherDropdowns(currentDropdown) {
+                dropdowns.forEach(other => {
+                    if (other !== currentDropdown) {
+                        const toggle = other.querySelector('.dropdown-toggle');
+                        const menu = other.querySelector('.dropdown-menu');
+                        if (toggle) {
+                            toggle.classList.remove('show');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                        if (menu) {
+                            menu.classList.remove('show');
+                        }
+                    }
+                });
+            }
+
+            dropdowns.forEach(dropdown => {
+                // For desktop: hover opens it, but we must make sure others with .show are closed
+                dropdown.addEventListener('mouseenter', function () {
+                    if (window.innerWidth >= 992) {
+                        closeOtherDropdowns(dropdown);
+                    }
+                });
+
+                // For mobile/desktop click: Bootstrap will toggle the current one, but we close others
+                const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', function () {
+                        closeOtherDropdowns(dropdown);
+                    });
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function (event) {
+                const navbarCollapse = document.getElementById('navbarNav');
+                const navbarToggler = document.querySelector('.navbar-toggler');
+
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    if (!navbarCollapse.contains(event.target) && !navbarToggler.contains(event.target)) {
+                        navbarToggler.click(); // Close the menu
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #0E3A62;
+            --secondary: #30528D;
+            --accent: #30BCE8;
+            --red-accent: #DA2021;
+        }
+
+        /* Navbar Base */
+        .navbar-custom {
+            background: #93b1d8;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        /* Logo height control */
+
+        .navbar {
+            min-height: 80px;
+            /* increase navbar height */
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            /* control logo size */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Nav links */
+        .navbar-custom .nav-link {
+            color: #1a1a1a;
+            font-weight: 600;
+            padding: 8px 15px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover underline animation */
+        .navbar-custom .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #30528D;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #30528D;
+        }
+
+        .navbar-custom .nav-link:hover::after,
+        .navbar-custom .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Dropdown menu */
+        .navbar-custom .dropdown-menu {
+            border-radius: 10px;
+            padding: 10px 0;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            animation: dropdownFade 0.3s ease;
+        }
+
+        /* Dropdown items */
+        .dropdown-item {
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+            color: #1a1a1a;
+        }
+
+        .dropdown-item:hover {
+            background-color: #30528D;
+            color: #fff;
+        }
+
+        /* Dropdown animation */
+        /* Hover dropdown (Desktop only) */
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0;
+            }
+        }
+
+        /* MOBILE NAV FIX */
+        @media (max-width: 991px) {
+
+            .navbar-collapse {
+                position: absolute;
+                top: 80px;
+                /* same as navbar height */
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                padding: 15px 20px;
+                border-top: 1px solid #eee;
+
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                z-index: 999;
+            }
+
+            .navbar-nav {
+                gap: 10px;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 12px 10px;
+                border-radius: 8px;
+            }
+
+            .nav-link:hover {
+                background: #f1f5ff;
+            }
+
+            /* Dropdown fix */
+            .dropdown-menu {
+                position: static !important;
+                box-shadow: none;
+                border: none;
+                padding-left: 10px;
+            }
+
+            .dropdown-item {
+                padding: 8px 10px;
+            }
+        }
+
+
+        /* Mobile view */
+        @media (max-width: 991px) {
+            .navbar-custom {
+                background: #ffffff;
+            }
+        }
+    </style>
+
+
+
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Demand Generation Banner Section -->
+
+    <!-- CSS for Banner Section -->
+    <div class="banner-modern">
+        <div class="banner-bg"></div>
+        <div class="banner-content-modern">
+            <div class="text-area">
+                <h1>Blueaxis Media – Smarter Demand Generation for Your Business</h1>
+                <p>"More Leads, More Deals"</p>
+                <a href="/contact.html" class="cta-btn">Get Started</a>
+                <div class="breadcrumb-modern">
+                    <a href="#">Home</a> / <span>About Us</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        /* Banner Section */
+        /* HERO SECTION */
+        /* HERO SECTION FIXED */
+        .banner-modern {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 90vh;
+            padding-top: 80px;
+            /* space for navbar */
+            overflow: hidden;
+            color: #fff;
+        }
+
+        /* Background Image */
+        .banner-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        /* Dark professional overlay */
+        .banner-modern::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    rgba(15, 23, 42, 0.85) 30%,
+                    rgba(15, 23, 42, 0.5) 70%,
+                    transparent 100%);
+            z-index: 2;
+        }
+
+        /* Content */
+        .banner-content-modern {
+            position: relative;
+            z-index: 3;
+            max-width: 600px;
+            margin-left: 80px;
+        }
+
+        /* Heading FIX */
+        .text-area h1 {
+            font-size: 2.8rem;
+            /* reduced from too big */
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        /* Subtext FIX */
+        .text-area p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* BUTTON FIX */
+        .cta-btn {
+
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            display: inline-block;
+            /* background: linear-gradient(90deg, #ff416c, #ff4b2b); */
+            color: white;
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #4c5df8;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 75, 43, 0.4);
+
+        }
+
+        /* Breadcrumb FIX */
+        .breadcrumb-modern {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .breadcrumb-modern a {
+            color: #93c5fd;
+        }
+
+        /* Responsive FIX */
+        @media (max-width: 768px) {
+            .banner-content-modern {
+                margin-left: 20px;
+                max-width: 90%;
+            }
+
+            .text-area h1 {
+                font-size: 2rem;
+            }
+        }
+
+
+        .text-area h1,
+        .text-area p,
+        .cta-btn,
+        .breadcrumb-modern {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .text-area h1 {
+            animation-delay: 0.2s;
+        }
+
+        .text-area p {
+            animation-delay: 0.4s;
+        }
+
+        .cta-btn {
+            animation-delay: 0.6s;
+        }
+
+        .breadcrumb-modern {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .banner-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d') center/cover no-repeat;
+            z-index: 1;
+            animation: zoomBg 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes zoomBg {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+
+
+
+
+
+    <!-- CSS -->
+    <style>
+        .our-culture {
+            background-color: rgb(13, 13, 59);
+            color: rgb(224, 223, 226);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .our-culture h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .underline {
+            width: 60px;
+            height: 3px;
+            background: rgb(212, 206, 206);
+            margin: 10px auto;
+        }
+
+        .our-culture p {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: auto;
+        }
+    </style>
+
+    <!-- Demand Generation Section -->
+    <section class="demand-generation-modern">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Image Section Left -->
+                <div class="col-md-6 order-md-1 order-2">
+                    <div class="image-container-modern">
+                        <img src="https://img.freepik.com/premium-photo/business-meeting_53876-91042.jpg?semt=ais_hybrid"
+                            alt="Demand Generation" class="img-fluid">
+                        <div class="overlay-box-modern">
+                            <a href="../what_we_provide/demadgeneration.html">
+                                Blueaxis Media – Your Partner in Growth <span class="arrow-icon">»</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Section Right -->
+                <div class="col-md-6 order-md-2 order-1">
+                    <h2><strong>Blueaxis Media</strong> – Smarter <span class="highlight-modern">Demand
+                            Generation</span></h2>
+                    <div class="underline-modern"></div>
+                    <p>At Blueaxis Media, we fill your sales pipeline with high-quality leads that deliver real results.
+                        Through content syndication, lead nurturing, and qualification, we connect you with the right
+                        decision-makers at the right time – maximizing engagement and conversion rates.</p>
+                    <p><strong>Why Blueaxis Media?</strong></p>
+                    <p>Traditional marketing doesn’t cut it. That’s why we take a performance-driven approach.
+                        Everything we do is customized to your goals. Whether you want to increase brand awareness,
+                        generate qualified leads, or accelerate sales, we create solutions that deliver results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .demand-generation-modern {
+            padding: 80px 20px;
+            background: #f8f9fc;
+        }
+
+        .demand-generation-modern h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .highlight-modern {
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .underline-modern {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        .demand-generation-modern p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .image-container-modern {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-container-modern img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container-modern:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay-box-modern {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .image-container-modern:hover .overlay-box-modern {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .arrow-icon {
+            margin-left: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .demand-generation-modern h2 {
+                font-size: 2rem;
+            }
+
+            .underline-modern {
+                width: 50px;
+                height: 3px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .demand-generation-modern {
+                padding: 60px 15px;
+            }
+
+            .demand-generation-modern h2 {
+                font-size: 1.8rem;
+            }
+
+            .demand-generation-modern p {
+                font-size: 0.95rem;
+            }
+
+            .image-container-modern {
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+
+    <!-- Our Method Section -->
+    <section class="our-method-modern">
+        <div class="container">
+            <h2><strong>Our Method</strong></h2>
+            <div class="underline-modern"></div>
+            <p>We combine data-driven insights with a human touch to get your marketing in front of the right audience.
+            </p>
+
+            <div class="row align-items-center method-row">
+                <!-- Accordion Section -->
+                <div class="col-md-6">
+                    <div class="accordion" id="methodAccordionModern">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne">
+                                    Targeted Content Distribution
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                data-bs-parent="#methodAccordionModern">
+                                <div class="accordion-body">
+                                    Get your message in front of decision-makers who matter.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo">
+                                    Lead Nurturing & Qualification
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                data-bs-parent="#methodAccordionModern">
+                                <div class="accordion-body">
+                                    Guide potential customers through every stage of their buying journey.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree">
+                                    Warm Prospects
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse"
+                                data-bs-parent="#methodAccordionModern">
+                                <div class="accordion-body">
+                                    Focus on closing warm leads, not chasing cold ones.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Illustration / Image Section -->
+                <div class="col-md-6 text-center">
+                    <img src="https://img.freepik.com/free-vector/data-analysis-concept-illustration_114360-748.jpg?size=626&ext=jpg"
+                        alt="Our Method Illustration" class="img-fluid method-img">
+                </div>
+            </div>
+
+            <!-- Long-Term Growth Section -->
+            <div class="long-term-growth-modern mt-5 text-center">
+                <h2><strong>Long-Term Growth, Built on Trust</strong></h2>
+                <div class="underline-modern"></div>
+                <p>At Blueaxis Media, we believe in transparency, trust, and long-term success. Our innovative methods
+                    and forward-thinking strategies help businesses stay ahead in a fast-changing digital world.</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .our-method {
+            padding: 60px 20px;
+            background: #f4f4f9;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .underline {
+            width: 50px;
+            height: 3px;
+            background-color: black;
+            margin: 10px 0;
+        }
+
+        .our-method p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .accordion-button {
+            background: white;
+            color: black;
+            font-weight: bold;
+            border: 1px solid #415a75;
+            box-shadow: none;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            color: white;
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 5px;
+        }
+
+        .accordion-body {
+            font-size: 1rem;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 15px;
+        }
+
+        .long-term-growth {
+            margin-top: 40px;
+        }
+
+        .long-term-growth h2 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .long-term-growth p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .our-method p {
+                font-size: 0.9rem;
+            }
+
+            .accordion-button {
+                font-size: 0.9rem;
+            }
+
+            .accordion-body {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <!-- JavaScript for Outside Click Functionality -->
+    <!-- <script>
+        document.addEventListener('click', function(event) {
+            const accordion = document.querySelector('.accordion');
+            const isClickInsideAccordion = accordion.contains(event.target);
+
+            // If the click is outside the accordion, collapse all open accordion items
+            if (!isClickInsideAccordion) {
+                const openAccordionItems = document.querySelectorAll('.accordion-collapse.show');
+                openAccordionItems.forEach(item => {
+                    const collapseInstance = bootstrap.Collapse.getInstance(item);
+                    if (collapseInstance) {
+                        collapseInstance.hide();
+                    }
+                });
+            }
+        });
+    </script> -->
+    <!-- CTA Section -->
+    <section class="cta-section-modern">
+        <div class="container d-flex align-items-center justify-content-between">
+            <!-- Image Left -->
+            <div class="cta-image">
+                <img src="./assets/images/culture.png" alt="Opportunities" class="cta-img">
+            </div>
+
+            <!-- Text Right -->
+            <div class="cta-text-modern">
+                <h2>Ready to <span class="highlight-cta">Unlock New Opportunities</span>?</h2>
+                <p>Let’s take your business to the next level with smarter strategies and measurable results.</p>
+                <a href="../contact.html" class="cta-button-modern">📩 Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .cta-section-modern {
+            position: relative;
+            background: linear-gradient(135deg, #79b5f5, #00aaff);
+            padding: 80px 20px;
+            overflow: hidden;
+            color: white;
+        }
+
+        .cta-section-modern .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1100px;
+            flex-wrap: wrap;
+        }
+
+        /* Image Styling */
+        .cta-image {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .cta-img {
+            width: 300px;
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .cta-img:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Text Section */
+        .cta-text-modern {
+            flex: 1;
+            min-width: 250px;
+            text-align: left;
+            position: relative;
+            padding: 20px 40px;
+        }
+
+        .cta-text-modern h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .highlight-cta {
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-text-modern p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Button */
+        .cta-button-modern {
+            display: inline-block;
+            padding: 12px 28px;
+            background: rgba(35, 52, 115, 257);
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button-modern:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.2);
+        }
+
+        /* Animated Background Accent (Optional) */
+        .cta-section-modern::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            right: -150px;
+            z-index: 0;
+            animation: floatCircle 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCircle {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(45deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .cta-text-modern h2 {
+                font-size: 2rem;
+            }
+
+            .cta-text-modern p {
+                font-size: 1.1rem;
+            }
+
+            .cta-img {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cta-section-modern .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta-text-modern {
+                padding: 20px 0;
+            }
+
+            .cta-text-modern h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-text-modern p {
+                font-size: 1rem;
+            }
+
+            .cta-img {
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Footer Top (Blue Section) -->
+        <div class="footer-top py-5">
+            <div class="container d-flex flex-wrap justify-content-center gap-4">
+                <!-- Email -->
+                <div class="footer-card">
+                    <div class="footer-icon"><i class="fas fa-envelope"></i></div>
+                    <h5>Email Us</h5>
+                    <p><a href="mailto:info@koinetmedia.com">info@blueaxismedia.com</a></p>
+                </div>
+                <!-- Office -->
+                <div class="footer-card">
+                    <div class="footer-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h5>Our Office</h5>
+                    <p><a href="https://www.google.com/maps/place/Pune,+Maharashtra,+India+411014" target="_blank">Pune,
+                            Maharashtra, India 411014</a></p>
+                </div>
+                <!-- Call -->
+                <div class="footer-card">
+                    <div class="footer-icon"><i class="fas fa-phone"></i></div>
+                    <h5>Call Us</h5>
+                    <p><a href="tel:+919021568448">+91 90215 68448</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom (Black Section) -->
+        <div class="footer-bottom py-4">
+            <div
+                class="container text-center text-md-start d-md-flex justify-content-between align-items-center flex-wrap gap-3">
+                <ul class="footer-links mb-2 mb-md-0">
+                    <li><a href="footerpages/Privacy_policy.html">Privacy Policy</a></li>
+                    <li><a href="footerpages/CaseStudies.html">Case Studies</a></li>
+                    <li><a href="footerpages/Gdpr.html">GDPR</a></li>
+                    <li><a href="footerpages/termconditions.html">Terms & Conditions</a></li>
+                    <li><a href="footerpages/Media_Kit.html">Media Kit</a></li>
+                </ul>
+                <div>
+                    <p class="mb-2 mb-md-0">&copy; 2026 <strong>Blueaxis Media</strong>. All rights reserved.</p>
+                    <div class="social-icons mt-2">
+                        <a target="_blank" href="https://x.com/KoinetMedia"><i class="fab fa-twitter"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/KoiNetMedia/"><i
+                                class="fab fa-facebook"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/koinetmedia1/"><i
+                                class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/company/koinet-media/posts/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* General Footer */
+        footer {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Blue Top Section */
+        .footer-top {
+            background: linear-gradient(135deg, #007bff, rgba(19, 59, 129, 255));
+            padding: 60px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .footer-card {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer-icon {
+            width: 60px;
+            height: 60px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 12px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .footer-icon:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .footer-card h5 {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .footer-card p a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-card p a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* Black Bottom Section */
+        .footer-bottom {
+            background: #111;
+            color: #ddd;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00c6ff;
+        }
+
+        /* Social Icons */
+        .social-icons a {
+            display: inline-block;
+            margin: 0 6px;
+            color: #fff;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+            background: black;
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .footer-top .footer-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .footer-bottom {
+                text-align: center;
+            }
+
+            .footer-links li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .social-icons {
+                margin-top: 10px;
+            }
+        }
+    </style>
+
+    <!-- footer end -->
+
+    <!-- Bootstrap (Ensure Bootstrap 5 is linked for proper styling) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    </section>
+
+    <!-- Bootstrap JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+
+</body>
+<!-- Bootstrap JS -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+
+
+</html>
