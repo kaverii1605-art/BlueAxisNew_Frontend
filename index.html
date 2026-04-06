@@ -75,7 +75,7 @@
                     </a>
                         <ul class="dropdown-menu animate-dropdown">
                             <li><a class="dropdown-item" href="/blog.html">Blog</a></li>
-                            <li><a class="dropdown-item" target="_blank" href="https://thetechgossip.com/resources/">Repository</a></li>
+                            <!-- <li><a class="dropdown-item" target="_blank" href="https://thetechgossip.com/resources/">Repository</a></li> -->
                             <!-- <li><a class="dropdown-item" href="infographics.html">Infographics</a></li> -->
                             <li><a class="dropdown-item" href="/article.html">Articles</a></li>
                         </ul>
@@ -1663,7 +1663,7 @@
 
     async function fetchinfo(page) {
         try {
-            const response = await fetch(`http://localhost:8080/api/info?page=${page}&size=${pagesize}`, {
+            const response = await fetch(`https://blueaxis-backend-10.onrender.com/api/info?page=${page}&size=${pagesize}`, {
                 method: "GET",
                 headers: authHeaders()
             });
@@ -2268,77 +2268,67 @@ p {
 <!-- IMPROVED BLOGS SCRIPT -->
 <!-- IMPROVED BLOGS SCRIPT - Simplified like Infographics (No Pagination) -->
 <script>
-    const blogsContainer = document.getElementById("blogs-container");
+const blogsContainer = document.getElementById("blogs-container");
 
-    async function fetchBlogs() {
-        if (!blogsContainer) return;
+async function fetchBlogs() {
+    if (!blogsContainer) return;
 
-        blogsContainer.innerHTML = `
-            <div class="text-center py-5">
-                <div class="spinner-border text-primary mb-3"></div>
-                <p class="text-muted">Loading blogs...</p>
-            </div>`;
+    // Loader
+    blogsContainer.innerHTML = `
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary mb-3"></div>
+            <p class="text-muted">Loading blogs...</p>
+        </div>`;
 
-        try {
-            const response = await fetch("http://localhost:8080/api/blogs?page=0&size=3", {
-                method: "GET",
-                headers: authHeaders()
-            });
+    try {
+        const response = await fetch(`https://blueaxis-backend-10.onrender.com/api/blogs?page=0&size=3`);
+        const data = await response.json();
+        const blogs = Array.isArray(data) ? data : data.content || [];
 
-            if (response.status === 401 || response.status === 403) {
-                localStorage.removeItem("token");
-                window.location.href = "login.html";
-                return;
-            }
-
-            if (!response.ok) {
-                throw new Error(`Request failed: ${response.status}`);
-            }
-
-            const data = await response.json();
-            const blogs = Array.isArray(data) ? data : (data.content || []);
-
-            if (blogs.length === 0) {
-                blogsContainer.innerHTML = `<p class="text-muted">No blogs available</p>`;
-                return;
-            }
-
-            let html = "";
-
-            blogs.forEach((blog, index) => {
-                const alignClass = index % 2 === 0 ? "insight-left" : "insight-right";
-
-                html += `
-                    <div class="insight-item ${alignClass}" data-id="${blog.id}">
-                        <div class="insight-image">
-                            <img src="${blog.imageUrl || 'https://via.placeholder.com/400x250'}" alt="${blog.title || 'Blog image'}">
-                        </div>
-                        <div class="insight-content">
-                            <h4 class="blog-title">${blog.title || 'Untitled Blog'}</h4>
-                            <span class="read-more">Read More →</span>
-                        </div>
-                    </div>
-                `;
-            });
-
-            blogsContainer.innerHTML = html;
-
-            document.querySelectorAll("#blogs-container .insight-item").forEach(item => {
-                item.addEventListener("click", function () {
-                    const id = this.getAttribute("data-id");
-                    if (id) {
-                        window.location.href = `blog-details.html?id=${id}`;
-                    }
-                });
-            });
-
-        } catch (error) {
-            console.error("Failed to load blogs:", error);
-            blogsContainer.innerHTML = `<p class="text-danger text-center">Failed to load blogs</p>`;
+        if (blogs.length === 0) {
+            blogsContainer.innerHTML = `<p class="text-muted">No blogs available</p>`;
+            return;
         }
-    }
 
-    document.addEventListener("DOMContentLoaded", fetchBlogs);
+        let html = "";
+
+        blogs.forEach((blog, index) => {
+            const alignClass = index % 2 === 0 ? "insight-left" : "insight-right";
+
+            html += `
+                <div class="insight-item ${alignClass}" data-id="${blog.id}">
+                    
+                    <div class="insight-image">
+                        <img src="${blog.imageUrl || 'https://via.placeholder.com/400x250'}">
+                    </div>
+
+                    <div class="insight-content">
+                        <h4 class="blog-title">${blog.title || 'Untitled Blog'}</h4>
+                        <span class="read-more">Read More →</span>
+                    </div>
+
+                </div>
+            `;
+        });
+
+        blogsContainer.innerHTML = html;
+
+        // ✅ Click anywhere on card
+        document.querySelectorAll(".insight-item").forEach(item => {
+            item.addEventListener("click", function () {
+                const id = this.getAttribute("data-id");
+                if (id) {
+                    window.location.href = `blog-details.html?id=${id}`;
+                }
+            });
+        });
+
+    } catch (error) {
+        blogsContainer.innerHTML = `<p class="text-danger text-center">Failed to load blogs</p>`;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", fetchBlogs);
 </script>
 
 <style>
