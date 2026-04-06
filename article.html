@@ -722,10 +722,10 @@
     <script>
     const TOKEN_KEY = "token";
 
-    // let articles = [];
-    // let filteredArticles = [];
-    // let currentPage = 0;
-    // const pageSize = 4;
+    let articles = [];
+    let filteredArticles = [];
+    let currentPage = 0;
+    const pageSize = 4;
 
     function getToken() {
         return localStorage.getItem(TOKEN_KEY);
@@ -736,10 +736,10 @@
     }
 
     function authHeaders(extra = {}) {
-        return {
-            ...extra,
-            Authorization: `Bearer ${getToken()}`
-        };
+        const token = getToken();
+        return token
+            ? { ...extra, Authorization: `Bearer ${token}` }
+            : { ...extra };
     }
 
     async function fetchArticles() {
@@ -765,11 +765,19 @@
                 articles = data;
                 filteredArticles = [...articles];
                 renderPage();
+            } else if (data.content && Array.isArray(data.content)) {
+                articles = data.content;
+                filteredArticles = [...articles];
+                renderPage();
             } else {
                 console.error("Unexpected API response:", data);
+                document.getElementById("article-container").innerHTML =
+                    `<p class="text-center text-danger">No articles found.</p>`;
             }
         } catch (error) {
             console.error("Error fetching articles:", error);
+            document.getElementById("article-container").innerHTML =
+                `<p class="text-center text-danger">Failed to load articles.</p>`;
         }
     }
 
@@ -780,6 +788,12 @@
         const startIndex = currentPage * pageSize;
         const pageArticles = filteredArticles.slice(startIndex, startIndex + pageSize);
 
+        if (pageArticles.length === 0) {
+            container.innerHTML = `<p class="text-center text-muted">No articles available.</p>`;
+            updatePaginationControls();
+            return;
+        }
+
         pageArticles.forEach(article => {
             const articleItem = document.createElement("div");
             articleItem.className = "magazine-item";
@@ -788,13 +802,13 @@
 
             articleItem.innerHTML = `
                 <div class="magazine-thumb">
-                    <img src="${article.imageUrl}" alt="">
+                    <img src="${article.imageUrl || 'assets/images/default-blog.jpg'}" alt="${article.title || 'Article'}">
                 </div>
                 <div class="magazine-content">
-                    <span class="mag-category">${article.category}</span>
-                    <h3>${article.title}</h3>
+                    <span class="mag-category">${article.category || 'Article'}</span>
+                    <h3>${article.title || 'Untitled Article'}</h3>
                     <div class="meta">
-                        <span>📅 ${new Date().toLocaleDateString()}</span>
+                        <span>📅 ${article.createdAt ? new Date(article.createdAt).toLocaleDateString() : new Date().toLocaleDateString()}</span>
                         <a href="article-details.html?id=${article.id}">Read More</a>
                     </div>
                 </div>
@@ -814,11 +828,10 @@
         const totalPages = Math.max(1, Math.ceil(filteredArticles.length / pageSize));
         prevButton.disabled = currentPage === 0;
         nextButton.disabled = currentPage >= totalPages - 1;
-        pageInfo.textContent = `Page ${currentPage + 1} of ${totalPages}`;
 
-        if (filteredArticles.length === 0) {
-            pageInfo.textContent = "No articles available";
-        }
+        pageInfo.textContent = filteredArticles.length === 0
+            ? "No articles available"
+            : `Page ${currentPage + 1} of ${totalPages}`;
     }
 
     function prevPage() {
@@ -843,8 +856,8 @@
         const searchInput = searchEl ? searchEl.value.toLowerCase() : "";
 
         filteredArticles = articles.filter(article =>
-            article.title.toLowerCase().includes(searchInput) ||
-            article.category.toLowerCase().includes(searchInput)
+            (article.title || "").toLowerCase().includes(searchInput) ||
+            (article.category || "").toLowerCase().includes(searchInput)
         );
 
         currentPage = 0;
@@ -856,8 +869,11 @@
             window.location.href = "login.html";
             return;
         }
+
+        fetchArticles();
     });
 </script>
+
 
     <!-- Article Hero Section (kept article-specific gradient & title) -->
     <section class="article-hero position-relative overflow-hidden">
