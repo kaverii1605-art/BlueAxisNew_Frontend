@@ -1097,115 +1097,133 @@
     <!-- Blog Container Section -->
 
     <script>
-        let blogs = [];
-        let filteredBlogs = [];
-        let currentPage = 0;
-        const pageSize = 4;
+    let blogs = [];
+    let filteredBlogs = [];
+    let currentPage = 0;
+    const pageSize = 4;
 
-        async function fetchBlogs() {
-            try {
-                return localStorage.getItem('token') !== null;
+    async function fetchBlogs() {
+        try {
+            const token = localStorage.getItem("token");
 
-                const response = await fetch('https://blueaxis-backend-10.onrender.com/api/getblogs', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-
-                if (Array.isArray(data)) {
-                    blogs = data;
-                    filteredBlogs = [...blogs];
-                    renderPage();
-                } else {
-                    console.error("Unexpected API response:", data);
-                }
-            } catch (error) {
-                console.error("Error fetching blogs:", error);
-            }
-        }
-
-        function renderPage() {
-            const container = document.getElementById("blogs-container");
-            container.innerHTML = "";
-
-            const startIndex = currentPage * pageSize;
-            const pageBlogs = filteredBlogs.slice(startIndex, startIndex + pageSize);
-
-            pageBlogs.forEach(blog => {
-                const blogItem = document.createElement("div");
-                blogItem.className = "magazine-item";
-                blogItem.style.cursor = "pointer";
-                blogItem.onclick = () => window.location.href = `blog-details.html?id=${blog.id}`;
-
-                blogItem.innerHTML = `
-      <div class="magazine-thumb">
-        <img src="${blog.imageUrl}" alt="">
-      </div>
-
-      <div class="magazine-content">
-        <span class="mag-category">${blog.category}</span>
-        <h3>${blog.title}</h3>
-
-        <div class="meta">
-          <span>📅 ${new Date().toLocaleDateString()}</span>
-          <a href="blog-details.html?id=${blog.id}">Read More</a>
-        </div>
-      </div>
-    `;
-
-                container.appendChild(blogItem);
+            const response = await fetch("https://blueaxis-backend-10.onrender.com/api/getblogs", {
+                method: "GET",
+                headers: token ? {
+                    "Authorization": `Bearer ${token}`
+                } : {}
             });
 
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            if (Array.isArray(data)) {
+                blogs = data;
+                filteredBlogs = [...blogs];
+                renderPage();
+            } else if (data.content && Array.isArray(data.content)) {
+                blogs = data.content;
+                filteredBlogs = [...blogs];
+                renderPage();
+            } else {
+                console.error("Unexpected API response:", data);
+                document.getElementById("blogs-container").innerHTML =
+                    `<p class="text-center text-danger">No blogs found.</p>`;
+            }
+        } catch (error) {
+            console.error("Error fetching blogs:", error);
+            document.getElementById("blogs-container").innerHTML =
+                `<p class="text-center text-danger">Failed to load blogs.</p>`;
+        }
+    }
+
+    function renderPage() {
+        const container = document.getElementById("blogs-container");
+        container.innerHTML = "";
+
+        const startIndex = currentPage * pageSize;
+        const pageBlogs = filteredBlogs.slice(startIndex, startIndex + pageSize);
+
+        if (pageBlogs.length === 0) {
+            container.innerHTML = `<p class="text-center text-muted">No blogs available.</p>`;
             updatePaginationControls();
+            return;
         }
 
-        function updatePaginationControls() {
-            const prevButton = document.getElementById('pagination-prev');
-            const nextButton = document.getElementById('pagination-next');
-            const pageInfo = document.getElementById('pagination-info');
+        pageBlogs.forEach(blog => {
+            const blogItem = document.createElement("div");
+            blogItem.className = "magazine-item";
+            blogItem.style.cursor = "pointer";
+            blogItem.onclick = () => window.location.href = `blog-details.html?id=${blog.id}`;
 
-            const totalPages = Math.max(1, Math.ceil(filteredBlogs.length / pageSize));
-            prevButton.disabled = currentPage === 0;
-            nextButton.disabled = currentPage >= totalPages - 1;
+            blogItem.innerHTML = `
+                <div class="magazine-thumb">
+                    <img src="${blog.imageUrl || 'assets/images/default-blog.jpg'}" alt="${blog.title}">
+                </div>
 
-            pageInfo.textContent = `Page ${currentPage + 1} of ${totalPages}`;
+                <div class="magazine-content">
+                    <span class="mag-category">${blog.category || 'Blog'}</span>
+                    <h3>${blog.title || 'Untitled Blog'}</h3>
 
-            if (filteredBlogs.length === 0) {
-                pageInfo.textContent = 'No blogs available';
-            }
-        }
+                    <div class="meta">
+                        <span>📅 ${blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : new Date().toLocaleDateString()}</span>
+                        <a href="blog-details.html?id=${blog.id}">Read More</a>
+                    </div>
+                </div>
+            `;
 
-        function prevPage() {
-            if (currentPage > 0) {
-                currentPage -= 1;
-                renderPage();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
+            container.appendChild(blogItem);
+        });
 
-        function nextPage() {
-            const totalPages = Math.ceil(filteredBlogs.length / pageSize);
-            if (currentPage < totalPages - 1) {
-                currentPage += 1;
-                renderPage();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
+        updatePaginationControls();
+    }
 
-        fetchBlogs();
+    function updatePaginationControls() {
+        const prevButton = document.getElementById("pagination-prev");
+        const nextButton = document.getElementById("pagination-next");
+        const pageInfo = document.getElementById("pagination-info");
 
-        function searchBlogs() {
-            const searchInput = document.getElementById('search').value.toLowerCase();
-            filteredBlogs = blogs.filter(blog =>
-                blog.title.toLowerCase().includes(searchInput) ||
-                blog.category.toLowerCase().includes(searchInput)
-            );
+        const totalPages = Math.max(1, Math.ceil(filteredBlogs.length / pageSize));
+        prevButton.disabled = currentPage === 0;
+        nextButton.disabled = currentPage >= totalPages - 1;
 
-            currentPage = 0;
+        pageInfo.textContent = filteredBlogs.length === 0
+            ? "No blogs available"
+            : `Page ${currentPage + 1} of ${totalPages}`;
+    }
+
+    function prevPage() {
+        if (currentPage > 0) {
+            currentPage--;
             renderPage();
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
-    </script>
+    }
 
+    function nextPage() {
+        const totalPages = Math.ceil(filteredBlogs.length / pageSize);
+        if (currentPage < totalPages - 1) {
+            currentPage++;
+            renderPage();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    }
+
+    function searchBlogs() {
+        const searchInput = document.getElementById("search")?.value.toLowerCase() || "";
+        filteredBlogs = blogs.filter(blog =>
+            (blog.title || "").toLowerCase().includes(searchInput) ||
+            (blog.category || "").toLowerCase().includes(searchInput)
+        );
+
+        currentPage = 0;
+        renderPage();
+    }
+
+    fetchBlogs();
+</script>
     <style>
         .insight-item {
             display: flex;
