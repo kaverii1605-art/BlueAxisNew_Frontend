@@ -115,78 +115,7 @@
             }
         }
 
-        /* ── Footer Styling ── */
-        .footer {
-            background: #1e1e1e;
-            color: #ffffff;
-            padding-top: 50px;
-        }
-
-        .footer-top {
-            background: #ffffff;
-            padding: 40px 0;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
-        }
-
-        .footer-top h4 {
-            margin-top: 10px;
-            font-weight: 600;
-            color: #222;
-        }
-
-        .footer-top p {
-            color: #555;
-        }
-
-        .footer-icon {
-            width: 60px;
-            height: 60px;
-            background: #1A8AE6;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin: 0 auto 15px;
-        }
-
-        .footer-bottom {
-            padding: 30px 0;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 15px;
-        }
-
-        .footer-links li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: #1A8AE6;
-        }
-
-        .social-icons a {
-            display: inline-block;
-            margin: 0 8px;
-            color: white;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #1A8AE6;
-        }
+        
     </style>
 </head>
 
@@ -800,53 +729,187 @@
     </div>
 
     <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row text-center">
-                    <!-- Contact via Email -->
-                    <div class="col-md-4">
-                        <div class="footer-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h4>Contact Us via Email</h4>
-                        <p><a href="mailto:info@blueaxismedia.com" class="contact-link">info@blueaxismedia.com</a></p>
-                    </div>
-                    <!-- Office Address -->
-                    <div class="col-md-4">
-                        <div class="footer-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h4>Our Office</h4>
-                        <p><a href="https://www.google.com/maps/place/Pune,+Maharashtra,+India+411014" target="_blank"
-                                class="contact-link">
-                                Pune, Maharashtra, India 411014</a></p>
-                    </div>
-                    <!-- Contact Number -->
-                    <div class="col-md-4">
-                        <div class="footer-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h4>Contact Us</h4>
-                        <p><a href="tel:+919021568448" class="contact-link">+91 90215 68448</a></p>
-                    </div>
-                </div>
+   <footer>
+    <!-- Footer Top (Blue Section) -->
+    <div class="footer-top py-5">
+        <div class="container d-flex flex-wrap justify-content-center gap-4">
+            <!-- Email -->
+            <div class="footer-card">
+                <div class="footer-icon"><i class="fas fa-envelope"></i></div>
+                <h5>Email Us</h5>
+                <p><a href="mailto:info@blueaxismedia.in">info@blueaxismedia.in</a></p>
+            </div>
+            <!-- Office -->
+            <div class="footer-card">
+                <div class="footer-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h5>Our Office</h5>
+                <p><a href="https://www.google.com/maps/place/Pune,+Maharashtra,+India+411014" target="_blank">Pune, Maharashtra, India 411014</a></p>
+            </div>
+            <!-- Call -->
+            <div class="footer-card">
+                <div class="footer-icon"><i class="fas fa-phone"></i></div>
+                <h5>Call Us</h5>
+                <p><a href="tel:+919021568448">+91 90215 68448</a></p>
             </div>
         </div>
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="container text-center">
-                <ul class="footer-links">
-                    <li><a href="../footerpages/Privacy_policy.html">Privacy Policy</a></li>
-                    <li><a href="../footerpages/CaseStudies.html">Case Studies</a></li>
-                    <li><a href="../footerpages/Gdpr.html">GDPR</a></li>
-                    <li><a href="../footerpages/termconditions.html">Terms & Conditions</a></li>
-                    <li><a href="../footerpages/Media_Kit.html">Media Kit</a></li>
-                </ul>
-                <p>&copy; 2026 <strong>BlueAxis Media</strong>. All rights reserved.</p>
+    </div>
+
+    <!-- Footer Bottom (Black Section) -->
+    <div class="footer-bottom py-4">
+        <div class="container text-center text-md-start d-md-flex justify-content-between align-items-center flex-wrap gap-3">
+            <ul class="footer-links mb-2 mb-md-0">
+                <li><a href="/footerpages/Privacy_policy.html">Privacy Policy</a></li>
+                <li><a href="/footerpages/CaseStudies.html">Case Studies</a></li>
+                <li><a href="/footerpages/Gdpr.html">GDPR</a></li>
+                <li><a href="/footerpages/termconditions.html">Terms & Conditions</a></li>
+                <li><a href="/footerpages/Media_Kit.html">Media Kit</a></li>
+            </ul>
+            <div>
+                <p class="mb-2 mb-md-0">&copy; 2026 <strong>Blueaxis Media</strong>. All rights reserved.</p>
+                <!-- <div class="social-icons mt-2">
+                    <a target="_blank" href="https://x.com/KoinetMedia"><i class="fab fa-twitter"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/KoiNetMedia/"><i class="fab fa-facebook"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/koinetmedia1/"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/company/koinet-media/posts/"><i class="fab fa-linkedin"></i></a>
+                </div> -->
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
+
+    <!-- CSS -->
+   <style>
+/* General Footer */
+footer {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Blue Top Section */
+    .footer-top {
+        background: linear-gradient(135deg, #007bff, rgba(19, 59, 129, 255));
+        padding: 60px 0;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    }
+    
+    .footer-card {
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 15px;
+        text-align: center;
+        width: 250px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .footer-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    
+    .footer-icon {
+        width: 60px;
+        height: 60px;
+        background: #007bff;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin: 0 auto 12px;
+        transition: transform 0.3s ease, background 0.3s ease;
+    }
+    
+    .footer-icon:hover {
+        background: #0056b3;
+        transform: scale(1.1);
+    }
+    
+    .footer-card h5 {
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #111;
+    }
+    
+    .footer-card p a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .footer-card p a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+    
+    /* Black Bottom Section */
+    .footer-bottom {
+        background: #111;
+        color: #ddd;
+        padding: 25px 0;
+        font-size: 0.9rem;
+    }
+    
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-links li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    
+    .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+        color: #00c6ff;
+    }
+    
+    /* Social Icons */
+    .social-icons a {
+        display: inline-block;
+        margin: 0 6px;
+        color: #fff;
+        font-size: 18px;
+        background: rgba(255,255,255,0.1);
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+        color: #fff;
+        background: black;
+        transform: scale(1.1);
+    }
+    
+    /* Responsive */
+    @media(max-width: 768px) {
+        .footer-top .footer-card {
+            width: 100%;
+            max-width: 300px;
+        }
+        .footer-bottom {
+            text-align: center;
+        }
+        .footer-links li {
+            display: block;
+            margin: 5px 0;
+        }
+        .social-icons {
+            margin-top: 10px;
+        }
+    }
+</style>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

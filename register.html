@@ -53,8 +53,6 @@ body {
     top: 20px;
     left: 20px;
     width: 180px;
-       
-
 }
 
 /* Text */
@@ -101,6 +99,7 @@ body {
     border: 1px solid #ddd;
     font-size: 14px;
     transition: 0.3s;
+    box-sizing: border-box;
 }
 
 /* Focus effect */
@@ -121,6 +120,7 @@ button {
     color: white;
     font-weight: 600;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 /* Hover */
@@ -149,11 +149,18 @@ button:hover {
 }
 
 /* RESPONSIVE */
+@media (max-width: 960px) {
+    .signup-container {
+        width: 95%;
+        height: auto;
+    }
+}
+
 @media (max-width: 768px) {
     .signup-container {
         flex-direction: column;
-        width: 90%;
-        max-width: 400px;
+        width: 95%;
+        max-width: 420px;
         height: auto;
         margin: 20px 0;
     }
@@ -163,28 +170,71 @@ button:hover {
         padding: 40px 20px;
         flex-direction: column;
         flex: none;
+        min-height: 180px;
     }
 
     .logo-left {
         position: relative;
         top: auto;
         left: auto;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         width: 140px;
     }
 
     .left-content h2 {
-        font-size: 24px;
+        font-size: 22px;
+    }
+
+    .left-content p {
+        font-size: 13px;
     }
 
     .right-panel {
-        padding: 40px 25px;
+        padding: 30px 20px;
         flex: none;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .right-panel h2 {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .input-group {
+        margin-bottom: 12px;
+    }
+
+    .input-group input,
+    .input-group select {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 11px;
+        font-size: 14px;
+    }
+
+    .switch {
+        font-size: 13px;
     }
 }
 
+@media (max-width: 380px) {
+    .right-panel {
+        padding: 25px 15px;
+    }
 
+    .logo-left {
+        width: 120px;
+    }
 
+    .left-content h2 {
+        font-size: 19px;
+    }
+}
 
 </style>
 </head>

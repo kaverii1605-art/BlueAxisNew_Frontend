@@ -977,7 +977,7 @@ body {
                 <div class="footer-card">
                     <div class="footer-icon"><i class="fas fa-envelope"></i></div>
                     <h5>Email Us</h5>
-                    <p><a href="mailto:info@koinetmedia.com">info@blueaxismedia.com</a></p>
+                    <p><a href="mailto:info@blueaxismedia.in">info@blueaxismedia.in</a></p>
                 </div>
                 <!-- Office -->
                 <div class="footer-card">
@@ -998,20 +998,20 @@ body {
         <div class="footer-bottom py-4">
             <div class="container text-center text-md-start d-md-flex justify-content-between align-items-center flex-wrap gap-3">
                 <ul class="footer-links mb-2 mb-md-0">
-                    <li><a href="../footerpages/Privacy_policy.html">Privacy Policy</a></li>
+                    <li><a href="footerpages/Privacy_policy.html">Privacy Policy</a></li>
                     <li><a href="footerpages/CaseStudies.html">Case Studies</a></li>
-                    <li><a href="../footerpages/Gdpr.html">GDPR</a></li>
-                    <li><a href="../footerpages/termconditions.html">Terms & Conditions</a></li>
-                    <li><a href="../footerpages/Media_Kit.html">Media Kit</a></li>
+                    <li><a href="footerpages/Gdpr.html">GDPR</a></li>
+                    <li><a href="footerpages/termconditions.html">Terms & Conditions</a></li>
+                    <li><a href="footerpages/Media_Kit.html">Media Kit</a></li>
                 </ul>
                 <div>
                     <p class="mb-2 mb-md-0">&copy; 2026 <strong>Blueaxis Media</strong>. All rights reserved.</p>
-                    <div class="social-icons mt-2">
+                    <!-- <div class="social-icons mt-2">
                         <a target="_blank" href="https://x.com/KoinetMedia"><i class="fab fa-twitter"></i></a>
                         <a target="_blank" href="https://www.facebook.com/KoiNetMedia/"><i class="fab fa-facebook"></i></a>
                         <a target="_blank" href="https://www.instagram.com/koinetmedia1/"><i class="fab fa-instagram"></i></a>
                         <a target="_blank" href="https://www.linkedin.com/company/koinet-media/posts/"><i class="fab fa-linkedin"></i></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -1253,7 +1253,6 @@ footer {
     <!-- Form Submission Script -->
     <script>
 document.addEventListener("DOMContentLoaded", function () {
-
     const form = document.getElementById("contactForm");
 
     if (form) {
@@ -1272,33 +1271,65 @@ document.addEventListener("DOMContentLoaded", function () {
             submitButton.disabled = true;
             submitButton.innerHTML = "Submitting...";
 
-            const formData = new FormData(form);
+            const payload = {
+                name: form.querySelector('input[name="name"]').value,
+                email: form.querySelector('input[name="email"]').value,
+                phone: form.querySelector('input[name="phone"]').value,
+                companyName: form.querySelector('input[name="companyName"]').value,
+                message: form.querySelector('textarea[name="message"]').value,
+                countryCode: form.querySelector('input[name="countryCode"]').value
+            };
 
             try {
-                const response = await fetch("https://formspree.io/f/mlgowege", {
+                // 1. Save in Railway DB through backend
+                const dbResponse = await fetch("https://blueaxis-backend-10.onrender.com/api/postContact", {
                     method: "POST",
-                    body: formData,
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!dbResponse.ok) {
+                    throw new Error("Failed to save in database");
+                }
+
+                // 2. Send same data to Formspree email
+                const formspreeData = new FormData();
+                formspreeData.append("name", payload.name);
+                formspreeData.append("email", payload.email);
+                formspreeData.append("phone", payload.phone);
+                formspreeData.append("companyName", payload.companyName);
+                formspreeData.append("message", payload.message);
+                formspreeData.append("countryCode", payload.countryCode);
+
+                const emailResponse = await fetch("https://formspree.io/f/mlgowege", {
+                    method: "POST",
+                    body: formspreeData,
                     headers: {
                         "Accept": "application/json"
                     }
                 });
 
-                if (response.ok) {
-                    alert("✅ Your message has been sent successfully!");
-                    form.reset();
+                if (!emailResponse.ok) {
+                    console.warn("Saved in DB, but Formspree email failed.");
+                    alert("✅ Saved in database, but email notification failed.");
                 } else {
-                    alert("❌ Error sending message");
+                    alert("✅ Your message has been saved and email sent successfully!");
                 }
+
+                form.reset();
+
             } catch (error) {
                 console.error(error);
-                alert("❌ Server connection error");
+                alert("❌ Error submitting enquiry");
             }
 
             submitButton.disabled = false;
             submitButton.innerHTML = "Submit Inquiry";
         });
     }
-
 });
 </script>
 </body>
