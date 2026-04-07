@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -511,18 +512,31 @@ button[type="submit"]:hover {
 
     <script>
   tinymce.init({
-    selector: '#myTextarea',
-    plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help wordcount',
-    toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code | help',
-    height: 400,
-    setup: function(editor) {
-      console.log('TinyMCE editor initialized successfully!');
-      editor.on('init', function() {
+  selector: '#myTextarea',
+  height: 400,
+  readonly: false, // ✅ FORCE EDITABLE
+
+  plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help wordcount',
+
+  toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code | help',
+
+  branding: false,
+  promotion: false,
+
+  setup: function (editor) {
+    editor.on('init', function () {
+      console.log("TinyMCE Loaded Successfully");
+
+      // ✅ Ensure editor is editable
+      editor.mode.set('design');
+
+      // Optional default content
+      if (!editor.getContent()) {
         editor.setContent('Create Your Blog!');
-        console.log('Editor is ready with content!');
-      });
-    }
-  });
+      }
+    });
+  }
+});
 </script>
 
     <script>
