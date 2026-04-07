@@ -371,8 +371,7 @@ button[type="submit"]:hover {
     }
 }
     </style>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-</head>
+<script src="https://cdn.tiny.cloud/1/YOUR_REAL_API_KEY/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script></head>
 
 <body>
     <!-- Notification Container -->
@@ -596,7 +595,8 @@ button[type="submit"]:hover {
                     } else {
                         showNotification('Blog created successfully!', 'success');
                         // Optionally, redirect to the blog page or clear the form
-                        document.getElementById('myForm').reset()
+                        document.getElementById('myForm').reset();
+                        tinymce.get('myTextarea').setContent('');
                     }
                 })
                 .catch(error => {
