@@ -371,7 +371,7 @@ button[type="submit"]:hover {
     }
 }
     </style>
-<script src="https://cdn.tiny.cloud/1/YOUR_REAL_API_KEY/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script></head>
+<script src="https://cdn.tiny.cloud/1/o7vngdzdro40dvbrhwj0rt5kdf98h6o5ad006y2bdbka5tee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script></head>
 
 <body>
     <!-- Notification Container -->
@@ -510,12 +510,24 @@ button[type="submit"]:hover {
     </div>
 
     <script>
+  tinymce.init({
+    selector: '#myTextarea',
+    plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help wordcount',
+    toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code | help',
+    height: 400,
+    setup: function(editor) {
+      console.log('TinyMCE editor initialized successfully!');
+      editor.on('init', function() {
+        editor.setContent('Create Your Blog!');
+        console.log('Editor is ready with content!');
+      });
+    }
+  });
+</script>
+
+    <script>
               
-     tinymce.init({
-  selector: '#myTextarea',
-  plugins: 'lists link image table code',
-  toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code'
-});
+
 
       const token = localStorage.getItem("token");
 
@@ -562,49 +574,46 @@ button[type="submit"]:hover {
 
       // Form submission handler
         document.getElementById('myForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            const title = document.getElementById('title').value;
-            const category = document.getElementById('category').value;
-            const imageUrl = document.getElementById('imageUrl').value;
-            const content = tinymce.get('myTextarea').getContent(); // Get content from TinyMCE editor
+    event.preventDefault();
+    
+    // Get content from TinyMCE editor - THIS IS IMPORTANT
+    const content = tinymce.get('myTextarea').getContent();
+    
+    const postData = {
+        title: document.getElementById('title').value,
+        category: document.getElementById('category').value,
+        imageUrl: document.getElementById('imageUrl').value,
+        content: content
+    };
 
-            const postData = {
-                title,
-                category,
-                imageUrl,
-                content
-            };
+    console.log("Submitting blog:", postData);
+    console.log("Content length:", content.length);
 
-            console.log(postData); // Debugging: log the 
-            console.log(localStorage.getItem("userEmail"));
+    const token = localStorage.getItem("token");
 
-            const token = localStorage.getItem("token");
-
-            fetch('https://blueaxis-backend-10.onrender.com/api/addblog', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token   
-                },
-                body: JSON.stringify(postData)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        showNotification(data.error, 'error');
-                    } else {
-                        showNotification('Blog created successfully!', 'success');
-                        // Optionally, redirect to the blog page or clear the form
-                        document.getElementById('myForm').reset();
-                        tinymce.get('myTextarea').setContent('');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    showNotification('An error occurred while creating the blog.', 'error');
-                });
-        });
-
+    fetch('https://blueaxis-backend-10.onrender.com/api/addblog', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token   
+        },
+        body: JSON.stringify(postData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            showNotification(data.error, 'error');
+        } else {
+            showNotification('Blog created successfully!', 'success');
+            document.getElementById('myForm').reset();
+            tinymce.get('myTextarea').setContent(''); // Clear editor
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showNotification('An error occurred while creating the blog.', 'error');
+    });
+});
         // Function to check if user is authenticated (has token in localStorage)
        const isAuthenticated = () => {
     return localStorage.getItem('token') !== null;
