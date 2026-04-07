@@ -372,7 +372,7 @@ button[type="submit"]:hover {
     }
 }
     </style>
-    <script src="https://cdn.tiny.cloud/1/fqzuwll7ascld9x8g3841pclczljcxkx9twy3pmx7lwswiey/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+   <script src="https://cdn.tiny.cloud/1/o7vngdzdro40dvbrhwj0rt5kdf98h6o5ad006y2bdbka5tee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -513,11 +513,23 @@ button[type="submit"]:hover {
 
     <script>
               
-      tinymce.init({
+       tinymce.init({
         selector: '#myTextarea',
-        plugins: 'lists link image table code',
-        toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code'
-      });
+        height: 400,
+        readonly: false,
+        plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help wordcount',
+        toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code | help',
+        branding: false,
+        promotion: false,
+        setup: function (editor) {
+            editor.on('init', function () {
+                console.log("TinyMCE Loaded Successfully");
+                if (!editor.getContent()) {
+                    editor.setContent('Create Your Infographic!');
+                }
+            });
+        }
+    });
 
       // Notification function
       function showNotification(message, type = 'success', duration = 4000) {
@@ -573,7 +585,7 @@ button[type="submit"]:hover {
 
             console.log(postData);
 
-            fetch('http://https://blueaxis-backend-10.onrender.com/api/addinfo', {
+            fetch('https://blueaxis-backend-10.onrender.com/api/addinfo', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -611,7 +623,7 @@ button[type="submit"]:hover {
 
         document.addEventListener('DOMContentLoaded', function() {
             // URL of your API endpoint
-            const apiUrl = 'http://https://blueaxis-backend-10.onrender.com:8080/api/getinfo';
+            const apiUrl = 'https://blueaxis-backend-10.onrender.com/api/getinfo';
 
             // Function to fetch the total number of infographics
             async function fetchTotalInfographics() {
