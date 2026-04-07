@@ -157,7 +157,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <img src="../assets/images/BlueAxisMedia.png" alt="casestudies" class="img-fluid" />
+                            <img src="../assets/images/Case-Studies.png" alt="casestudies" class="img-fluid" />
                         </div>
                         <div class="text-center my-3">
 <button id="open_modal" class="mediakit-btn">
@@ -178,11 +178,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <img src="../images/Logo.png" alt="" class="img-fluid mb-3" width="200px" height="50px">
+                    <img src="../assets/images/blueaxisLogo.png" alt="" class="img-fluid mb-3" width="200px" height="50px">
                     <p class="fw-bold fs-4">Case-Studies Of BlueAxis Media</p>
                     <p class="fs-2 fw-bold">Thank you for your interest! </p>
                     <p>Our team will get in touch at after downloading our case-studies</p>
-                    <form class="position-relative" action="https://formspree.io/f/xyzggpzp" method="POST">
+                    <form class="position-relative" action="https://formspree.io/f/xgoprrdz" method="POST">
                         <input class="form-control popupBg w-100 py-3 ps-4 pe-5" id="emailInput" type="email" name="email" placeholder="Enter your email " required>
                         <button type="submit" id="downloadpdfbutton" class="btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2 rounded-3">Download PDF</button>
                     </form>
@@ -396,7 +396,7 @@
             var emailInput = document.getElementById('emailInput').value;
 
             if (validateEmail(emailInput)) {
-                var pdfFilePath = '../images/casestudypdffile1.pdf';
+                var pdfFilePath = '../assets/pdf/dummy-pdf_2.pdf';
                 var link = document.createElement('a');
                 link.href = pdfFilePath;
                 link.download = pdfFilePath.split('/').pop();
