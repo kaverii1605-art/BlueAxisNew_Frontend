@@ -273,7 +273,6 @@
             bottom: -50px;
             left: -50px;
         }
-        /* Navbar Styling */
         
         .navbar-custom {
             background: rgba(255, 255, 255, 0.7);
@@ -281,14 +280,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        
-        /* .navbar-custom:hover {
-            background-color: #30528D !important;
-        }
-        
-        .navbar-custom:hover .nav-link {
-            color: white !important;
-        } */
         
         .navbar-custom:hover .navbar-brand {
             background-color: transparent !important;
@@ -311,25 +302,12 @@
         }
         
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
         
-        .custom-toggler {
-            border: none;
-            background: none;
-        }
-        
-        .custom-toggler:focus {
-            box-shadow: none;
-        }
-        /* Footer Styling */
+        .custom-toggler { border: none; background: none; }
+        .custom-toggler:focus { box-shadow: none; }
         
         .footer {
             background: #1e1e1e;
@@ -337,26 +315,8 @@
             padding-top: 50px;
         }
         
-        /* .footer-top {
-            background: #ffffff;
-           
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
-        }
-        
-        .footer-top h4 {
-            margin-top: 10px;
-            font-weight: 600;
-            color: #222;
-        }
-        
-        .footer-top p {
-            color: #555;
-        } */
-        
         .footer-icon {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             background: #1A8AE6;
             color: white;
             border-radius: 50%;
@@ -367,83 +327,31 @@
             margin: 0 auto 15px;
         }
         
-        .footer-bottom {
-            padding: 30px 0;
-        }
+        .footer-bottom { padding: 30px 0; }
         
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 15px;
-        }
+        .footer-links { list-style: none; padding: 0; margin-bottom: 15px; }
+        .footer-links li { display: inline; margin: 0 10px; }
+        .footer-links a { color: #ddd; text-decoration: none; }
+        .footer-links a:hover { color: #007bff; }
         
-        .footer-links li {
-            display: inline;
-            margin: 0 10px;
-        }
+        .social-icons a { display: inline-block; margin: 0 8px; color: white; font-size: 18px; transition: 0.3s; }
+        .social-icons a:hover { color: #007bff; }
         
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            color: #007bff;
-        }
-        
-        .social-icons a {
-            display: inline-block;
-            margin: 0 8px;
-            color: white;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-        
-        .social-icons a:hover {
-            color: #007bff;
-        }
-        
-        .contact-link {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-        
-        .contact-link:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-        /* Media Queries for Responsiveness */
+        .contact-link { text-decoration: none; color: #007bff; font-weight: bold; }
+        .contact-link:hover { text-decoration: underline; color: #0056b3; }
         
         @media (max-width: 991px) {
-            .navbar-custom {
-                background: rgba(255, 255, 255, 0.95);
-            }
-            .contact-container {
-                margin-top: -30px;
-            }
-            .contact-form,
-            .contact-info {
-                padding: 30px;
-            }
+            .navbar-custom { background: rgba(255, 255, 255, 0.95); }
+            .contact-container { margin-top: -30px; }
+            .contact-form, .contact-info { padding: 30px; }
         }
         
         @media (max-width: 768px) {
-            .contact-hero {
-                padding: 80px 0 60px;
-            }
-            .contact-hero h1 {
-                font-size: 2.2rem;
-            }
-            .contact-hero p {
-                font-size: 1rem;
-            }
-            .contact-card {
-                margin-bottom: 20px;
-            }
-            .map-container iframe {
-                height: 300px;
-            }
+            .contact-hero { padding: 80px 0 60px; }
+            .contact-hero h1 { font-size: 2.2rem; }
+            .contact-hero p { font-size: 1rem; }
+            .contact-card { margin-bottom: 20px; }
+            .map-container iframe { height: 300px; }
         }
     </style>
 </head>
@@ -451,77 +359,53 @@
 <body>
 
     <div id="notificationContainer" class="notification-container"></div>
+
     <!-- Navbar -->
-    <!-- ── NAVBAR ── -->
-    <!-- Navbar starts -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom bg-white shadow-sm">
         <div class="container-fluid">
-            <!-- Logo -->
             <a class="navbar-brand fw-bold text-uppercase" href="index.html">
                 <img src="./assets/images/blueaxisLogo.png" alt="Blueaxis Media">
             </a>
 
-            <!-- Mobile Toggle Button -->
             <button class="navbar-toggler custom-toggler" type="button" id="mobileMenuToggler">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
 
-                    <!-- What We Provide Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="whatWeProvideDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            What We Do
-                        </a>
-
+                            data-bs-toggle="dropdown" aria-expanded="false">What We Do</a>
                         <ul class="dropdown-menu animate-dropdown">
                             <li><a class="dropdown-item" href="/whatwedo.html">Expertise & Services</a></li>
-                            <li><a class="dropdown-item"
-                                    href="/what_we_provide/account-based-marketing.html">Account-Based Marketing</a>
-                            </li>
-                            <li><a class="dropdown-item" href="/what_we_provide/multi-channel-lead.html">Multi-Channel
-                                    Lead</a></li>
-                            <li><a class="dropdown-item" href="/what_we_provide/contact_discovery.html">Content
-                                    Syndication</a></li>
-                            <li><a class="dropdown-item" href="/what_we_provide/emailmarketing.html">Email Marketing</a>
-                            </li>
-                            <li><a class="dropdown-item" href="/what_we_provide/dataappend.html">Data Append &
-                                    Cleansing</a></li>
-                            <li><a class="dropdown-item" href="/what_we_provide/demadgeneration.html">Demand
-                                    Generation</a></li>
-                            <li><a class="dropdown-item" href="/what_we_provide/appoinmentgeneration.html">Appointment
-                                    Generation</a></li>
-                            <li><a class="dropdown-item" href="/what_we_provide/accountprofiling.html">Account
-                                    Profiling</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/account-based-marketing.html">Account-Based Marketing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/multi-channel-lead.html">Multi-Channel Lead</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/contact_discovery.html">Content Syndication</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/emailmarketing.html">Email Marketing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/dataappend.html">Data Append & Cleansing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/demadgeneration.html">Demand Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/appoinmentgeneration.html">Appointment Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/accountprofiling.html">Account Profiling</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item"><a class="nav-link" href="/focus_sectors.html">Focus Audiences</a></li>
 
-                    <!-- Resources Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
-                            data-bs-toggle="dropdown">
-                            Resources
-                        </a>
+                            data-bs-toggle="dropdown">Resources</a>
                         <ul class="dropdown-menu animate-dropdown">
                             <li><a class="dropdown-item" href="/blog.html">Blog</a></li>
-                           <li><a class="dropdown-item" target="_blank"
-                                    href="https://b2btechbyte.com/">Repository</a></li>
+                            <li><a class="dropdown-item" target="_blank" href="https://b2btechbyte.com/">Repository</a></li>
                             <li><a class="dropdown-item" href="/article.html">Articles</a></li>
                         </ul>
                     </li>
 
-                    <!-- About Us Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button"
-                            data-bs-toggle="dropdown">
-                            About Us
-                        </a>
+                            data-bs-toggle="dropdown">About Us</a>
                         <ul class="dropdown-menu animate-dropdown">
                             <li><a class="dropdown-item" href="/overview.html">Overview</a></li>
                             <li><a class="dropdown-item" href="/ourstory.html">Our Story</a></li>
@@ -534,7 +418,6 @@
         </div>
     </nav>
 
-    <!-- Navbar Scroll Effect & Dropdown Behavior -->
     <script>
         document.addEventListener("scroll", function () {
             let navbar = document.querySelector(".navbar-custom");
@@ -546,7 +429,6 @@
             }
         });
 
-        // Ensure only one dropdown is open at a time (hybrid hover-click behavior)
         document.addEventListener("DOMContentLoaded", function () {
             const dropdowns = document.querySelectorAll('.navbar .nav-item.dropdown');
 
@@ -555,147 +437,74 @@
                     if (other !== currentDropdown) {
                         const toggle = other.querySelector('.dropdown-toggle');
                         const menu = other.querySelector('.dropdown-menu');
-                        if (toggle) {
-                            toggle.classList.remove('show');
-                            toggle.setAttribute('aria-expanded', 'false');
-                        }
-                        if (menu) {
-                            menu.classList.remove('show');
-                        }
+                        if (toggle) { toggle.classList.remove('show'); toggle.setAttribute('aria-expanded', 'false'); }
+                        if (menu) { menu.classList.remove('show'); }
                     }
                 });
             }
 
             dropdowns.forEach(dropdown => {
-                // For desktop: hover opens it, but we must make sure others with .show are closed
                 dropdown.addEventListener('mouseenter', function () {
-                    if (window.innerWidth >= 992) {
-                        closeOtherDropdowns(dropdown);
-                    }
+                    if (window.innerWidth >= 992) closeOtherDropdowns(dropdown);
                 });
-
-                // For mobile/desktop click: Bootstrap will toggle the current one, but we close others
                 const toggleBtn = dropdown.querySelector('.dropdown-toggle');
-                if (toggleBtn) {
-                    toggleBtn.addEventListener('click', function () {
-                        closeOtherDropdowns(dropdown);
-                    });
-                }
+                if (toggleBtn) toggleBtn.addEventListener('click', function () { closeOtherDropdowns(dropdown); });
             });
-            const navbarCollapse = document.getElementById('navbarNav');
-            const navbarToggler = document.querySelector('.navbar-toggler');
 
-            // 1. Manually control the Toggler to guarantee it opens and closes
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler  = document.querySelector('.navbar-toggler');
+
             navbarToggler.addEventListener('click', function(event) {
                 event.preventDefault();
                 event.stopPropagation();
                 let bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                if (!bsCollapse) {
-                    bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
-                }
-                if (navbarCollapse.classList.contains('show')) {
-                    bsCollapse.hide();
-                } else {
-                    bsCollapse.show();
-                }
+                if (!bsCollapse) bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                navbarCollapse.classList.contains('show') ? bsCollapse.hide() : bsCollapse.show();
             });
 
-            // 2. Close mobile menu when clicking outside or on a regular link
             document.addEventListener('click', function(event) {
                 if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                     const isClickInside = navbarCollapse.contains(event.target);
                     const isRegularLink = event.target.classList.contains('nav-link') && !event.target.classList.contains('dropdown-toggle');
-                    
                     if (!isClickInside || isRegularLink) {
                         const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                        if (bsCollapse) {
-                            bsCollapse.hide();
-                        }
+                        if (bsCollapse) bsCollapse.hide();
                     }
                 }
             });
         });
     </script>
     
-    <!-- Custom CSS -->
     <style>
-
-
         .notification-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10000;
-    max-width: 400px;
-}
+            position: fixed; top: 20px; right: 20px;
+            z-index: 10000; max-width: 400px;
+        }
 
-.notification {
-    background: #fff;
-    padding: 16px 20px;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    animation: slideIn 0.3s ease-out;
-    border-left: 4px solid #007bff;
-}
+        .notification {
+            background: #fff; padding: 16px 20px; border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15); margin-bottom: 12px;
+            display: flex; align-items: center; gap: 12px;
+            animation: slideIn 0.3s ease-out;
+            border-left: 4px solid #007bff;
+        }
 
-.notification.success {
-    border-left-color: #28a745;
-}
+        .notification.success { border-left-color: #28a745; }
+        .notification.success .notification-icon { color: #28a745; }
+        .notification.error { border-left-color: #dc3545; }
+        .notification.error .notification-icon { color: #dc3545; }
+        .notification-icon { font-size: 20px; }
+        .notification-content { flex: 1; font-size: 14px; }
+        .notification-close { background: none; border: none; font-size: 18px; cursor: pointer; }
 
-.notification.success .notification-icon {
-    color: #28a745;
-}
-
-.notification.error {
-    border-left-color: #dc3545;
-}
-
-.notification.error .notification-icon {
-    color: #dc3545;
-}
-
-.notification-icon {
-    font-size: 20px;
-}
-
-.notification-content {
-    flex: 1;
-    font-size: 14px;
-}
-
-.notification-close {
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(400px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOut {
-    to {
-        transform: translateX(400px);
-        opacity: 0;
-    }
-}
-
-.notification.hide {
-    animation: slideOut 0.3s forwards;
-}
-
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to   { transform: translateX(0);     opacity: 1; }
+        }
+        @keyframes slideOut {
+            to { transform: translateX(400px); opacity: 0; }
+        }
+        .notification.hide { animation: slideOut 0.3s forwards; }
 
         :root {
             --primary: #0E3A62;
@@ -704,368 +513,237 @@
             --red-accent: #DA2021;
         }
 
-        /* Navbar Base */
         .navbar-custom {
             background: #93b1d8;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
         }
 
-        /* Logo height control */
+        .navbar { min-height: 80px; }
+        .navbar-brand { display: flex; align-items: center; }
+        .navbar-brand img { height: 70px; width: auto; object-fit: contain; }
 
-        .navbar {
-            min-height: 80px;
-            /* increase navbar height */
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar-brand img {
-            height: 70px;
-            /* control logo size */
-            width: auto;
-            object-fit: contain;
-        }
-
-        /* Nav links */
         .navbar-custom .nav-link {
-            color: #1a1a1a;
-            font-weight: 600;
-            padding: 8px 15px;
-            position: relative;
-            transition: color 0.3s ease;
+            color: #1a1a1a; font-weight: 600; padding: 8px 15px;
+            position: relative; transition: color 0.3s ease;
         }
 
-        /* Hover underline animation */
         .navbar-custom .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0%;
-            height: 2px;
-            background-color: #30528D;
-            transition: width 0.3s ease;
+            content: ""; position: absolute; left: 0; bottom: 0;
+            width: 0%; height: 2px; background-color: #30528D; transition: width 0.3s ease;
         }
 
-        .navbar-custom .nav-link:hover {
-            color: #30528D;
-        }
-
+        .navbar-custom .nav-link:hover { color: #30528D; }
         .navbar-custom .nav-link:hover::after,
-        .navbar-custom .nav-link.active::after {
-            width: 100%;
-        }
+        .navbar-custom .nav-link.active::after { width: 100%; }
 
-        /* Dropdown menu */
         .navbar-custom .dropdown-menu {
-            border-radius: 10px;
-            padding: 10px 0;
-            border: none;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            animation: dropdownFade 0.3s ease;
+            border-radius: 10px; padding: 10px 0;
+            border: none; box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        /* Dropdown items */
         .dropdown-item {
-            font-weight: 500;
-            padding: 10px 20px;
-            transition: background 0.3s ease, color 0.3s ease;
-            color: #1a1a1a;
+            font-weight: 500; padding: 10px 20px;
+            transition: background 0.3s ease, color 0.3s ease; color: #1a1a1a;
         }
+        .dropdown-item:hover { background-color: #30528D; color: #fff; }
 
-        .dropdown-item:hover {
-            background-color: #30528D;
-            color: #fff;
-        }
-
-        /* Dropdown animation */
-        /* Hover dropdown (Desktop only) */
         @media (min-width: 992px) {
-            .dropdown:hover .dropdown-menu {
-                display: block;
-                margin-top: 0;
-            }
+            .dropdown:hover .dropdown-menu { display: block; margin-top: 0; }
         }
 
-        /* MOBILE NAV FIX */
         @media (max-width: 991px) {
-
             .navbar-collapse {
-                position: absolute;
-                top: 80px; /* same as navbar height */
-                left: 0;
-                width: 100%;
-                z-index: 999;
-                background: transparent;
+                position: absolute; top: 80px; left: 0;
+                width: 100%; z-index: 999; background: transparent;
             }
-
             .navbar-collapse.show, .navbar-collapse.collapsing {
                 background: #ffffff;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.08);
                 border-top: 1px solid #eee;
             }
-
-            .navbar-nav {
-                padding: 15px 20px;
-                gap: 10px;
-                background: #ffffff;
-            }
-
-            .nav-link {
-                display: block;
-                padding: 12px 10px;
-                border-radius: 8px;
-            }
-
-            .nav-link:hover {
-                background: #f1f5ff;
-            }
-
-            /* Dropdown fix */
-            .dropdown-menu {
-                position: static !important;
-                box-shadow: none;
-                border: none;
-                padding-left: 10px;
-            }
-
-            .dropdown-item {
-                padding: 8px 10px;
-            }
+            .navbar-nav { padding: 15px 20px; gap: 10px; background: #ffffff; }
+            .nav-link { display: block; padding: 12px 10px; border-radius: 8px; }
+            .nav-link:hover { background: #f1f5ff; }
+            .dropdown-menu { position: static !important; box-shadow: none; border: none; padding-left: 10px; }
+            .dropdown-item { padding: 8px 10px; }
         }
 
-
-        /* Mobile view */
         @media (max-width: 991px) {
-            .navbar-custom {
-                background: #ffffff;
-            }
+            .navbar-custom { background: #ffffff; }
         }
 
-/*  */
-body {
-  font-family: 'Inter', sans-serif;
-}
+        body { font-family: 'Inter', sans-serif; }
 
-.contact-wrapper-new {
-  background: #f4f1ec;
-  padding: 90px 0;
-}
+        .contact-wrapper-new { background: #f4f1ec; padding: 90px 0; }
 
-/* LEFT PANEL */
-.contact-info-panel {
-  background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));
-  color: #fff;
-  padding: 45px 35px;
-  border-radius: 20px;
-  height: 100%;
-}
+        .contact-info-panel {
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));
+            color: #fff; padding: 45px 35px; border-radius: 20px; height: 100%;
+        }
 
-.contact-info-panel h2 {
-  font-weight: 700;
-  margin-bottom: 10px;
-}
+        .contact-info-panel h2 { font-weight: 700; margin-bottom: 10px; }
+        .small-text { opacity: 0.8; margin-bottom: 35px; }
 
-.small-text {
-  opacity: 0.8;
-  margin-bottom: 35px;
-}
+        .info-row { display: flex; gap: 15px; margin-bottom: 25px; }
+        .info-row i { font-size: 20px; color: #ff9f43; margin-top: 5px; }
+        .info-row span { font-size: 13px; opacity: 0.7; }
+        .info-row p { margin: 0; font-weight: 500; }
 
-.info-row {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 25px;
-}
+        .info-actions a {
+            display: block; text-align: center; margin-top: 15px;
+            padding: 12px; border-radius: 30px; background: #ff9f43;
+            color: #0f1e3d; text-decoration: none; font-weight: 600;
+        }
+        .info-actions a.outline { background: transparent; color: #ff9f43; border: 2px solid #ff9f43; }
 
-.info-row i {
-  font-size: 20px;
-  color: #ff9f43;
-  margin-top: 5px;
-}
+        .contact-form-panel {
+            background: #ffffff; padding: 50px; border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08); margin-left: -60px;
+        }
+        .contact-form-panel h3 { font-weight: 700; margin-bottom: 35px; color: #0f1e3d; }
 
-.info-row span {
-  font-size: 13px;
-  opacity: 0.7;
-}
+        .form-control { border-radius: 14px; padding: 14px; border: 1px solid #ddd; }
 
-.info-row p {
-  margin: 0;
-  font-weight: 500;
-}
+        .send-btn {
+            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));
+            color: #fff; padding: 12px 35px; border-radius: 30px;
+            border: none; font-weight: 500; cursor: pointer;
+        }
+        .send-btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
-.info-actions a {
-  display: block;
-  text-align: center;
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 30px;
-  background: #ff9f43;
-  color: #0f1e3d;
-  text-decoration: none;
-  font-weight: 600;
-}
+        @media (max-width: 991px) {
+            .contact-form-panel { margin-left: 0; margin-top: 30px; }
+        }
 
-.info-actions a.outline {
-  background: transparent;
-  color: #ff9f43;
-  border: 2px solid #ff9f43;
-}
+        .contact-info-panel, .contact-form-panel { transition: all 0.4s ease; }
 
-/* RIGHT FORM */
-.contact-form-panel {
-  background: #ffffff;
-  padding: 50px;
-  border-radius: 25px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-  margin-left: -60px;
-}
+        .contact-wrapper-new {
+            background: linear-gradient(135deg, #f4f9ff, #9aa8c2);
+            background-size: 600% 600%;
+            animation: gradientMove 10s ease infinite;
+        }
 
-.contact-form-panel h3 {
-  font-weight: 700;
-  margin-bottom: 35px;
-  color: #0f1e3d;
-}
+        .form-control { transition: all 0.3s ease; }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0,123,255,0.3);
+            transform: scale(1.02);
+        }
 
-.form-control {
-  border-radius: 14px;
-  padding: 14px;
-  border: 1px solid #ddd;
-}
+        .send-btn { position: relative; overflow: hidden; }
+        .send-btn::before {
+            content: ""; position: absolute; top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: rgba(255,255,255,0.3);
+            transform: skewX(-25deg); transition: 0.5s;
+        }
+        .send-btn:hover::before { left: 120%; }
 
-.send-btn {
-  background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));
-  color: #fff;
-  padding: 12px 35px;
-  border-radius: 30px;
-  border: none;
-  font-weight: 500;
-}
+        .info-row i { transition: transform 0.3s ease; }
+        .info-row:hover i { transform: scale(1.3) rotate(5deg); }
 
-/* MOBILE FIX */
-@media (max-width: 991px) {
-  .contact-form-panel {
-    margin-left: 0;
-    margin-top: 30px;
-  }
-}
-          
-              
-/*  */
-</style>
+        @keyframes gradientMove {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
 
-                        <!-- Navbar end -->
-    <!-- Navbar -->
+    <!-- Contact Section -->
+    <section class="contact-wrapper-new">
+      <div class="container">
+        <div class="row align-items-center">
 
-                <!-- Contact -->
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-                
-                <section class="contact-wrapper-new">
-                  <div class="container">
-                    <div class="row align-items-center">
-                
-                      <!-- LEFT INFO PANEL -->
-                      <div class="col-lg-4">
-                        <div class="contact-info-panel">
-                          <h2>Get in Touch</h2>
-                          <p class="small-text">We’re always open to discuss new ideas or partnerships.</p>
-                
-                          <div class="info-row">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                              <span>Call Us</span>
-                              <p>+91 9021568448</p>
-                            </div>
-                          </div>
-                
-                          <div class="info-row">
-                            <i class="fas fa-location-dot"></i>
-                            <div>
-                              <span>Visit Office</span>
-                              <p>Pune, Maharashtra<br>India 411014</p>
-                            </div>
-                          </div>
-                
-                          <div class="info-actions">
-                            <a href="mailto:info@blueaxismedia.in">Send Email</a>
-                            <a href="tel:+919021568448" class="outline">Call Now</a>
-                          </div>
-                        </div>
-                      </div>
-                
-                      <!-- RIGHT FORM -->
-                      <div class="col-lg-8">
-                        <div class="contact-form-panel">
-                          <h3>Drop a Message</h3>
-                
-<form id="contactForm" action="https://formspree.io/f/mlgowege" method="post">
-<div class="row g-4">
+          <!-- LEFT INFO PANEL -->
+          <div class="col-lg-4">
+            <div class="contact-info-panel">
+              <h2>Get in Touch</h2>
+              <p class="small-text">We're always open to discuss new ideas or partnerships.</p>
 
-<div class="col-md-6">
-<input type="text" name="name" class="form-control" placeholder="Your Name" required>
-</div>
+              <div class="info-row">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <span>Call Us</span>
+                  <p>+91 9021568448</p>
+                </div>
+              </div>
 
-<div class="col-md-6">
-<input type="email" name="email" class="form-control" placeholder="Email Address" required>
-</div>
+              <div class="info-row">
+                <i class="fas fa-location-dot"></i>
+                <div>
+                  <span>Visit Office</span>
+                  <p>Pune, Maharashtra<br>India 411014</p>
+                </div>
+              </div>
 
-<div class="col-md-6">
-<input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
-</div>
+              <div class="info-actions">
+                <a href="mailto:info@blueaxismedia.in">Send Email</a>
+                <a href="tel:+919021568448" class="outline">Call Now</a>
+              </div>
+            </div>
+          </div>
 
-<div class="col-md-6">
-<input type="text" name="companyName" class="form-control" placeholder="Company Name">
-</div>
+          <!-- RIGHT FORM -->
+          <div class="col-lg-8">
+            <div class="contact-form-panel">
+              <h3>Drop a Message</h3>
 
-<div class="col-12">
-<textarea name="message" rows="5" class="form-control" placeholder="Tell us about your requirement..." required></textarea>
-</div>
+              <!-- ✅ No action= here. JS intercepts and handles everything. -->
+              <form id="contactForm">
+                <div class="row g-4">
 
-<!-- Optional hidden country code -->
-<input type="hidden" name="countryCode" value="+91">
-
-<div class="col-12 text-end">
-<button type="submit" class="send-btn">Submit Inquiry</button>
-</div>
-
-</div>
-</form>                
-                        </div>
-                      </div>
-                
-                    </div>
+                  <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                   </div>
-                </section>
-                
-                
-            
-              
-                 <!-- Contact -->
+
+                  <div class="col-md-6">
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="text" name="companyName" class="form-control" placeholder="Company Name">
+                  </div>
+
+                  <div class="col-12">
+                    <textarea name="message" rows="5" class="form-control" placeholder="Tell us about your requirement..." required></textarea>
+                  </div>
+
+                  <!-- Formspree honeypot: hides from users, blocks bots -->
+                  <input type="text" name="_gotcha" style="display:none">
+                  <input type="hidden" name="countryCode" value="+91">
+
+                  <div class="col-12 text-end">
+                    <button type="submit" class="send-btn" id="submitBtn">Submit Inquiry</button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Footer Section -->
-      
-  <footer>
-        <!-- Footer Top (Blue Section) -->
+    <footer>
         <div class="footer-top py-5">
             <div class="container d-flex flex-wrap justify-content-center gap-4">
-                <!-- Email -->
-
-
                 <div class="footer-card">
                     <div class="footer-icon"><i class="fas fa-envelope"></i></div>
                     <h5>Email Us</h5>
                     <p><a href="mailto:info@blueaxismedia.in">info@blueaxismedia.in</a></p>
                 </div>
-                <!-- Office -->
                 <div class="footer-card">
                     <div class="footer-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <h5>Our Office</h5>
                     <p><a href="https://www.google.com/maps/place/Pune,+Maharashtra,+India+411014" target="_blank">Pune, Maharashtra, India 411014</a></p>
                 </div>
-                <!-- Call -->
                 <div class="footer-card">
                     <div class="footer-icon"><i class="fas fa-phone"></i></div>
                     <h5>Call Us</h5>
@@ -1074,7 +752,6 @@ body {
             </div>
         </div>
     
-        <!-- Footer Bottom (Black Section) -->
         <div class="footer-bottom py-4">
             <div class="container text-center text-md-start d-md-flex justify-content-between align-items-center flex-wrap gap-3">
                 <ul class="footer-links mb-2 mb-md-0">
@@ -1086,218 +763,65 @@ body {
                 </ul>
                 <div>
                     <p class="mb-2 mb-md-0">&copy; 2026 <strong>Blueaxis Media</strong>. All rights reserved.</p>
-                    <!-- <div class="social-icons mt-2">
-                        <a target="_blank" href="https://x.com/KoinetMedia"><i class="fab fa-twitter"></i></a>
-                        <a target="_blank" href="https://www.facebook.com/KoiNetMedia/"><i class="fab fa-facebook"></i></a>
-                        <a target="_blank" href="https://www.instagram.com/koinetmedia1/"><i class="fab fa-instagram"></i></a>
-                        <a target="_blank" href="https://www.linkedin.com/company/koinet-media/posts/"><i class="fab fa-linkedin"></i></a>
-                    </div> -->
                 </div>
             </div>
         </div>
     </footer>
     
-<style>
-/* General Footer */
-footer {
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    /* Blue Top Section */
-    .footer-top {
-        background: linear-gradient(135deg, #007bff, rgba(19, 59, 129, 255));
-        padding: 60px 0;
-        clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-    }
-    
-    .footer-card {
-        background: #fff;
-        padding: 25px 30px;
-        border-radius: 15px;
-        text-align: center;
-        width: 250px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .footer-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    }
-    
-    .footer-icon {
-        width: 60px;
-        height: 60px;
-        background: #007bff;
-        color: #fff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        margin: 0 auto 12px;
-        transition: transform 0.3s ease, background 0.3s ease;
-    }
-    
-    .footer-icon:hover {
-        background: #0056b3;
-        transform: scale(1.1);
-    }
-    
-    .footer-card h5 {
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: #111;
-    }
-    
-    .footer-card p a {
-        color: #007bff;
-        text-decoration: none;
-        font-weight: 500;
-    }
-    
-    .footer-card p a:hover {
-        color: #0056b3;
-        text-decoration: underline;
-    }
-    
-    /* Black Bottom Section */
-    .footer-bottom {
-        background: #111;
-        color: #ddd;
-        padding: 25px 0;
-        font-size: 0.9rem;
-    }
-    
-    .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .footer-links li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-    
-    .footer-links a {
-        color: #ccc;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    
-    .footer-links a:hover {
-        color: #00c6ff;
-    }
-    
-    /* Social Icons */
-    .social-icons a {
-        display: inline-block;
-        margin: 0 6px;
-        color: #fff;
-        font-size: 18px;
-        background: rgba(255,255,255,0.1);
-        width: 36px;
-        height: 36px;
-        line-height: 36px;
-        border-radius: 50%;
-        transition: all 0.3s ease;
-    }
-    
-    .social-icons a:hover {
-        color: #fff;
-        background: black;
-        transform: scale(1.1);
-    }
-    
-    /* Responsive */
-    @media(max-width: 768px) {
-        .footer-top .footer-card {
-            width: 100%;
-            max-width: 300px;
+    <style>
+        footer { font-family: 'Poppins', sans-serif; }
+        
+        .footer-top {
+            background: linear-gradient(135deg, #007bff, rgba(19, 59, 129, 255));
+            padding: 60px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
         }
-        .footer-bottom {
-            text-align: center;
+        
+        .footer-card {
+            background: #fff; padding: 25px 30px; border-radius: 15px;
+            text-align: center; width: 250px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .footer-links li {
-            display: block;
-            margin: 5px 0;
+        .footer-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+        
+        .footer-icon {
+            width: 60px; height: 60px; background: #007bff; color: #fff;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 24px; margin: 0 auto 12px;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
-        .social-icons {
-            margin-top: 10px;
+        .footer-icon:hover { background: #0056b3; transform: scale(1.1); }
+        
+        .footer-card h5 { margin-bottom: 8px; font-weight: 600; color: #111; }
+        .footer-card p a { color: #007bff; text-decoration: none; font-weight: 500; }
+        .footer-card p a:hover { color: #0056b3; text-decoration: underline; }
+        
+        .footer-bottom { background: #111; color: #ddd; padding: 25px 0; font-size: 0.9rem; }
+        
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { display: inline-block; margin: 0 10px; }
+        .footer-links a { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: #00c6ff; }
+        
+        .social-icons a {
+            display: inline-block; margin: 0 6px; color: #fff; font-size: 18px;
+            background: rgba(255,255,255,0.1); width: 36px; height: 36px;
+            line-height: 36px; border-radius: 50%; transition: all 0.3s ease;
         }
-    }
-
-    .contact-info-panel,
-.contact-form-panel {
-  transition: all 0.4s ease;
-}
-
-/* .contact-info-panel:hover,
-.contact-form-panel:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-} */
-
-    /* Floating gradient animation */
-.contact-wrapper-new {
-      background: linear-gradient(135deg, #f4f9ff, #9aa8c2);
-  background-size: 600% 600%;
-  animation: gradientMove 10s ease infinite;
-}
-
-.form-control {
-  transition: all 0.3s ease;
-}
-
-.form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 10px rgba(0,123,255,0.3);
-  transform: scale(1.02);
-}
-
-.send-btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.send-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: rgba(255,255,255,0.3);
-  transform: skewX(-25deg);
-  transition: 0.5s;
-}
-
-.send-btn:hover::before {
-  left: 120%;
-}
-
-.info-row i {
-  transition: transform 0.3s ease;
-}
-
-.info-row:hover i {
-  transform: scale(1.3) rotate(5deg);
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-</style>
-
-<!-- footer end -->
+        .social-icons a:hover { color: #fff; background: black; transform: scale(1.1); }
+        
+        @media(max-width: 768px) {
+            .footer-top .footer-card { width: 100%; max-width: 300px; }
+            .footer-bottom { text-align: center; }
+            .footer-links li { display: block; margin: 5px 0; }
+            .social-icons { margin-top: 10px; }
+        }
+    </style>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Navbar Scroll Effect -->
     <script>
         document.addEventListener("scroll", function() {
             let navbar = document.querySelector(".navbar-custom");
@@ -1307,148 +831,138 @@ footer {
                 navbar.classList.remove("shadow-sm");
             }
         });
-        
     </script>
 
+    <!-- Auth Check -->
     <script>
-    const TOKEN_KEY = "token";
-
-    function getToken() {
-        return localStorage.getItem(TOKEN_KEY);
-    }
-
-    function isAuthenticated() {
-        return !!getToken();
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        if (!isAuthenticated()) {
-            window.location.href = "login.html";
-            return;
-        }
-    });
-</script>
-
-
-    <!-- Form Submission Script -->
-    <script>
-
-
-
-function showNotification(message, type = 'success', duration = 4000) {
-    const container = document.getElementById('notificationContainer');
-
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-
-    const iconMap = {
-        success: "✓",
-        error: "✕"
-    };
-
-    notification.innerHTML = `
-        <div class="notification-icon">${iconMap[type]}</div>
-        <div class="notification-content">${message}</div>
-        <button class="notification-close">×</button>
-    `;
-
-    container.appendChild(notification);
-
-    // Close button
-    notification.querySelector('.notification-close').onclick = () => {
-        notification.classList.add('hide');
-        setTimeout(() => notification.remove(), 300);
-    };
-
-    // Auto remove
-    setTimeout(() => {
-        if (notification.parentElement) {
-            notification.classList.add('hide');
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, duration);
-}
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contactForm");
-
-    if (form) {
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault();
-
-            const token = localStorage.getItem("token");
-
-            if (!token) {
-                alert("Please login first.");
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!localStorage.getItem("token")) {
                 window.location.href = "login.html";
-                return;
             }
+        });
+    </script>
 
-            const submitButton = form.querySelector("button");
-            submitButton.disabled = true;
-            submitButton.innerHTML = "Submitting...";
+    <!-- ✅ FIXED: Form Submission Script -->
+    <script>
 
-            const payload = {
-                name: form.querySelector('input[name="name"]').value,
-                email: form.querySelector('input[name="email"]').value,
-                phone: form.querySelector('input[name="phone"]').value,
-                companyName: form.querySelector('input[name="companyName"]').value,
-                message: form.querySelector('textarea[name="message"]').value,
-                countryCode: form.querySelector('input[name="countryCode"]').value
+        // Notification helper — unchanged from your original
+        function showNotification(message, type = 'success', duration = 4000) {
+            const container = document.getElementById('notificationContainer');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-icon">${type === 'success' ? '✓' : '✕'}</div>
+                <div class="notification-content">${message}</div>
+                <button class="notification-close">×</button>
+            `;
+            container.appendChild(notification);
+
+            notification.querySelector('.notification-close').onclick = () => {
+                notification.classList.add('hide');
+                setTimeout(() => notification.remove(), 300);
             };
 
-            try {
-                // 1. Save in Railway DB through backend
-                const dbResponse = await fetch("https://blueaxis-backend-10.onrender.com/api/postContact", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + token
-                    },
-                    body: JSON.stringify(payload)
-                });
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.classList.add('hide');
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, duration);
+        }
 
-                if (!dbResponse.ok) {
-                    throw new Error("Failed to save in database");
+        // ─────────────────────────────────────────────
+        // ✅ FIX 1: Single Formspree ID (no more split between mlgowege / xgoprrdz)
+        //    Set whichever one is active & verified in your Formspree dashboard.
+        // ─────────────────────────────────────────────
+        const FORMSPREE_ID = "xgoprrdz"; // ← your ONE active Formspree form ID
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const form      = document.getElementById("contactForm");
+            const submitBtn = document.getElementById("submitBtn");
+
+            if (!form) return;
+
+            form.addEventListener("submit", async function(event) {
+                event.preventDefault();
+
+                const token = localStorage.getItem("token");
+                if (!token) {
+                    alert("Please login first.");
+                    window.location.href = "login.html";
+                    return;
                 }
 
-                // 2. Send same data to Formspree email
-                const formspreeData = new FormData();
-                formspreeData.append("name", payload.name);
-                formspreeData.append("email", payload.email);
-                formspreeData.append("phone", payload.phone);
-                formspreeData.append("companyName", payload.companyName);
-                formspreeData.append("message", payload.message);
-                formspreeData.append("countryCode", payload.countryCode);
+                submitBtn.disabled     = true;
+                submitBtn.textContent  = "Submitting...";
 
-                const emailResponse = await fetch("https://formspree.io/f/xgoprrdz", {
-                    method: "POST",
-                    body: formspreeData,
-                    headers: {
-                        "Accept": "application/json"
-                    }
-                });
+                const payload = {
+                    name:        form.querySelector('input[name="name"]').value.trim(),
+                    email:       form.querySelector('input[name="email"]').value.trim(),
+                    phone:       form.querySelector('input[name="phone"]').value.trim(),
+                    companyName: form.querySelector('input[name="companyName"]').value.trim(),
+                    message:     form.querySelector('textarea[name="message"]').value.trim(),
+                    countryCode: "+91"
+                };
 
-                if (!emailResponse.ok) {
-                    console.warn("Saved in DB, but Formspree email failed.");
-                    showNotification("Saved in database, but email failed", "error");
+                let dbOk    = false;
+                let emailOk = false;
+
+                // ─────────────────────────────────────────────
+                // ✅ FIX 2: DB save no longer inside try/catch that throws on failure.
+                //    Both steps run independently so we know exactly what succeeded.
+                // ─────────────────────────────────────────────
+
+                // 1️⃣ Save to Railway DB
+                try {
+                    const dbResponse = await fetch("https://blueaxis-backend-10.onrender.com/api/postContact", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer " + token
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    dbOk = dbResponse.ok;
+                    if (!dbOk) console.error("DB save failed:", await dbResponse.text());
+                } catch (err) {
+                    console.error("DB error:", err);
+                }
+
+                // 2️⃣ Send email via Formspree (single ID, no conflict)
+                try {
+                    const formspreeData = new FormData();
+                    Object.entries(payload).forEach(([k, v]) => formspreeData.append(k, v));
+
+                    const emailResponse = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                        method: "POST",
+                        body: formspreeData,
+                        headers: { "Accept": "application/json" }
+                    });
+                    emailOk = emailResponse.ok;
+                    if (!emailOk) console.warn("Formspree failed:", await emailResponse.text());
+                } catch (err) {
+                    console.error("Formspree error:", err);
+                }
+
+                // 3️⃣ Show appropriate notification
+                if (dbOk && emailOk) {
+                    showNotification("Your message has been saved successfully!", "success");
+                    form.reset();
+                } else if (dbOk && !emailOk) {
+                    showNotification("Saved in database, but email notification failed.", "error");
+                    form.reset();
+                } else if (!dbOk && emailOk) {
+                    showNotification("Email sent, but database save failed. Please try again.", "error");
+                    form.reset();
                 } else {
-                    showNotification("Your message has been saved successfully!", "success");                }
+                    showNotification("Submission failed. Please check your connection and try again.", "error");
+                }
 
-                form.reset();
-
-            } catch (error) {
-                console.error(error);
-               showNotification("Error submitting enquiry", "error");
-            }
-
-            submitButton.disabled = false;
-            submitButton.innerHTML = "Submit Inquiry";
+                submitBtn.disabled    = false;
+                submitBtn.textContent = "Submit Inquiry";
+            });
         });
-    }
-});
-</script>
-</body>
+    </script>
 
+</body>
 </html>
