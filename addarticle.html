@@ -294,7 +294,7 @@ button[type="submit"]:hover {
     }
 }
     </style>
-    <script src="https://cdn.tiny.cloud/1/fqzuwll7ascld9x8g3841pclczljcxkx9twy3pmx7lwswiey/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/o7vngdzdro40dvbrhwj0rt5kdf98h6o5ad006y2bdbka5tee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -414,7 +414,7 @@ button[type="submit"]:hover {
                         <label for="imageUrl">Image URL</label>
                         <input type="text" class="form-control" id="imageUrl" name="imageUrl" required>
                     </div>
-                    <textarea id="myTextarea" name="content" required>Create Your Blog!</textarea>
+                    <textarea id="myTextarea" name="content" required>Create Your Article!</textarea>
                     <div class="text-center my-2">
                         <button type="submit" class="btn btn-danger w-25 rounded-5 btn-lg">Submit</button>
                     </div>
@@ -450,11 +450,32 @@ button[type="submit"]:hover {
         }, duration);
     }
 
-    tinymce.init({
-        selector: '#myTextarea',
-        plugins: 'link image lists table code',
-        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image | code',
-    });
+   tinymce.init({
+    selector: '#myTextarea',
+    height: 400,
+    readonly: false, // ✅ FORCE EDIT MODE
+
+    plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help wordcount',
+
+    toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code | help',
+
+    branding: false,
+    promotion: false,
+
+    setup: function (editor) {
+        editor.on('init', function () {
+            console.log("TinyMCE Loaded Successfully");
+
+            // ✅ FORCE DESIGN MODE (VERY IMPORTANT)
+            editor.mode.set('design');
+
+            // Default text
+            if (!editor.getContent()) {
+                editor.setContent('Create Your Article!');
+            }
+        });
+    }
+});
 
     const TOKEN_KEY = 'token';
 
