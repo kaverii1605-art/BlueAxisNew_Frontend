@@ -835,12 +835,12 @@
 
     <!-- Auth Check -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            if (!localStorage.getItem("token")) {
-                window.location.href = "login.html";
-            }
-        });
-    </script>
+    //     document.addEventListener("DOMContentLoaded", function () {
+    //         if (!localStorage.getItem("token")) {
+    //             window.location.href = "login.html";
+    //         }
+    //     });
+    // </script>
 
     <!-- ✅ FIXED: Form Submission Script -->
     <script>
@@ -874,7 +874,7 @@
         // ✅ FIX 1: Single Formspree ID (no more split between mlgowege / xgoprrdz)
         //    Set whichever one is active & verified in your Formspree dashboard.
         // ─────────────────────────────────────────────
-        const FORMSPREE_ID = "xgoprrdz"; // ← your ONE active Formspree form ID
+        const FORMSPREE_ID = "xlgoazer"; // ← your ONE active Formspree form ID
 
         document.addEventListener("DOMContentLoaded", function () {
             const form      = document.getElementById("contactForm");
@@ -885,12 +885,12 @@
             form.addEventListener("submit", async function(event) {
                 event.preventDefault();
 
-                const token = localStorage.getItem("token");
-                if (!token) {
-                    alert("Please login first.");
-                    window.location.href = "login.html";
-                    return;
-                }
+                // const token = localStorage.getItem("token");
+                // if (!token) {
+                //     alert("Please login first.");
+                //     window.location.href = "login.html";
+                //     return;
+                // }
 
                 submitBtn.disabled     = true;
                 submitBtn.textContent  = "Submitting...";
@@ -914,14 +914,13 @@
 
                 // 1️⃣ Save to Railway DB
                 try {
-                    const dbResponse = await fetch("https://blueaxis-backend-10.onrender.com/api/postContact", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": "Bearer " + token
-                        },
-                        body: JSON.stringify(payload)
-                    });
+                const dbResponse = await fetch("https://blueaxis-backend-10.onrender.com/api/postContact", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"   // ✅ token removed
+    },
+    body: JSON.stringify(payload)
+});
                     dbOk = dbResponse.ok;
                     if (!dbOk) console.error("DB save failed:", await dbResponse.text());
                 } catch (err) {
