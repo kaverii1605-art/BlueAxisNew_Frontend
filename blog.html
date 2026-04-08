@@ -1168,8 +1168,8 @@
                     <h3>${blog.title || 'Untitled Blog'}</h3>
 
                     <div class="meta">
-                        <span>📅 ${blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : new Date().toLocaleDateString()}</span>
-                        <a href="blog-details.html?id=${blog.id}">Read More</a>
+                        <span>Published Date: ${blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : new Date().toLocaleDateString()}</span>
+                        <a href="blog-details.html?id=${blog.id}">View Blog</a>
                     </div>
                 </div>
             `;
