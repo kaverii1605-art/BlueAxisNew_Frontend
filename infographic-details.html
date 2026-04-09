@@ -28,7 +28,6 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-        /* ── Global responsive reset ── */
         *,
         *::before,
         *::after {
@@ -40,7 +39,7 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Nunito', 'Segoe UI', sans-serif;
             max-width: 100%;
             overflow-x: hidden;
             position: relative;
@@ -96,9 +95,7 @@
             }
         }
 
-        /* ══════════════════════════════════════
-           NAVBAR
-        ══════════════════════════════════════ */
+        /* Navbar */
         .navbar-custom {
             background: #93b1d8;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -166,6 +163,7 @@
             padding: 10px 0;
             border: none;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            animation: dropdownFade 0.3s ease;
         }
 
         .dropdown-item {
@@ -180,7 +178,6 @@
             color: #fff;
         }
 
-        /* Desktop hover dropdown */
         @media (min-width: 992px) {
             .dropdown:hover .dropdown-menu {
                 display: block;
@@ -188,7 +185,6 @@
             }
         }
 
-        /* ── Mobile styles (≤991px) ── */
         @media (max-width: 991px) {
             .navbar-custom {
                 background: #ffffff;
@@ -200,56 +196,201 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                z-index: 999;
                 background: #ffffff;
-                padding: 15px 20px;
-                border-top: 1px solid #eee;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                padding: 10px 20px 20px;
+                border-top: 1px solid #e0e0e0;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+                z-index: 1050;
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
             }
 
-            .navbar-nav {
-                gap: 10px;
+            .navbar-custom .navbar-nav {
+                gap: 4px;
             }
 
-            .nav-link {
+            .navbar-custom .nav-link {
                 display: block;
-                padding: 12px 10px;
+                padding: 10px 12px;
                 border-radius: 8px;
+                color: #1a1a1a;
             }
 
-            .nav-link:hover {
-                background: #f1f5ff;
+            .navbar-custom .nav-link:hover {
+                background: #f0f5ff;
+                color: #30528D;
             }
 
-            /* Dropdown fix */
-            .dropdown-menu {
+            .navbar-custom .nav-link::after {
+                display: none;
+            }
+
+            .navbar-custom .dropdown-menu {
                 position: static !important;
+                transform: none !important;
                 box-shadow: none;
                 border: none;
-                padding-left: 10px;
+                border-radius: 0;
+                padding: 0 0 0 12px;
+                background: transparent;
             }
 
-            .dropdown-item {
-                padding: 8px 10px;
+            .navbar-custom .dropdown-item {
+                padding: 8px 12px;
+                border-radius: 6px;
+                font-size: 0.9rem;
+            }
+
+            .navbar-custom .dropdown-item:hover {
+                background-color: #30528D;
+                color: #fff;
+            }
+
+            .navbar-brand img {
+                height: 50px;
             }
         }
 
-        /* ══════════════════════════════════════
-           BLOG DETAIL STYLES
-        ══════════════════════════════════════ */
+        /* Footer */
+        footer {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-top {
+            background: linear-gradient(135deg, #007bff, rgba(19, 59, 129, 1));
+            padding: 60px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .footer-card {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer-icon {
+            width: 60px;
+            height: 60px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 12px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .footer-icon:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .footer-card h5 {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .footer-card p a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-card p a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            background: #111;
+            color: #ddd;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00c6ff;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 6px;
+            color: #fff;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 50%;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+            background: black;
+            transform: scale(1.1);
+        }
+
+        /* Detail content */
+        .blog-detail-header h2 {
+            font-size: clamp(2rem, 2.3vw, 3rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
         .blog-detail-header {
-            margin-bottom: 2rem;
+            max-width: 780px;
+            margin: auto;
         }
 
         .blog-detail-header .badge {
             font-size: 0.85rem;
-            padding: 0.5rem 1rem;
-            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.8rem 1rem;
+            text-transform: uppercase;
         }
 
         .blog-detail-image {
-            max-width: 800px;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            max-width: 720px;
+            width: 100%;
+        }
+
+        .blog-detail-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
 
         .blog-detail-image:hover {
@@ -290,10 +431,12 @@
             font-weight: 700;
         }
 
+        /* Navigation buttons */
         #blogNavigation {
             gap: 12px;
             flex-wrap: wrap;
             justify-content: center;
+            margin: 40px 0;
         }
 
         #blogNavigation a,
@@ -301,6 +444,42 @@
             min-width: 150px;
             font-weight: 600;
             padding: 0.9rem 1.3rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        #blogNavigation a.btn-outline-primary {
+            color: #30528D;
+            border-color: #30528D;
+            border-width: 2px;
+        }
+
+        #blogNavigation a.btn-outline-primary:hover {
+            background-color: #30528D;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(48, 82, 141, 0.3);
+        }
+
+        #blogNavigation button.btn-outline-secondary {
+            color: #aaa;
+            border-color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.5;
+            border-width: 2px;
+        }
+
+        @media (max-width: 576px) {
+            #blogNavigation {
+                gap: 8px;
+            }
+
+            #blogNavigation a,
+            #blogNavigation button {
+                min-width: 120px;
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -327,104 +506,79 @@
 
 <body>
 
-    <!-- ── NAVBAR ── -->
-    <!-- Navbar starts -->
-   <nav class="navbar navbar-expand-lg fixed-top navbar-custom bg-white shadow-sm">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom bg-white shadow-sm">
         <div class="container-fluid">
-            <!-- Logo -->
             <a class="navbar-brand fw-bold text-uppercase" href="index.html">
                 <img src="./assets/images/blueaxisLogo.png" alt="Blueaxis Media">
-                 
             </a>
 
-            <!-- Mobile Toggle Button -->
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link" href="whatwedo.html">What We Do</a></li> -->
 
-                    <!-- What We Provide Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="whatWeProvideDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" id="whatWeProvideDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             What We Do
                         </a>
-
                         <ul class="dropdown-menu animate-dropdown">
-
-                             <li><a class="dropdown-item" href="/what_we_provide/emailmarketing.html">Email Marketing</a>
-                            </li>
-                           <li><a class="dropdown-item" href="/what_we_provide/contact_discovery.html">Content
-                                    Syndication</a></li>
-                                <li><a class="dropdown-item" href="/what_we_provide/dataappend.html">Data Append &
-                                    Cleansing</a></li>
-                                <li><a class="dropdown-item" href="/what_we_provide/demadgeneration.html">Demand
-                                    Generation</a></li>
-                                 <li><a class="dropdown-item"
-                                    href="/what_we_provide/account-based-marketing.html">Account-Based Marketing</a>
-                            </li>
-                            <li><a class="dropdown-item" href="/what_we_provide/appoinmentgeneration.html">Appointment
-                                    Generation</a></li>
-                           <li><a class="dropdown-item" href="/whatwedo.html">Expertise & Services</a></li>
-                         
-                           <li><a class="dropdown-item" href="/what_we_provide/multi-channel-lead.html">Multi-Channel
-                                    Lead</a></li>
-                          
-                         <li><a class="dropdown-item" href="/what_we_provide/accountprofiling.html">Account
-                                    Profiling</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/emailmarketing.html">Email Marketing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/contact_discovery.html">Content Syndication</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/dataappend.html">Data Append & Cleansing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/demadgeneration.html">Demand Generation</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/account-based-marketing.html">Account-Based Marketing</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/appoinmentgeneration.html">Appointment Generation</a></li>
+                            <li><a class="dropdown-item" href="/whatwedo.html">Expertise & Services</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/multi-channel-lead.html">Multi-Channel Lead</a></li>
+                            <li><a class="dropdown-item" href="/what_we_provide/accountprofiling.html">Account Profiling</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item"><a class="nav-link" href="/focus_sectors.html">Focus Audiences</a></li>
 
-                    <!-- Resources Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown">
-                        Resources
-                    </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Resources
+                        </a>
                         <ul class="dropdown-menu animate-dropdown">
                             <li><a class="dropdown-item" href="/blog.html">Blog</a></li>
-<li><a class="dropdown-item" target="_blank"
-                                    href="https://b2btechbyte.com/">Repository</a></li>                            <!-- <li><a class="dropdown-item" href="infographics.html">Infographics</a></li> -->
+                            <li><a class="dropdown-item" target="_blank" href="https://b2btechbyte.com/">Repository</a></li>
                             <li><a class="dropdown-item" href="/article.html">Articles</a></li>
                         </ul>
                     </li>
 
-                    <!-- About Us Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button" data-bs-toggle="dropdown">
-                        About Us
-                    </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            About Us
+                        </a>
                         <ul class="dropdown-menu animate-dropdown">
-                            <li><a class="dropdown-item" href=/overview.html>Overview</a></li>
+                            <li><a class="dropdown-item" href="/overview.html">Overview</a></li>
                             <li><a class="dropdown-item" href="/ourstory.html">Our Story</a></li>
-                            <!-- <li><a class="dropdown-item" href="aboutus/ourculture.html">Our Team & Culture</a></li> -->
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="/contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- ══════════════════════════════════════
-         PAGE CONTENT
-    ══════════════════════════════════════ -->
+    <!-- PAGE CONTENT -->
     <div class="container mt-5" style="padding-top: 80px;">
-        <div class="text-center mb-4">
-            <h1 class="fw-bold text-dark">Infographic Details</h1>
-        </div>
+        <div class="text-center mb-4"></div>
 
         <div id="infoDetails" class="card shadow border-0 rounded-4 p-4">
             <p>Loading...</p>
         </div>
 
-        <!-- Previous/Next Navigation -->
         <div id="blogNavigation" class="d-flex justify-content-center flex-wrap gap-3 mt-4 mb-4">
             <!-- Navigation will be populated by JavaScript -->
         </div>
@@ -434,7 +588,7 @@
         </div>
     </div>
 
-        <script>
+    <script>
         const TOKEN_KEY = "token";
 
         function getToken() {
@@ -452,115 +606,115 @@
             };
         }
 
-            document.addEventListener("DOMContentLoaded", () => {
-                if (!isAuthenticated()) {
-                    window.location.href = "login.html";
-                }
-            });
-        </script>
-
-    <!-- Infographic Details Script -->
-    <script>
-document.addEventListener("DOMContentLoaded", async () => {
-
-    const infoContainer = document.getElementById("infoDetails");
-    const navContainer = document.getElementById("blogNavigation");
-
-    const params = new URLSearchParams(window.location.search);
-    const infoId = params.get("id");
-
-    if (!infoId) {
-        infoContainer.innerHTML = "<p class='text-danger'>No infographic ID found</p>";
-        return;
-    }
-
-    try {
-        const response = await fetch("https://blueaxis-backend-10.onrender.com/api/getinfo", {
-            method: "GET",
-            headers: authHeaders()
+        document.addEventListener("DOMContentLoaded", () => {
+            if (!isAuthenticated()) {
+                window.location.href = "login.html";
+            }
         });
+    </script>
 
-        // 🔴 Handle token expired / unauthorized
-        if (response.status === 401 || response.status === 403) {
-            localStorage.removeItem("token");
-            window.location.href = "login.html";
-            return;
-        }
+    <!-- DETAILS SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const infoContainer = document.getElementById("infoDetails");
+            const navContainer = document.getElementById("blogNavigation");
 
-        if (!response.ok) {
-            throw new Error(`Request failed: ${response.status}`);
-        }
+            const params = new URLSearchParams(window.location.search);
+            const infoId = params.get("id");
 
-        const infos = await response.json();
-
-        const index = infos.findIndex(i => i.id == infoId);
-
-        if (index === -1) {
-            infoContainer.innerHTML = "<p class='text-danger'>Infographic not found</p>";
-            return;
-        }
-
-        const info = infos[index];
-        const prevInfo = infos[index - 1];
-        const nextInfo = infos[index + 1];
-
-        infoContainer.innerHTML = `
-            <div class="blog-detail-header text-center mb-4">
-                <span class="badge bg-primary mb-3">${info.category}</span>
-                <h2 class="fw-bold mb-3">${info.title}</h2>
-                <div class="text-muted mb-3">
-                    <i class="fas fa-calendar-alt me-2"></i>${info.publishedDate || 'Published'}
-                </div>
-            </div>
-
-            <div class="blog-detail-image mx-auto overflow-hidden rounded-4 shadow-sm mb-4">
-                <img src="${info.imageUrl}" class="img-fluid w-100">
-            </div>
-
-            <div class="blog-detail-content text-secondary mx-auto">
-                ${info.content}
-            </div>
-        `;
-
-        // Navigation buttons
-        navContainer.innerHTML = `
-            ${prevInfo
-                ? `<a href="infographic-details.html?id=${prevInfo.id}" class="btn btn-outline-primary">← Previous</a>`
-                : `<button class="btn btn-outline-secondary" disabled>← Previous</button>`
+            if (!infoId) {
+                infoContainer.innerHTML = "<p class='text-danger'>No infographic ID found</p>";
+                navContainer.innerHTML = "";
+                return;
             }
 
-            ${nextInfo
-                ? `<a href="infographic-details.html?id=${nextInfo.id}" class="btn btn-outline-primary">Next →</a>`
-                : `<button class="btn btn-outline-secondary" disabled>Next →</button>`
+            try {
+                const response = await fetch("https://blueaxis-backend-10.onrender.com/api/getinfo", {
+                    method: "GET",
+                    headers: authHeaders()
+                });
+
+                if (response.status === 401 || response.status === 403) {
+                    localStorage.removeItem("token");
+                    window.location.href = "login.html";
+                    return;
+                }
+
+                if (!response.ok) {
+                    throw new Error(`Request failed: ${response.status}`);
+                }
+
+                const infos = await response.json();
+                const infoList = Array.isArray(infos) ? infos : (infos.content || []);
+                const index = infoList.findIndex(i => i.id == infoId);
+
+                if (index === -1) {
+                    infoContainer.innerHTML = "<p class='text-danger'>Infographic not found</p>";
+                    navContainer.innerHTML = "";
+                    return;
+                }
+
+                const info = infoList[index];
+                const prevInfo = infoList[index - 1];
+                const nextInfo = infoList[index + 1];
+
+                infoContainer.innerHTML = `
+                    <div class="blog-detail-header text-center mb-4">
+                        <h2 class="fw-bold mb-3">${info.title || 'Untitled Infographic'}</h2>
+                    </div>
+
+                    <div class="blog-detail-image mx-auto overflow-hidden rounded-4 shadow-sm mb-4">
+                        <img src="${info.imageUrl || 'assets/images/default-blog.jpg'}" alt="${info.title || 'Infographic'}" class="img-fluid w-100">
+                    </div>
+
+                    <div class="d-flex justify-content-center flex-wrap align-items-center gap-3 mb-4">
+                        <span class="badge bg-primary">
+                            Published on : ${info.createdAt ? new Date(info.createdAt).toLocaleDateString() : (info.publishedDate || 'N/A')}
+                        </span>
+                        <span class="badge bg-primary">
+                            Category : ${info.category || 'Infographic'}
+                        </span>
+                    </div>
+
+                    <div class="blog-detail-content text-secondary mx-auto">
+                        ${info.content || '<p>No content available.</p>'}
+                    </div>
+                `;
+
+                navContainer.innerHTML = `
+                    ${prevInfo
+                        ? `<a href="infographic-details.html?id=${prevInfo.id}" class="btn btn-outline-primary">← Previous</a>`
+                        : `<button class="btn btn-outline-secondary" disabled>← Previous</button>`
+                    }
+                    ${nextInfo
+                        ? `<a href="infographic-details.html?id=${nextInfo.id}" class="btn btn-outline-primary">Next →</a>`
+                        : `<button class="btn btn-outline-secondary" disabled>Next →</button>`
+                    }
+                `;
+            } catch (error) {
+                console.error(error);
+                infoContainer.innerHTML = "<p class='text-danger'>Error loading infographic</p>";
+                navContainer.innerHTML = "";
             }
-        `;
+        });
+    </script>
 
-    } catch (error) {
-        console.error(error);
-        infoContainer.innerHTML = "<p class='text-danger'>Error loading infographic</p>";
-    }
-
-});
-</script>
-
-    <!-- Footer Section -->
+    <!-- FOOTER -->
     <footer>
-        <!-- Footer Top (Blue Section) -->
         <div class="footer-top py-5">
             <div class="container d-flex flex-wrap justify-content-center gap-4">
-                <!-- Email -->
                 <div class="footer-card">
                     <div class="footer-icon"><i class="fas fa-envelope"></i></div>
                     <h5>Email Us</h5>
                     <p><a href="mailto:info@blueaxismedia.in">info@blueaxismedia.in</a></p>
                 </div>
-                <!-- Office -->
+
                 <div class="footer-card">
                     <div class="footer-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <h5>Our Office</h5>
                     <p><a href="https://www.google.com/maps/place/Pune,+Maharashtra,+India+411014" target="_blank">Pune, Maharashtra, India 411014</a></p>
                 </div>
-                <!-- Call -->
+
                 <div class="footer-card">
                     <div class="footer-icon"><i class="fas fa-phone"></i></div>
                     <h5>Call Us</h5>
@@ -569,7 +723,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             </div>
         </div>
 
-        <!-- Footer Bottom (Black Section) -->
         <div class="footer-bottom py-4">
             <div class="container text-center text-md-start d-md-flex justify-content-between align-items-center flex-wrap gap-3">
                 <ul class="footer-links mb-2 mb-md-0">
@@ -581,197 +734,68 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </ul>
                 <div>
                     <p class="mb-2 mb-md-0">&copy; 2026 <strong>Blueaxis Media</strong>. All rights reserved.</p>
-                    <!-- <div class="social-icons mt-2">
-                        <a target="_blank" href="https://x.com/KoinetMedia"><i class="fab fa-twitter"></i></a>
-                        <a target="_blank" href="https://www.facebook.com/KoiNetMedia/"><i class="fab fa-facebook"></i></a>
-                        <a target="_blank" href="https://www.instagram.com/koinetmedia1/"><i class="fab fa-instagram"></i></a>
-                        <a target="_blank" href="https://www.linkedin.com/company/koinet-media/posts/"><i class="fab fa-linkedin"></i></a>
-                    </div> -->
                 </div>
             </div>
         </div>
     </footer>
 
-    <style>
-    /* General Footer */
-    footer {
-        font-family: 'Poppins', sans-serif;
-    }
-
-    /* Blue Top Section */
-    .footer-top {
-        background: linear-gradient(135deg, #007bff, #00c6ff);
-        padding: 60px 0;
-        clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-    }
-
-    .footer-card {
-        background: #fff;
-        padding: 25px 30px;
-        border-radius: 15px;
-        text-align: center;
-        width: 250px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .footer-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    }
-
-    .footer-icon {
-        width: 60px;
-        height: 60px;
-        background: #007bff;
-        color: #fff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        margin: 0 auto 12px;
-        transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .footer-icon:hover {
-        background: #0056b3;
-        transform: scale(1.1);
-    }
-
-    .footer-card h5 {
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: #111;
-    }
-
-    .footer-card p a {
-        color: #007bff;
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-    .footer-card p a:hover {
-        color: #0056b3;
-        text-decoration: underline;
-    }
-
-    /* Black Bottom Section */
-    .footer-bottom {
-        background: #111;
-        color: #ddd;
-        padding: 25px 0;
-        font-size: 0.9rem;
-    }
-
-    .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .footer-links li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    .footer-links a {
-        color: #ccc;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover {
-        color: #00c6ff;
-    }
-
-    /* Social Icons */
-    .social-icons a {
-        display: inline-block;
-        margin: 0 6px;
-        color: #fff;
-        font-size: 18px;
-        background: rgba(255,255,255,0.1);
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-    }
-
-    .social-icons a:hover {
-        background: #007bff;
-        transform: translateY(-2px);
-    }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-        .footer-top {
-            padding: 40px 0;
-            clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
-        }
-
-        .footer-card {
-            width: 100%;
-            max-width: 300px;
-            margin-bottom: 20px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-        }
-
-        .footer-links li {
-            display: block;
-            margin: 5px 0;
-        }
-
-        .social-icons {
-            margin-top: 10px;
-        }
-    }
-    </style>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Navbar Script -->
+    <!-- Navbar behavior -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navbar = document.querySelector('.navbar');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
+        document.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar-custom");
+            if (window.scrollY > 50) {
+                navbar.classList.add("navbar-transparent");
+                navbar.classList.add("shadow-sm");
+            } else {
+                navbar.classList.remove("navbar-transparent");
+            }
+        });
 
-            // Handle mobile menu toggle
-            const toggler = document.querySelector('.navbar-toggler');
-            toggler.addEventListener('click', function() {
-                navbarCollapse.classList.toggle('show');
-            });
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdowns = document.querySelectorAll('.navbar .nav-item.dropdown');
 
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!navbar.contains(event.target)) {
-                    navbarCollapse.classList.remove('show');
+            function closeOtherDropdowns(currentDropdown) {
+                dropdowns.forEach(other => {
+                    if (other !== currentDropdown) {
+                        const toggle = other.querySelector('.dropdown-toggle');
+                        const menu = other.querySelector('.dropdown-menu');
+                        if (toggle) {
+                            toggle.classList.remove('show');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                        if (menu) {
+                            menu.classList.remove('show');
+                        }
+                    }
+                });
+            }
+
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', function () {
+                    if (window.innerWidth >= 992) {
+                        closeOtherDropdowns(dropdown);
+                    }
+                });
+
+                const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', function () {
+                        closeOtherDropdowns(dropdown);
+                    });
                 }
             });
+        });
 
-            // Handle dropdown hover for desktop
-            const dropdowns = document.querySelectorAll('.dropdown');
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('mouseenter', function() {
-                    if (window.innerWidth >= 992) {
-                        const menu = this.querySelector('.dropdown-menu');
-                        menu.classList.add('show');
-                    }
-                });
-                dropdown.addEventListener('mouseleave', function() {
-                    if (window.innerWidth >= 992) {
-                        const menu = this.querySelector('.dropdown-menu');
-                        menu.classList.remove('show');
-                    }
-                });
-            });
+        document.addEventListener('click', function (event) {
+            var navbar = document.getElementById('navbarNav');
+            var toggler = document.querySelector('.navbar-toggler');
+            if (navbar && toggler && navbar.classList.contains('show') &&
+                !navbar.contains(event.target) && !toggler.contains(event.target)) {
+                toggler.click();
+            }
         });
     </script>
 

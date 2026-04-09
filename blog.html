@@ -287,6 +287,33 @@
     transform: none;
 }
 
+
+        @media (max-width: 576px) {
+            .pagination {
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pagination .btn,
+            #pagination-info {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .pagination .btn {
+                min-width: 0;
+                padding: 12px 20px;
+            }
+
+            #pagination-info {
+                order: 2;
+                margin: 0;
+                text-align: center;
+                color: #6c757d;
+            }
+        }
+        
         /* Responsive Styles */
 
         @media (max-width: 768px) {
