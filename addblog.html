@@ -540,150 +540,176 @@ button[type="submit"]:hover {
 </script>
 
     <script>
-              
-
-
-      const token = localStorage.getItem("token");
-
-        if (!token) {
-            window.location.href = "login.html";
-        }
-
-      // Notification function
-      function showNotification(message, type = 'success', duration = 4000) {
-        const container = document.getElementById('notificationContainer');
-        
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        
-        const iconMap = {
-          'success': '✓',
-          'error': '✕'
-        };
-        
-        notification.innerHTML = `
-          <div class="notification-icon">${iconMap[type] || '!'}</div>
-          <div class="notification-content">${message}</div>
-          <button class="notification-close">×</button>
-        `;
-        
-        container.appendChild(notification);
-        
-        // Close button handler
-        notification.querySelector('.notification-close').addEventListener('click', function() {
-          notification.classList.add('hide');
-          setTimeout(() => notification.remove(), 300);
-        });
-        
-        // Auto-dismiss after duration
-        if (duration > 0) {
-          setTimeout(() => {
-            if (notification.parentElement) {
-              notification.classList.add('hide');
-              setTimeout(() => notification.remove(), 300);
-            }
-          }, duration);
-        }
-      }
-
-      // Form submission handler
-        document.getElementById('myForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    // Get content from TinyMCE editor - THIS IS IMPORTANT
-    const content = tinymce.get('myTextarea').getContent();
-    
-    const postData = {
-        title: document.getElementById('title').value,
-        category: document.getElementById('category').value,
-        imageUrl: document.getElementById('imageUrl').value,
-        content: content
-    };
-
-    console.log("Submitting blog:", postData);
-    console.log("Content length:", content.length);
-
     const token = localStorage.getItem("token");
 
-    fetch('https://blueaxis-backend-10.onrender.com/api/addblog', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token   
-        },
-        body: JSON.stringify(postData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.error) {
-            showNotification(data.error, 'error');
-        } else {
+    if (!token) {
+        window.location.href = "login.html";
+    }
+
+    function showNotification(message, type = 'success', duration = 4000) {
+        const container = document.getElementById('notificationContainer');
+
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+
+        const iconMap = {
+            success: '✓',
+            error: '✕'
+        };
+
+        notification.innerHTML = `
+            <div class="notification-icon">${iconMap[type] || '!'}</div>
+            <div class="notification-content">${message}</div>
+            <button class="notification-close">×</button>
+        `;
+
+        container.appendChild(notification);
+
+        notification.querySelector('.notification-close').addEventListener('click', function () {
+            notification.classList.add('hide');
+            setTimeout(() => notification.remove(), 300);
+        });
+
+        if (duration > 0) {
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.classList.add('hide');
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, duration);
+        }
+    }
+
+    function isAuthenticated() {
+        return localStorage.getItem('token') !== null;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!isAuthenticated()) {
+            window.location.href = 'login.html';
+        }
+    });
+
+    document.getElementById('myForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const editor = tinymce.get('myTextarea');
+        const content = editor ? editor.getContent() : '';
+
+        const postData = {
+            title: document.getElementById('title').value.trim(),
+            category: document.getElementById('category').value,
+            imageUrl: document.getElementById('imageUrl').value.trim(),
+            content: content
+        };
+
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            showNotification("Session expired. Please login again.", "error");
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1000);
+            return;
+        }
+
+        try {
+            const response = await fetch('https://blueaxis-backend-10.onrender.com/api/addblog', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify(postData)
+            });
+
+            if (response.status === 401 || response.status === 403) {
+                localStorage.removeItem("token");
+                showNotification("Unauthorized. Please login again.", "error");
+                setTimeout(() => {
+                    window.location.href = "login.html";
+                }, 1200);
+                return;
+            }
+
+            const rawText = await response.text();
+            let data = {};
+
+            try {
+                data = rawText ? JSON.parse(rawText) : {};
+            } catch (e) {
+                data = {};
+            }
+
+            if (!response.ok) {
+                throw new Error(data.message || data.error || `Request failed with status ${response.status}`);
+            }
+
             showNotification('Blog created successfully!', 'success');
             document.getElementById('myForm').reset();
-            tinymce.get('myTextarea').setContent(''); // Clear editor
+
+            if (editor) {
+                editor.setContent('');
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+            showNotification(error.message || 'An error occurred while creating the blog.', 'error');
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        showNotification('An error occurred while creating the blog.', 'error');
     });
-});
-        // Function to check if user is authenticated (has token in localStorage)
-       const isAuthenticated = () => {
-    return localStorage.getItem('token') !== null;
-};
 
-        // On page load, check authentication status and initialize form
-        document.addEventListener('DOMContentLoaded', () => {
-            if (!isAuthenticated()) {
-                window.location.href = 'login.html'; // Redirect to login page if not authenticated
-            }
-        });
+    document.addEventListener('DOMContentLoaded', function () {
+        const apiUrl = 'https://blueaxis-backend-10.onrender.com/api/getblogs';
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // URL of your API endpoint
-            const apiUrl = 'https://blueaxis-backend-10.onrender.com/api/getblogs';
+        async function fetchTotalBlogs() {
+            try {
+                const token = localStorage.getItem("token");
 
-            // Function to fetch the total number of blogs
-            async function fetchTotalBlogs() {
-                try {
-                    const token = localStorage.getItem("token");
-
-                    const response = await fetch(apiUrl, {
-                        method: "GET",
-                        headers: {
-                            "Authorization": "Bearer " + token
-                        }
-                    });
-
-                    if (!response.ok) {
-                        throw new Error("Unauthorized");
+                const response = await fetch(apiUrl, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": "Bearer " + token
                     }
+                });
 
-                    const data = await response.json();
-
-                    // Assuming the API returns an array of blogs
-                    const totalBlogs = data.length;
-
-                    document.getElementById('total-blogs').textContent = totalBlogs;
-                } catch (error) {
-                    console.error('Error fetching total blogs:', error);
-                    document.getElementById('total-blogs').textContent = 'Error';
+                if (response.status === 401 || response.status === 403) {
+                    localStorage.removeItem("token");
+                    document.getElementById('total-blogs').textContent = 'Login required';
+                    return;
                 }
+
+                if (!response.ok) {
+                    throw new Error(`Request failed: ${response.status}`);
+                }
+
+                const rawText = await response.text();
+                let data = [];
+
+                try {
+                    data = rawText ? JSON.parse(rawText) : [];
+                } catch (e) {
+                    data = [];
+                }
+
+                const totalBlogs = Array.isArray(data) ? data.length : 0;
+                document.getElementById('total-blogs').textContent = totalBlogs;
+
+            } catch (error) {
+                console.error('Error fetching total blogs:', error);
+                document.getElementById('total-blogs').textContent = 'Error';
             }
+        }
 
-            fetchTotalBlogs();
-        });
+        fetchTotalBlogs();
+    });
 
-        //logout button 
-        const logoutButton = document.getElementById('logoutButton');
+    const logoutButton = document.getElementById('logoutButton');
 
-        // Add an event listener to the button
-        logoutButton.addEventListener('click', () => {
-            localStorage.removeItem('token'); // Remove the token from localStorage
-            window.location.href = 'login.html'; // Redirect to the login page
-        });
-    </script>
+    logoutButton.addEventListener('click', () => {
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+    });
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
