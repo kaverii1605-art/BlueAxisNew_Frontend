@@ -1222,43 +1222,72 @@
     let currentPage = 0;
     const pageSize = 4;
 
+    // async function fetchBlogs() {
+    //     try {
+    //         const token = localStorage.getItem("token");
+
+    //         const response = await fetch("https://blueaxis-backend-10.onrender.com/api/getblogs", {
+    //             method: "GET",
+    //             headers: token ? {
+    //                 "Authorization": `Bearer ${token}`
+    //             } : {}
+    //         });
+
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! Status: ${response.status}`);
+    //         }
+
+    //         const data = await response.json();
+
+    //         if (Array.isArray(data)) {
+    //             blogs = data;
+    //             filteredBlogs = [...blogs];
+    //             renderPage();
+    //         } else if (data.content && Array.isArray(data.content)) {
+    //             blogs = data.content;
+    //             filteredBlogs = [...blogs];
+    //             renderPage();
+    //         } else {
+    //             console.error("Unexpected API response:", data);
+    //             document.getElementById("blogs-container").innerHTML =
+    //                 `<p class="text-center text-danger">No blogs found.</p>`;
+    //         }
+    //     } catch (error) {
+    //         console.error("Error fetching blogs:", error);
+    //         document.getElementById("blogs-container").innerHTML =
+    //             `<p class="text-center text-danger">Failed to load blogs.</p>`;
+    //     }
+    // }
+
+
     async function fetchBlogs() {
-        try {
-            const token = localStorage.getItem("token");
+    try {
+        const response = await fetch("https://blueaxis-backend-10.onrender.com/api/getblogs");
 
-            const response = await fetch("https://blueaxis-backend-10.onrender.com/api/getblogs", {
-                method: "GET",
-                headers: token ? {
-                    "Authorization": `Bearer ${token}`
-                } : {}
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const data = await response.json();
-
-            if (Array.isArray(data)) {
-                blogs = data;
-                filteredBlogs = [...blogs];
-                renderPage();
-            } else if (data.content && Array.isArray(data.content)) {
-                blogs = data.content;
-                filteredBlogs = [...blogs];
-                renderPage();
-            } else {
-                console.error("Unexpected API response:", data);
-                document.getElementById("blogs-container").innerHTML =
-                    `<p class="text-center text-danger">No blogs found.</p>`;
-            }
-        } catch (error) {
-            console.error("Error fetching blogs:", error);
-            document.getElementById("blogs-container").innerHTML =
-                `<p class="text-center text-danger">Failed to load blogs.</p>`;
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
-    }
 
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+            blogs = data;
+            filteredBlogs = [...blogs];
+            renderPage();
+        } else if (data.content && Array.isArray(data.content)) {
+            blogs = data.content;
+            filteredBlogs = [...blogs];
+            renderPage();
+        } else {
+            document.getElementById("blogs-container").innerHTML =
+                `<p class="text-center text-danger">No blogs found.</p>`;
+        }
+    } catch (error) {
+        console.error("Error fetching blogs:", error);
+        document.getElementById("blogs-container").innerHTML =
+            `<p class="text-center text-danger">Failed to load blogs.</p>`;
+    }
+}
     function renderPage() {
         const container = document.getElementById("blogs-container");
         container.innerHTML = "";

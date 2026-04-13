@@ -733,120 +733,184 @@
     </footer>
 
     <script>
-        document.addEventListener("scroll", function () {
-            let navbar = document.querySelector(".navbar-custom");
-            if (window.scrollY > 50) {
-                navbar.classList.add("navbar-transparent");
-                navbar.classList.add("shadow-sm");
-            } else {
-                navbar.classList.remove("navbar-transparent");
-            }
-        });
+       document.addEventListener("scroll", function () {
+    let navbar = document.querySelector(".navbar-custom");
+    if (window.scrollY > 50) {
+        navbar.classList.add("navbar-transparent");
+        navbar.classList.add("shadow-sm");
+    } else {
+        navbar.classList.remove("navbar-transparent");
+    }
+});
 
         document.addEventListener("DOMContentLoaded", function () {
-            const dropdowns = document.querySelectorAll('.navbar .nav-item.dropdown');
+    const dropdowns = document.querySelectorAll('.navbar .nav-item.dropdown');
 
-            function closeOtherDropdowns(currentDropdown) {
-                dropdowns.forEach(other => {
-                    if (other !== currentDropdown) {
-                        const toggle = other.querySelector('.dropdown-toggle');
-                        const menu = other.querySelector('.dropdown-menu');
-                        if (toggle) {
-                            toggle.classList.remove('show');
-                            toggle.setAttribute('aria-expanded', 'false');
-                        }
-                        if (menu) {
-                            menu.classList.remove('show');
-                        }
-                    }
-                });
+    function closeOtherDropdowns(currentDropdown) {
+        dropdowns.forEach(other => {
+            if (other !== currentDropdown) {
+                const toggle = other.querySelector('.dropdown-toggle');
+                const menu = other.querySelector('.dropdown-menu');
+                if (toggle) {
+                    toggle.classList.remove('show');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+                if (menu) {
+                    menu.classList.remove('show');
+                }
             }
+        });
+    }
 
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('mouseenter', function () {
-                    if (window.innerWidth >= 992) {
-                        closeOtherDropdowns(dropdown);
-                    }
-                });
+             dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('mouseenter', function () {
+            if (window.innerWidth >= 992) {
+                closeOtherDropdowns(dropdown);
+            }
+        });
 
                 const toggleBtn = dropdown.querySelector('.dropdown-toggle');
-                if (toggleBtn) {
-                    toggleBtn.addEventListener('click', function () {
-                        closeOtherDropdowns(dropdown);
-                    });
-                }
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function () {
+                closeOtherDropdowns(dropdown);
             });
-        });
+        }
+    });
+});
 
-        const TOKEN_KEY = "token";
+        // const TOKEN_KEY = "token";
 
-        function getToken() {
-            return localStorage.getItem(TOKEN_KEY);
+        // function getToken() {
+        //     return localStorage.getItem(TOKEN_KEY);
+        // }
+
+        // function isAuthenticated() {
+        //     return !!getToken();
+        // }
+
+        // function authHeaders(extra = {}) {
+        //     return {
+        //         ...extra,
+        //         "Authorization": `Bearer ${getToken()}`
+        //     };
+        // }
+
+        // document.addEventListener("DOMContentLoaded", () => {
+        //     if (!isAuthenticated()) {
+        //         window.location.href = "login.html";
+        //     }
+        // });
+
+       let infos = [];
+let filteredInfos = [];
+let currentPage = 0;
+const pageSize = 4;
+
+async function fetchInfos() {
+    try {
+        const response = await fetch("https://blueaxis-backend-10.onrender.com/api/getinfo");
+
+        if (!response.ok) {
+            throw new Error(`Request failed: ${response.status}`);
         }
 
-        function isAuthenticated() {
-            return !!getToken();
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+            infos = data;
+            filteredInfos = [...infos];
+            currentPage = 0;
+            renderPage();
+        } else if (data.content && Array.isArray(data.content)) {
+            infos = data.content;
+            filteredInfos = [...infos];
+            currentPage = 0;
+            renderPage();
+        } else {
+            document.getElementById("info-container").innerHTML =
+                `<p class="text-center text-muted">No infographics found.</p>`;
         }
+    } catch (error) {
+        console.error("Error fetching infographics:", error);
+        document.getElementById("info-container").innerHTML =
+            `<p class="text-center text-muted">Failed to load infographics.</p>`;
+    }
+}
 
-        function authHeaders(extra = {}) {
-            return {
-                ...extra,
-                "Authorization": `Bearer ${getToken()}`
-            };
-        }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            if (!isAuthenticated()) {
-                window.location.href = "login.html";
-            }
-        });
+function renderPage() {
+    const container = document.getElementById("info-container");
+    if (!container) return;
 
-        let infos = [];
-        let filteredInfos = [];
-        let currentPage = 0;
-        const pageSize = 4;
+    container.innerHTML = "";
 
-        async function fetchInfos() {
-            try {
-                const response = await fetch("https://blueaxis-backend-10.onrender.com/api/getinfo", {
-                    method: "GET",
-                    headers: authHeaders()
-                });
+    const startIndex = currentPage * pageSize;
+    const pageInfos = filteredInfos.slice(startIndex, startIndex + pageSize);
 
-                if (response.status === 401 || response.status === 403) {
-                    localStorage.removeItem("token");
-                    window.location.href = "login.html";
-                    return;
-                }
+    if (pageInfos.length === 0) {
+        container.innerHTML = `<p class="text-center text-muted">No infographics available.</p>`;
+        updatePaginationControls();
+        return;
+    }
 
-                if (!response.ok) {
-                    throw new Error(`Request failed: ${response.status}`);
-                }
+     pageInfos.forEach(info => {
+        const infoItem = document.createElement("div");
+        infoItem.className = "magazine-item";
+        infoItem.onclick = () => window.location.href = `infographic-details.html?id=${info.id}`;
 
-                const data = await response.json();
+        infoItem.innerHTML = `
+            <div class="magazine-thumb">
+                <img src="${info.imageUrl || 'assets/images/default-blog.jpg'}" alt="${info.title || 'Infographic'}">
+            </div>
+            <div class="magazine-content">
+                <span class="mag-category">${info.category || 'Infographic'}</span>
+                <h3>${info.title || 'Untitled Infographic'}</h3>
+                <div class="meta">
+                    <span>Published on: ${info.createdAt ? new Date(info.createdAt).toLocaleDateString() : new Date().toLocaleDateString()}</span>
+                    <a href="infographic-details.html?id=${info.id}">View Infographic →</a>
+                </div>
+            </div>
+        `;
 
-                if (Array.isArray(data)) {
-                    infos = data;
-                    filteredInfos = [...infos];
-                    currentPage = 0;
-                    renderPage();
-                } else if (data.content && Array.isArray(data.content)) {
-                    infos = data.content;
-                    filteredInfos = [...infos];
-                    currentPage = 0;
-                    renderPage();
-                } else {
-                    console.error("Unexpected API response:", data);
-                    document.getElementById("info-container").innerHTML =
-                        `<p class="text-center text-danger">No infographics found.</p>`;
-                }
-            } catch (error) {
-                console.error("Error fetching infographics:", error);
-                document.getElementById("info-container").innerHTML =
-                    `<p class="text-center text-danger">Failed to load infographics.</p>`;
-            }
-        }
+        container.appendChild(infoItem);
+    });
 
+    updatePaginationControls();
+}
+
+function updatePaginationControls() {
+    const prevButton = document.getElementById("pagination-prev");
+    const nextButton = document.getElementById("pagination-next");
+    const pageInfo = document.getElementById("pagination-info");
+
+    const totalPages = Math.max(1, Math.ceil(filteredInfos.length / pageSize));
+    prevButton.disabled = currentPage === 0;
+    nextButton.disabled = currentPage >= totalPages - 1;
+
+    pageInfo.textContent = filteredInfos.length === 0
+        ? "No infographics available"
+        : `Page ${currentPage + 1} of ${totalPages}`;
+}
+
+function prevPage() {
+    if (currentPage > 0) {
+        currentPage--;
+        renderPage();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+}
+
+
+function nextPage() {
+    const totalPages = Math.ceil(filteredInfos.length / pageSize);
+    if (currentPage < totalPages - 1) {
+        currentPage++;
+        renderPage();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", fetchInfos);
         function renderPage() {
             const container = document.getElementById("info-container");
 
@@ -924,15 +988,15 @@
             }
         }
 
-        document.addEventListener("DOMContentLoaded", fetchInfos);
+       document.addEventListener("DOMContentLoaded", fetchInfos);
 
-        document.addEventListener('click', function (event) {
-            var navbar = document.getElementById('navbarNav');
-            var toggler = document.querySelector('.navbar-toggler');
-            if (navbar && toggler && navbar.classList.contains('show') && !navbar.contains(event.target) && !toggler.contains(event.target)) {
-                toggler.click();
-            }
-        });
+document.addEventListener('click', function (event) {
+    var navbar = document.getElementById('navbarNav');
+    var toggler = document.querySelector('.navbar-toggler');
+    if (navbar && toggler && navbar.classList.contains('show') && !navbar.contains(event.target) && !toggler.contains(event.target)) {
+        toggler.click();
+    }
+});
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
