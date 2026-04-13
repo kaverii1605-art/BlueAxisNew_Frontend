@@ -882,10 +882,7 @@
             }, duration);
         }
 
-        // ─────────────────────────────────────────────
-        // ✅ FIX 1: Single Formspree ID (no more split between mlgowege / xgoprrdz)
-        //    Set whichever one is active & verified in your Formspree dashboard.
-        // ─────────────────────────────────────────────
+       
         const FORMSPREE_ID = "xlgoazer"; // ← your ONE active Formspree form ID
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -926,7 +923,7 @@
 
                 // 1️⃣ Save to Railway DB
                 try {
-                const dbResponse = await fetch("https://blueaxis-backend-10.onrender.com/api/postContact", {
+                const dbResponse = await fetch("https://blueaxis-backend-3-4eyg.onrender.com/api/postContact", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"   // ✅ token removed

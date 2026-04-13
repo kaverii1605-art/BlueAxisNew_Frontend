@@ -496,7 +496,7 @@ button[type="submit"]:hover {
 
     async function fetchTotalArticles() {
         try {
-            const response = await fetch('https://blueaxis-backend-10.onrender.com/api/getarticles', {
+            const response = await fetch('https://blueaxis-backend-3-4eyg.onrender.com/api/getarticles', {
                 method: 'GET',
                 headers: authHeaders()
             });
@@ -544,7 +544,7 @@ button[type="submit"]:hover {
         };
 
         try {
-            const response = await fetch('https://blueaxis-backend-10.onrender.com/api/addarticle', {
+            const response = await fetch('https://blueaxis-backend-3-4eyg.onrender.com/api/addarticle', {
                 method: 'POST',
                 headers: authHeaders({
                     'Content-Type': 'application/json'

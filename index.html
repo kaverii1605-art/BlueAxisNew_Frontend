@@ -1629,7 +1629,7 @@
     
 
   <!-- Infographics Section -->
-<section class="py-5 insights-section" style=" background: linear-gradient(135deg, #f4f9ff, #9aa8c2);
+<!-- <section class="py-5 insights-section" style=" background: linear-gradient(135deg, #f4f9ff, #9aa8c2);
 ">
     <div class="container text-center">
         <h2 class="insights-heading mb-4">
@@ -1639,7 +1639,22 @@
 
         <a href="/infographic.html" class="btn btn-primary text-white btn-lg mt-5">More Infographics →</a>
     </div>
+</section> -->
+
+<section class="py-5 insights-section" style="background: linear-gradient(135deg, #f4f9ff, #9aa8c2);">
+    <div class="container text-center">
+        <h2 class="insights-heading mb-4">
+            <span class="dark-text">Our</span><span class="highlight"> Articles</span>
+        </h2>
+
+        <div id="articles-container" class="insights-wrapper"></div>
+
+        <a href="/article.html" class="btn btn-primary text-white btn-lg mt-5">
+            More Articles →
+        </a>
+    </div>
 </section>
+
 
 // <script>
 //     const TOKEN_KEY = "token";
@@ -1672,18 +1687,11 @@
     let TotalPages = 1;
     const pagesize = 2;
 
-    async function fetchinfo(page) {
+    async function fetchArticles(page) {
         try {
-            const response = await fetch(`https://blueaxis-backend-10.onrender.com/api/info?page=${page}&size=${pagesize}`, {
-                method: "GET",
-                headers: authHeaders()
+            const response = await fetch(`https://blueaxis-backend-10.onrender.com/api/getarticles?page=${page}&size=${pagesize}`, {
+                method: "GET"
             });
-
-            if (response.status === 401 || response.status === 403) {
-                localStorage.removeItem("token");
-                window.location.href = "login.html";
-                return;
-            }
 
             if (!response.ok) {
                 throw new Error(`Request failed: ${response.status}`);
@@ -1691,40 +1699,62 @@
 
             const data = await response.json();
 
-            const container = document.getElementById("infographics-container");
+            const container = document.getElementById("articles-container");
             container.innerHTML = "";
 
             TotalPages = data.totalPages || 1;
             currentpage = page;
 
-            (data.content || []).forEach((info, index) => {
+            const articles = Array.isArray(data) ? data : data.content || [];
+
+            if (articles.length === 0) {
+                container.innerHTML = `<p class="text-muted">No articles available</p>`;
+                return;
+            }
+
+            articles.forEach((article, index) => {
                 const align = index % 2 === 0 ? "insight-left" : "insight-right";
 
                 container.innerHTML += `
-                    <div class="insight-item ${align}">
+                    <div class="insight-item ${align}" data-id="${article.id}">
                         <div class="insight-image">
-                            <img src="${info.imageUrl}">
+                            <img src="${article.imageUrl || 'https://via.placeholder.com/400x250'}" alt="${article.title || 'Article'}">
                         </div>
                         <div class="insight-content">
-                            <h4>${info.title}</h4>
-                            <a href="infographic-details.html?id=${info.id}">Read More</a>
+                            <h4>${article.title || 'Untitled Article'}</h4>
+                            <p>${article.category || 'Category'}</p>
+                            <span class="read-more">Read More →</span>
                         </div>
                     </div>
                 `;
             });
 
+            // article click event after cards are created
+            document.querySelectorAll("#articles-container .insight-item").forEach(item => {
+                item.addEventListener("click", function () {
+                    const id = this.getAttribute("data-id");
+                    if (id) {
+                        window.location.href = `article-details.html?id=${id}`;
+                    }
+                });
+            });
+
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error loading articles:", error);
+            document.getElementById("articles-container").innerHTML =
+                `<p class="text-danger text-center">Failed to load articles</p>`;
         }
     }
 
-    document.addEventListener("DOMContentLoaded", () => fetchinfo(1));
+    document.addEventListener("DOMContentLoaded", () => fetchArticles(0));
 </script>
-
-
 <style>
 /* Section */
 /* Section */
+
+.insight-item {
+    cursor: pointer;
+}
 .insights-section {
   padding: 80px 0;
 }
@@ -2315,6 +2345,7 @@ async function fetchBlogs() {
 
                     <div class="insight-content">
                         <h4 class="blog-title">${blog.title || 'Untitled Blog'}</h4>
+                        <p>${blog.category || 'Category'}</p>
                         <span class="read-more">Read More →</span>
                     </div>
 
@@ -2325,14 +2356,14 @@ async function fetchBlogs() {
         blogsContainer.innerHTML = html;
 
         // ✅ Click anywhere on card
-        document.querySelectorAll(".insight-item").forEach(item => {
-            item.addEventListener("click", function () {
-                const id = this.getAttribute("data-id");
-                if (id) {
-                    window.location.href = `blog-details.html?id=${id}`;
-                }
-            });
-        });
+       document.querySelectorAll("#blogs-container .insight-item").forEach(item => {
+    item.addEventListener("click", function () {
+        const id = this.getAttribute("data-id");
+        if (id) {
+            window.location.href = `blog-details.html?id=${id}`;
+        }
+    });
+});
 
     } catch (error) {
         blogsContainer.innerHTML = `<p class="text-danger text-center">Failed to load blogs</p>`;
