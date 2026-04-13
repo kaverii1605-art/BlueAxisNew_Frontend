@@ -748,37 +748,29 @@
 
         /* Article Hero */
         .article-hero {
-    padding: 130px 0 130px;
-            background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));
-            color: #fff;
-        }
+    padding: 160px 0 140px;
+    background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1.2s ease-in-out;
+}
 
-        .hero-title {
-            font-size: 48px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1.25;
-            word-break: break-word;
-        }
+.hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: slideInUp 1s ease forwards;
+    opacity: 0;
+}
 
-        .hero-title span {
-            color: #0b2545;
-            background: #ffffff;
-            padding: 4px 14px;
-            border-radius: 6px;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            margin-top: 15px;
-            opacity: 0.95;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
+.hero-subtitle {
+    font-size: 18px;
+    margin-top: 15px;
+    opacity: 0;
+    animation: slideInUp 1.2s ease forwards;
+}
         .shape {
             position: absolute;
             border-radius: 50%;
@@ -1261,7 +1253,7 @@
         <div class="shape shape-2"></div>
     </section>
 
-    <section class="blog-magazine py-5">
+    <section class="blog-magazine pt-0 pb-5">
         <div class="container">
             <!-- <h2 class="text-center mb-5 magazine-heading">Latest Articles</h2> -->
             <div class="magazine-list" id="article-container">
