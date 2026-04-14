@@ -469,6 +469,13 @@
             transition: all 0.3s ease;
         }
 
+        /* Logo height control */
+
+        .navbar {
+            min-height: 80px;
+            /* increase navbar height */
+        }
+
         .navbar-brand {
             display: flex;
             align-items: center;
@@ -476,10 +483,12 @@
 
         .navbar-brand img {
             height: 70px;
+            /* control logo size */
             width: auto;
             object-fit: contain;
         }
 
+        /* Nav links */
         .navbar-custom .nav-link {
             color: #1a1a1a;
             font-weight: 600;
@@ -488,6 +497,7 @@
             transition: color 0.3s ease;
         }
 
+        /* Hover underline animation */
         .navbar-custom .nav-link::after {
             content: "";
             position: absolute;
@@ -508,6 +518,30 @@
             width: 100%;
         }
 
+        /* Dropdown menu */
+        .navbar-custom .dropdown-menu {
+            border-radius: 10px;
+            padding: 10px 0;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            animation: dropdownFade 0.3s ease;
+        }
+
+        /* Dropdown items */
+        .dropdown-item {
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+            color: #1a1a1a;
+        }
+
+        .dropdown-item:hover {
+            background-color: #30528D;
+            color: #fff;
+        }
+
+        /* Dropdown animation */
+        /* Hover dropdown (Desktop only) */
         @media (min-width: 992px) {
             .dropdown:hover .dropdown-menu {
                 display: block;
@@ -515,31 +549,21 @@
             }
         }
 
+        /* MOBILE NAV FIX */
         @media (max-width: 991px) {
-            body {
-                padding-top: 75px;
-            }
-
-            .navbar {
-                min-height: 75px;
-            }
-
-            .navbar-brand img {
-                height: 58px;
-            }
 
             .navbar-collapse {
                 position: absolute;
-                top: 75px;
+                top: 80px;
+                /* same as navbar height */
                 left: 0;
                 width: 100%;
                 background: #ffffff;
                 padding: 15px 20px;
                 border-top: 1px solid #eee;
+
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
                 z-index: 999;
-                max-height: calc(100vh - 75px);
-                overflow-y: auto;
             }
 
             .navbar-nav {
@@ -556,6 +580,7 @@
                 background: #f1f5ff;
             }
 
+            /* Dropdown fix */
             .dropdown-menu {
                 position: static !important;
                 box-shadow: none;
@@ -566,12 +591,17 @@
             .dropdown-item {
                 padding: 8px 10px;
             }
+        }
 
+
+        /* Mobile view */
+        @media (max-width: 991px) {
             .navbar-custom {
                 background: #ffffff;
             }
         }
 
+        
         /* Newsletter Section */
         .newsletter-section {
             padding: 60px 15px;
