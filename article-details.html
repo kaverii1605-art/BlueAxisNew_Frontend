@@ -694,7 +694,7 @@
 
             <div class="d-flex justify-content-center flex-wrap align-items-center gap-3 mb-4">
                 <span class="badge bg-primary">Published on : ${article.createdAt ? new Date(article.createdAt).toLocaleDateString() : 'N/A'}</span>
-                <span class="badge bg-primary">Category : ${article.category || "Article"}</span>
+                <span class="badge bg-primary"> ${article.category || "Article"}</span>
             </div>
 
             <div class="blog-detail-content text-secondary mx-auto">
