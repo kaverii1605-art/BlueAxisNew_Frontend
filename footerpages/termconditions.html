@@ -370,16 +370,27 @@
                 background: #ffffff;
             }
         }
+
+        .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.custom-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
     </style>
     <!-- Navbar End -->
 
-    <div class="container">
-        <div class="row">
+    <div class="container" style="max-width:100%; overflow-x:hidden;">
+        <div class="row" style="margin-left:0; margin-right:0;">
             <div class="col-12" style="margin-top: 100px;">
                 <div>
-                    <h1 class="fw-bold text-center my-5"><span class="text-primary">T</span>erms
-                        <span class="text-primary">C</span>onditions</h1>
-                </div>
+   <h1 class="fw-bold text-uppercase tracking-widest text-center gradient-text custom-title">
+    Terms Conditions
+</h1>
+</div>
                 <div>
                     <p class="fs-3 fw-bold">Website Terms and Conditions</p>
                     <p>This Master Marketing Services Agreement (“Agreement”), together with the current applicable Insertion Order(s) (each an “Order”) entered into on the date and year specified in the Order between BLUEAXIS MEDIA, Inc., a Delaware Corporation
@@ -607,6 +618,121 @@
 
     <!-- CSS -->
    <style>
+
+    /* CONTENT UI (same as Privacy Policy) */
+/* =========================
+   CONTENT UI (same as Terms Conditions)
+========================= */
+
+.col-12 > div:last-child {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 28px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+}
+
+.col-12 p {
+    font-size: 15.5px;
+    line-height: 1.9;
+    color: #444;
+}
+
+.col-12 .fs-3.fw-bold {
+    font-size: 1.4rem !important;
+    color: #0E3A62;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-left: 12px;
+    border-left: 4px solid #30528D;
+}
+
+.col-12 ul,
+.col-12 ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.col-12 li {
+    margin-bottom: 6px;
+    line-height: 1.8;
+}
+
+.col-12 a {
+    color: #30528D;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.col-12 a:hover {
+    color: #0E3A62;
+    text-decoration: underline;
+}
+
+.col-12 strong,
+.col-12 b {
+    color: #0E3A62;
+}
+
+.col-12 p + p {
+    margin-top: 8px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    line-height: 1.2;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.page-title-wrap {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.page-title-wrap h1 {
+    font-size: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    word-break: break-word;
+}
+
+@media (max-width: 992px) {
+    .page-title-wrap h1 {
+        font-size: 2.3rem;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title-wrap h1 {
+        font-size: 1.8rem;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .col-12 > div:last-child {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    .col-12 p {
+        font-size: 14.5px;
+    }
+
+    .col-12 .fs-3.fw-bold {
+        font-size: 1.2rem !important;
+    }
+
+    h1 {
+        font-size: 1.8rem !important;
+    }
+}
 /* General Footer */
 footer {
         font-family: 'Poppins', sans-serif;

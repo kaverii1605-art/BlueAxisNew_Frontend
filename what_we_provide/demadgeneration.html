@@ -421,6 +421,21 @@
                 }
             });
         });
+        
+        // Close navbar when clicking outside (mobile view)
+document.addEventListener("click", function (event) {
+    const navbar = document.querySelector(".navbar-collapse");
+    const toggler = document.querySelector(".navbar-toggler");
+
+    const isClickInsideNavbar = navbar.contains(event.target);
+    const isClickOnToggler = toggler.contains(event.target);
+
+    if (!isClickInsideNavbar && !isClickOnToggler) {
+        if (navbar.classList.contains("show")) {
+            new bootstrap.Collapse(navbar).hide();
+        }
+    }
+});
     </script>
 
     <!-- Custom CSS -->
@@ -814,11 +829,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-content {
+    margin-top: 80px;
     position: relative;
     z-index: 2;
     max-width: 800px;
     padding: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    margin-bottom: 50px;
 }
 
 .header-content h1 {

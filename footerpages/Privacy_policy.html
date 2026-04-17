@@ -46,53 +46,95 @@
 
     <style>
         /* ── Global responsive reset ── */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-        html {
-            max-width: 100%;
-            /* Do NOT set overflow-x hidden on html — it breaks Bootstrap collapse/dropdown JS */
-        }
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            max-width: 100%;
-            overflow-x: hidden;
-            position: relative;
-        }
-        img, video, iframe, table {
-            max-width: 100%;
-            height: auto;
-        }
-        /* Prevent long words/URLs from breaking layout */
-        p, li, td, th, h1, h2, h3, h4, h5, h6 {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-        /* Ensure no child element bleeds wider than viewport */
-        .container, .container-fluid, .row {
-            max-width: 100%;
-        }
-        .container, .container-fluid {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-        /* Fix Bootstrap row negative margin causing horizontal scroll */
-        .row {
-            margin-left: 0;
-            margin-right: 0;
-        }
-        @media (max-width: 576px) {
-            .container {
-                padding-left: 12px;
-                padding-right: 12px;
-            }
-            .fs-3 {
-                font-size: 1.1rem !important;
-            }
-            h1 {
-                font-size: 1.6rem !important;
-            }
-        }
+        /* =========================
+   CONTENT UI IMPROVEMENT ONLY
+   (NAVBAR + FOOTER UNTOUCHED)
+========================= */
+
+/* Main content wrapper */
+.col-12 > div:last-child {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 28px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+}
+
+.col-12 p {
+    font-size: 15.5px;
+    line-height: 1.9;
+    color: #444;
+}
+
+.col-12 .fs-3.fw-bold {
+    font-size: 1.4rem !important;
+    color: #0E3A62;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-left: 12px;
+    border-left: 4px solid #30528D;
+}
+
+.col-12 ul,
+.col-12 ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.col-12 li {
+    margin-bottom: 6px;
+    line-height: 1.8;
+}
+
+.col-12 a {
+    color: #30528D;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.col-12 a:hover {
+    color: #0E3A62;
+    text-decoration: underline;
+}
+
+.col-12 strong,
+.col-12 b {
+    color: #0E3A62;
+}
+
+.col-12 p + p {
+    margin-top: 8px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .col-12 > div:last-child {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    .col-12 p {
+        font-size: 14.5px;
+    }
+
+    .col-12 .fs-3.fw-bold {
+        font-size: 1.2rem !important;
+    }
+
+    h1 {
+        font-size: 1.8rem !important;
+    }
+}
     </style>
 
 </head>
@@ -423,9 +465,9 @@
     <div class="container" style="max-width:100%; overflow-x:hidden;">
         <div class="row" style="margin-left:0; margin-right:0;">
             <div class="col-12" style="margin-top: 100px; padding-left:0; padding-right:0;">
-                <div>
-                    <h1 class="fw-bold text-uppercase tracking-widest text-center my-5"><span class="text-primary">P</span>rivacy-<span class="text-primary">P</span>olicy</h1>
-                </div>
+               <h1 class="fw-bold text-uppercase tracking-widest text-center gradient-text custom-title">
+    Privacy-Policy
+</h1>
                 <div>
                     <p>BlueAxis Media wants to earn your trust by telling you exactly how we collect and use information about you. We are committed to safeguarding the privacy of our website, as data protection is of a
                         particularly high priority for the management of our company. We also want you to have control over your personal data. This document describes our privacy policy and includes some useful links to websites where you can learn more
@@ -831,6 +873,11 @@
 
     <!-- CSS -->
    <style>
+
+    .custom-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
 /* General Footer */
 footer {
         font-family: 'Poppins', sans-serif;

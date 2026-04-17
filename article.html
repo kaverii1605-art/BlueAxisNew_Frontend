@@ -1124,6 +1124,43 @@
     </script>
 
     <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector(".navbar");
+    const navbarCollapse = document.getElementById("navbarNav");
+    const normalNavLinks = document.querySelectorAll("#navbarNav .nav-link:not(.dropdown-toggle)");
+
+    if (!navbar || !navbarCollapse) return;
+
+    // Close navbar when clicking outside
+    document.addEventListener("click", function (event) {
+        const clickedInsideNavbar = navbar.contains(event.target);
+        const isNavbarOpen = navbarCollapse.classList.contains("show");
+
+        if (!clickedInsideNavbar && isNavbarOpen) {
+            const bsCollapse =
+                bootstrap.Collapse.getInstance(navbarCollapse) ||
+                new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+            bsCollapse.hide();
+        }
+    });
+
+    // Close navbar only for normal links, not dropdown toggles
+    normalNavLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            if (window.innerWidth < 992 && navbarCollapse.classList.contains("show")) {
+                const bsCollapse =
+                    bootstrap.Collapse.getInstance(navbarCollapse) ||
+                    new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+                bsCollapse.hide();
+            }
+        });
+    });
+});
+</script>
+
+    <script>
         const TOKEN_KEY = "token";
         let articles = [];
         let filteredArticles = [];

@@ -426,6 +426,11 @@
             color: #fff !important;
         }
 
+        .custom-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
         /* Dropdown animation */
         /* Hover/Locked dropdown (Desktop only) */
         @media (min-width: 992px) {
@@ -496,16 +501,13 @@
 
     <!-- Page Content -->
     <div class="container" style="max-width:100%; overflow-x:hidden;">
-        <div class="row" style="margin-left:0; margin-right:0;">
-            <div class="col-12" style="margin-top: 100px; padding-left:0; padding-right:0;">
-                <div>
-                    <h1 class="fw-bold text-uppercase tracking-widest text-center my-5">
-                        <span class="text-primary">G</span>eneral
-                        <span class="text-primary">D</span>ata
-                        <span class="text-primary">P</span>rotection
-                        <span class="text-primary">R</span>egulation (GDPR)
-                    </h1>
-                </div>
+    <div class="row" style="margin-left:0; margin-right:0;">
+        <div class="col-12" style="margin-top: 100px;">
+            <div>
+                <h1 class="fw-bold text-uppercase tracking-widest text-center gradient-text custom-title">
+                    General Data Protection Regulation (GDPR)
+                </h1>
+            </div>
                 <div>
                     <p class="fs-3 fw-bold">GDPR NORMS</p>
                     <p>The General Data Protection Regulation (GDPR) is an EU legislature that objects to giving the
@@ -782,6 +784,8 @@
 
     <!-- CSS -->
    <style>
+
+
 /* General Footer */
 footer {
         font-family: 'Poppins', sans-serif;
@@ -911,6 +915,73 @@ footer {
             margin-top: 10px;
         }
     }
+
+
+    /* =========================
+   MATCH TERMS / PRIVACY CONTENT UI
+========================= */
+
+/* Content card (same as Terms) */
+.col-12 > div:last-child {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 28px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+}
+
+/* Paragraph styling */
+.col-12 p {
+    font-size: 15.5px;
+    line-height: 1.9;
+    color: #444;
+}
+
+/* Section headings */
+.col-12 .fs-3.fw-bold {
+    font-size: 1.4rem !important;
+    color: #0E3A62;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-left: 12px;
+    border-left: 4px solid #30528D;
+}
+
+/* Lists */
+.col-12 ul,
+.col-12 ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.col-12 li {
+    margin-bottom: 6px;
+    line-height: 1.8;
+}
+
+/* Gradient heading (same as other pages) */
+.gradient-text {
+    background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Mobile match */
+@media (max-width: 768px) {
+
+    .col-12 > div:last-child {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    .col-12 p {
+        font-size: 14.5px;
+    }
+
+    .col-12 .fs-3.fw-bold {
+        font-size: 1.2rem !important;
+    }
+}
 </style>
 
     <!-- Font Awesome -->
