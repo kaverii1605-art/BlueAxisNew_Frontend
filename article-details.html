@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -591,114 +592,96 @@
     </div>
 
     <!-- Article Details Script -->
-   <script>
-    let articles = [];
-    let filteredArticles = [];
-    let currentPage = 0;
-    const pageSize = 3;
+    <script>
+    // const TOKEN_KEY = "token";
 
-    async function fetchArticles() {
-        try {
-            const response = await fetch("https://blueaxis-backend-3-4eyg.onrender.com/api/getarticles");
+    // function getToken() {
+    //     return localStorage.getItem(TOKEN_KEY);
+    // }
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
+    // function isAuthenticated() {
+    //     return !!getToken();
+    // }
 
-            const data = await response.json();
+    // function authHeaders(extra = {}) {
+    //     return {
+    //         ...extra,
+    //         "Authorization": `Bearer ${getToken()}`
+    //     };
+    // }
 
-            articles = Array.isArray(data) ? data : [];
-            filteredArticles = [...articles];
-            renderPage();
+    document.addEventListener("DOMContentLoaded", async () => {
+    const articleContainer = document.getElementById("articleDetails");
+    const navContainer = document.getElementById("articleNavigation");
 
-            if (!articles.length) {
-                document.getElementById("articles-container").innerHTML =
-                    `<p class="text-center text-danger">No articles found.</p>`;
-            }
-        } catch (error) {
-            console.error("Error fetching articles:", error);
-            document.getElementById("articles-container").innerHTML =
-                `<p class="text-center text-danger">Failed to load articles.</p>`;
-        }
+    const params = new URLSearchParams(window.location.search);
+    const articleId = params.get("id");
+
+    if (!articleId) {
+        articleContainer.innerHTML = "<p class='text-danger'>No article ID found</p>";
+        navContainer.innerHTML = "";
+        return;
     }
 
-    function renderPage() {
-        const container = document.getElementById("articles-container");
-        container.innerHTML = "";
+    try {
+        const response = await fetch("https://blueaxis-backend-3-4eyg.onrender.com/api/getarticles");
 
-        const startIndex = currentPage * pageSize;
-        const pageArticles = filteredArticles.slice(startIndex, startIndex + pageSize);
+        if (!response.ok) {
+            throw new Error(`Request failed: ${response.status}`);
+        }
 
-        if (pageArticles.length === 0) {
-            container.innerHTML = `<p class="text-center text-muted">No articles available.</p>`;
-            updatePaginationControls();
+        const articles = await response.json();
+
+        if (!Array.isArray(articles)) {
+            throw new Error("Unexpected API response");
+        }
+
+        const index = articles.findIndex(a => String(a.id) === String(articleId));
+
+        if (index === -1) {
+            articleContainer.innerHTML = "<p class='text-danger'>Article not found</p>";
+            navContainer.innerHTML = "";
             return;
         }
 
-        pageArticles.forEach(article => {
-            const articleItem = document.createElement("div");
-            articleItem.className = "magazine-item";
-            articleItem.style.cursor = "pointer";
-            articleItem.onclick = () => window.location.href = `article-details.html?id=${article.id}`;
+        const article = articles[index];
+        const prevArticle = articles[index - 1];
+        const nextArticle = articles[index + 1];
 
-            articleItem.innerHTML = `
-                <div class="magazine-thumb">
-                    <img src="${article.imageUrl || 'assets/images/default-blog.jpg'}"
-                         alt="${article.title || 'Article image'}"
-                         loading="lazy"
-                         onerror="this.src='assets/images/default-blog.jpg'">
-                </div>
+        articleContainer.innerHTML = `
+            <div class="blog-detail-header text-center mb-4">
+                <h2 class="fw-bold mb-3">${article.title || ""}</h2>
+            </div>
 
-                <div class="magazine-content">
-                    <span class="mag-category">${article.category || 'Article'}</span>
-                    <h3>${article.title || 'Untitled Article'}</h3>
+            <div class="blog-detail-image mx-auto overflow-hidden rounded-4 shadow-sm mb-4">
+                <img src="${article.imageUrl || ""}" alt="${article.title || "Article Image"}" class="img-fluid w-100">
+            </div>
 
-                    <div class="meta">
-                        <a href="article-details.html?id=${article.id}" class="view-article-link">
-                            View Article <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            `;
+            <div class="d-flex justify-content-center flex-wrap align-items-center gap-3 mb-4">
+                                 <span class="badge bg-primary"> ${article.category || "Article"}</span>
+            </div>
 
-            container.appendChild(articleItem);
-        });
+            <div class="blog-detail-content text-secondary mx-auto">
+                ${article.content || ""}
+            </div>
+        `;
 
-        updatePaginationControls();
+        navContainer.innerHTML = `
+            ${prevArticle
+                ? `<a href="article-details.html?id=${prevArticle.id}" class="btn btn-outline-primary">← Previous</a>`
+                : `<button class="btn btn-outline-secondary" disabled>← Previous</button>`
+            }
+            ${nextArticle
+                ? `<a href="article-details.html?id=${nextArticle.id}" class="btn btn-outline-primary">Next →</a>`
+                : `<button class="btn btn-outline-secondary" disabled>Next →</button>`
+            }
+        `;
+    } catch (error) {
+        console.error("Error loading article:", error);
+        articleContainer.innerHTML = "<p class='text-danger'>Error loading article</p>";
+        navContainer.innerHTML = "";
     }
-
-    function updatePaginationControls() {
-        const prevButton = document.getElementById("pagination-prev");
-        const nextButton = document.getElementById("pagination-next");
-        const pageInfo = document.getElementById("pagination-info");
-
-        const totalPages = Math.max(1, Math.ceil(filteredArticles.length / pageSize));
-        prevButton.disabled = currentPage === 0;
-        nextButton.disabled = currentPage >= totalPages - 1;
-
-        pageInfo.textContent = filteredArticles.length === 0
-            ? "No articles available"
-            : `Page ${currentPage + 1} of ${totalPages}`;
-    }
-
-    function prevPage() {
-        if (currentPage > 0) {
-            currentPage--;
-            renderPage();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    }
-
-    function nextPage() {
-        const totalPages = Math.ceil(filteredArticles.length / pageSize);
-        if (currentPage < totalPages - 1) {
-            currentPage++;
-            renderPage();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    }
-
-    fetchArticles();
+});
 </script>
 
     <!-- ══════════════════════════════════════
