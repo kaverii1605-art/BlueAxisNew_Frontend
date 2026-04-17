@@ -1239,7 +1239,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="mag-category">${article.category || 'Article'}</span>
                         <h3>${article.title || 'Untitled Article'}</h3>
                         <div class="meta">
-                            <span>Published on ${article.createdAt ? new Date(article.createdAt).toLocaleDateString() : new Date().toLocaleDateString()}</span>
+                        
                             <a href="article-details.html?id=${article.id}" class="view-article-link">View Article <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>

@@ -866,8 +866,7 @@ function renderPage() {
                 <span class="mag-category">${info.category || 'Infographic'}</span>
                 <h3>${info.title || 'Untitled Infographic'}</h3>
                 <div class="meta">
-                    <span>Published on: ${info.createdAt ? new Date(info.createdAt).toLocaleDateString() : new Date().toLocaleDateString()}</span>
-                    <a href="infographic-details.html?id=${info.id}">View Infographic →</a>
+                                       <a href="infographic-details.html?id=${info.id}">View Infographic →</a>
                 </div>
             </div>
         `;
@@ -945,7 +944,7 @@ document.addEventListener("DOMContentLoaded", fetchInfos);
                         <h3>${info.title || 'Untitled Infographic'}</h3>
 
                         <div class="meta">
-                            <span>Published on: ${info.createdAt ? new Date(info.createdAt).toLocaleDateString() : new Date().toLocaleDateString()}</span>
+                           
                             <a href="infographic-details.html?id=${info.id}">View Infographic →</a>
                         </div>
                     </div>
