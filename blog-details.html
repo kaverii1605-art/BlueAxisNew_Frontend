@@ -1001,77 +1001,86 @@
     </div>
 
     <!-- Blog Details Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", async () => {
+   <script>
+document.addEventListener("DOMContentLoaded", async () => {
+    const blogContainer = document.getElementById("blogDetails");
+    const navContainer = document.getElementById("blogNavigation");
 
-            const blogContainer = document.getElementById("blogDetails");
-            const navContainer = document.getElementById("blogNavigation");
+    const params = new URLSearchParams(window.location.search);
+    const blogId = params.get("id");
 
-            const params = new URLSearchParams(window.location.search);
-            const blogId = params.get("id");
+    if (!blogId) {
+        blogContainer.innerHTML = "<p class='text-danger'>No blog ID found</p>";
+        navContainer.innerHTML = "";
+        return;
+    }
 
-            if (!blogId) {
-                blogContainer.innerHTML = "<p class='text-danger'>No blog ID found</p>";
-                navContainer.innerHTML = "";
-                return;
-            }
+    try {
+        // 1. Fetch full selected blog
+        const blogResponse = await fetch(`https://blueaxis-backend-3-4eyg.onrender.com/api/getblog/${blogId}`);
 
-            try {
-                const response = await fetch("https://blueaxis-backend-3-4eyg.onrender.com/api/getblogs");
-                const blogs = await response.json();
+        if (!blogResponse.ok) {
+            throw new Error(`Failed to fetch blog details. Status: ${blogResponse.status}`);
+        }
 
-                const index = blogs.findIndex(b => b.id == blogId);
+        const blog = await blogResponse.json();
 
-                if (index === -1) {
-                    blogContainer.innerHTML = "<p class='text-danger'>Blog not found</p>";
-                    navContainer.innerHTML = "";
-                    return;
+        blogContainer.innerHTML = `
+            <div class="blog-detail-header text-center mb-4">
+                <h2 class="fw-bold mb-3">${blog.title || "Untitled Blog"}</h2>
+            </div>
+
+            <div class="blog-detail-image mx-auto overflow-hidden rounded-4 shadow-sm mb-4">
+                <img src="${blog.imageUrl || 'assets/images/default-blog.jpg'}" 
+                     alt="${blog.title || 'Blog image'}" 
+                     class="img-fluid w-100"
+                     onerror="this.src='assets/images/default-blog.jpg'">
+            </div>
+
+            <div class="blog-meta mb-4">
+                <span class="badge bg-primary">${blog.category || "Blog"}</span>
+            </div>
+
+            <div class="blog-detail-content mx-auto">
+                ${blog.content || "<p>No content available.</p>"}
+            </div>
+        `;
+
+        // 2. Fetch summaries only for previous/next navigation
+        const listResponse = await fetch("https://blueaxis-backend-3-4eyg.onrender.com/api/getblogs");
+
+        if (!listResponse.ok) {
+            throw new Error(`Failed to fetch blog list. Status: ${listResponse.status}`);
+        }
+
+        const blogs = await listResponse.json();
+
+        if (Array.isArray(blogs)) {
+            const index = blogs.findIndex(b => String(b.id) === String(blogId));
+            const prevBlog = index > 0 ? blogs[index - 1] : null;
+            const nextBlog = index < blogs.length - 1 ? blogs[index + 1] : null;
+
+            navContainer.innerHTML = `
+                ${prevBlog
+                    ? `<a href="blog-details.html?id=${prevBlog.id}" class="btn btn-outline-primary">← Previous</a>`
+                    : `<button class="btn btn-outline-secondary" disabled>← Previous</button>`
                 }
+                ${nextBlog
+                    ? `<a href="blog-details.html?id=${nextBlog.id}" class="btn btn-outline-primary">Next →</a>`
+                    : `<button class="btn btn-outline-secondary" disabled>Next →</button>`
+                }
+            `;
+        } else {
+            navContainer.innerHTML = "";
+        }
 
-                const blog = blogs[index];
-                const prevBlog = blogs[index - 1];
-                const nextBlog = blogs[index + 1];
-
-                console.log(blog);
-
-               blogContainer.innerHTML = `
-    <div class="blog-detail-header text-center mb-4">
-        <h2 class="fw-bold mb-3">${blog.title}</h2>
-    </div>
-
-    <div class="blog-detail-image mx-auto overflow-hidden rounded-4 shadow-sm mb-4">
-        <img src="${blog.imageUrl}" alt="${blog.title}" class="img-fluid w-100">
-    </div>
-
-    <div class="blog-meta mb-4">
-        <span class="badge bg-primary">${blog.category}</span>
-    </div>
-
-    <div class="blog-detail-content mx-auto">
-        ${blog.content}
-    </div>
-`;
-
-                // Set navigation
-                navContainer.innerHTML = `
-                    ${prevBlog
-                        ? `<a href="blog-details.html?id=${prevBlog.id}" class="btn btn-outline-primary">← Previous</a>`
-                        : `<button class="btn btn-outline-secondary" disabled>← Previous</button>`
-                    }
-                    ${nextBlog
-                        ? `<a href="blog-details.html?id=${nextBlog.id}" class="btn btn-outline-primary">Next →</a>`
-                        : `<button class="btn btn-outline-secondary" disabled>Next →</button>`
-                    }
-                `;
-
-            } catch (error) {
-                console.error(error);
-                blogContainer.innerHTML = "<p class='text-danger'>Error loading blog</p>";
-                navContainer.innerHTML = "";
-            }
-
-        });
-    </script>
+    } catch (error) {
+        console.error("Error loading blog:", error);
+        blogContainer.innerHTML = "<p class='text-danger'>Error loading blog</p>";
+        navContainer.innerHTML = "";
+    }
+});
+</script>
 
     <!-- Footer Section -->
     <footer>
