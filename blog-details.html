@@ -1017,7 +1017,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         // 1. Fetch full selected blog
-        const blogResponse = await fetch(`https://blueaxis-backend-3-4eyg.onrender.com/api/getblog/${blogId}`);
+        // const blogResponse = await fetch(`https://blueaxis-backend-6-t0qp.onrender.com/api/getblog/${blogId}`);
+        const blogResponse = await fetch(`http://localhost:8081/api/getblog/${blogId}`);
 
         if (!blogResponse.ok) {
             throw new Error(`Failed to fetch blog details. Status: ${blogResponse.status}`);
@@ -1047,7 +1048,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
 
         // 2. Fetch summaries only for previous/next navigation
-        const listResponse = await fetch("https://blueaxis-backend-3-4eyg.onrender.com/api/getblogs");
+        const listResponse = await fetch("https://blueaxis-backend-6-t0qp.onrender.com/api/getblogs");
 
         if (!listResponse.ok) {
             throw new Error(`Failed to fetch blog list. Status: ${listResponse.status}`);
