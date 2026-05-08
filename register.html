@@ -320,34 +320,42 @@ document.getElementById("registerForm").addEventListener("submit", async functio
   message.style.color = "gray";
 
   try {
-    // const response = await fetch("https://blueaxis-backend-6-t0qp.onrender.com/api/register", {
-     const response = await fetch("https://blueaxis-backend-6-t0qp.onrender.com/api/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, username, password, role })
-    });
+  const response = await fetch("https://blueaxis-backend-6-t0qp.onrender.com/api/register", {
+    method: "POST",
+    headers: { 
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, username, password, role })
+  });
 
-    const result = await response.json();
+  const text = await response.text();
+  let result = {};
 
-    if (!response.ok) {
-      // Server returned 4xx or 5xx — show the actual error from backend
-      message.innerHTML = result.message || `Error: ${response.status}`;
-      message.style.color = "red";
-      return;
-    }
-
-    message.innerHTML = result.message || "Registration successful!";
-    message.style.color = "green";
-    localStorage.setItem("registeredEmail", email);
-
-    setTimeout(() => { window.location.href = "/login.html"; }, 1500);
-
-  } catch (error) {
-    // Network error, CORS block, or server completely down
-    console.error("Registration error:", error);
-    message.innerHTML = "Could not reach server. Check your connection or try again in a moment.";
-    message.style.color = "red";
+  try {
+    result = text ? JSON.parse(text) : {};
+  } catch (e) {
+    result = { message: text };
   }
+
+  if (!response.ok) {
+    message.innerHTML = result.message || `Error: ${response.status}`;
+    message.style.color = "red";
+    return;
+  }
+
+  message.innerHTML = result.message || "Registration successful!";
+  message.style.color = "green";
+  localStorage.setItem("registeredEmail", email);
+
+  setTimeout(() => {
+    window.location.href = "/login.html";
+  }, 1500);
+
+} catch (error) {
+  console.error("Registration error:", error);
+  message.innerHTML = "Could not reach server. Check CORS/backend deployment.";
+  message.style.color = "red";
+}
 });
 
 </script>
