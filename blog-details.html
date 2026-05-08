@@ -1018,7 +1018,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         // 1. Fetch full selected blog
         // const blogResponse = await fetch(`https://blueaxis-backend-6-t0qp.onrender.com/api/getblog/${blogId}`);
-        const blogResponse = await fetch(`http://localhost:8081/api/getblog/${blogId}`);
+        const blogResponse = await fetch(`https://blueaxis-backend-6-t0qp.onrender.com/api/getblog/${blogId}`);
 
         if (!blogResponse.ok) {
             throw new Error(`Failed to fetch blog details. Status: ${blogResponse.status}`);
