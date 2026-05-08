@@ -318,6 +318,9 @@
                 });
 
                 const data = await response.json();
+
+                console.log("LOGIN RESPONSE:", data);
+                console.log("TOKEN FROM BACKEND:", data.token);
 if (data.token) {
 
     messageDiv.innerHTML = `<div style="color:green;">Login successful!</div>`;
