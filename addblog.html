@@ -541,6 +541,7 @@ button[type="submit"]:hover {
 
     <script>
     const token = localStorage.getItem("token");
+    console.log("Checking token on page load:", token);
 
     if (!token) {
         window.location.href = "login.html";
