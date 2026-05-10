@@ -664,43 +664,33 @@ button[type="submit"]:hover {
         const apiUrl = 'https://blueaxis-backend-6-t0qp.onrender.com/api/getblogs';
 
         async function fetchTotalBlogs() {
-            try {
-                const token = localStorage.getItem("token");
+    try {
 
-                const response = await fetch(apiUrl, {
-                    method: "GET",
-                    headers: {
-                        "Authorization": "Bearer " + token
-                    }
-                });
+        const response = await fetch(apiUrl, {
+            method: "GET"
+        });
 
-                if (response.status === 401 || response.status === 403) {
-                    localStorage.removeItem("token");
-                    document.getElementById('total-blogs').textContent = 'Login required';
-                    return;
-                }
-
-                if (!response.ok) {
-                    throw new Error(`Request failed: ${response.status}`);
-                }
-
-                const rawText = await response.text();
-                let data = [];
-
-                try {
-                    data = rawText ? JSON.parse(rawText) : [];
-                } catch (e) {
-                    data = [];
-                }
-
-                const totalBlogs = Array.isArray(data) ? data.length : 0;
-                document.getElementById('total-blogs').textContent = totalBlogs;
-
-            } catch (error) {
-                console.error('Error fetching total blogs:', error);
-                document.getElementById('total-blogs').textContent = 'Error';
-            }
+        if (!response.ok) {
+            throw new Error(`Request failed: ${response.status}`);
         }
+
+        const rawText = await response.text();
+        let data = [];
+
+        try {
+            data = rawText ? JSON.parse(rawText) : [];
+        } catch (e) {
+            data = [];
+        }
+
+        const totalBlogs = Array.isArray(data) ? data.length : 0;
+        document.getElementById('total-blogs').textContent = totalBlogs;
+
+    } catch (error) {
+        console.error('Error fetching total blogs:', error);
+        document.getElementById('total-blogs').textContent = 'Error';
+    }
+}
 
         fetchTotalBlogs();
     });
