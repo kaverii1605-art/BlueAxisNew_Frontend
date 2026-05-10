@@ -326,7 +326,9 @@ if (data.token) {
     messageDiv.innerHTML = `<div style="color:green;">Login successful!</div>`;
 
     // ✅ STORE TOKEN (MOST IMPORTANT)
-    localStorage.setItem("token", data.token);
+    const token = data.token;
+    console.log("Storing token:", token);
+    localStorage.setItem("token", token);
 
     // Optional
     localStorage.setItem("userEmail", email);
