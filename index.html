@@ -2330,6 +2330,155 @@ p {
   }
 }
   </style>
+
+
+<style>
+  .reveal-anim {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    will-change: opacity, transform;
+  }
+
+  .reveal-anim.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-box {
+    animation: heroFade 0.6s ease forwards;
+  }
+
+  .hero-text h1 {
+    animation: slideLeft 0.55s ease forwards;
+  }
+
+  .hero-text p {
+    opacity: 0;
+    animation: slideLeft 0.55s ease 0.15s forwards;
+  }
+
+  .hero-btn {
+    opacity: 0;
+    animation: fadeUp 0.5s ease 0.25s forwards;
+  }
+
+  .hero-image {
+    opacity: 0;
+    animation: slideRight 0.55s ease 0.18s forwards;
+  }
+
+  @keyframes heroFade {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-35px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(35px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .wc3-card,
+  .sv-glass-box,
+  .sv-img-frame,
+  .sv-item,
+  .tv2-card,
+  .feature-item,
+  .floating-box,
+  .insight-item,
+  .counter-item,
+  .pillar-item {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .wc3-card:hover,
+  .sv-glass-box:hover,
+  .sv-img-frame:hover,
+  .sv-item:hover,
+  .tv2-card:hover,
+  .feature-item:hover,
+  .floating-box:hover,
+  .insight-item:hover,
+  .counter-item:hover,
+  .pillar-item:hover {
+    transform: translateY(-6px);
+  }
+
+  @media (max-width: 768px) {
+    .reveal-anim {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(18px);
+    }
+
+    .hero-box,
+    .hero-text h1,
+    .hero-text p,
+    .hero-btn,
+    .hero-image {
+      animation-duration: 0.35s;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const animatedItems = document.querySelectorAll(
+      ".wc3-card, .wc3-visual, .sv-block, .tv2-card, .feature-item, .floating-box, .insight-item, .counter-item, .pillar-item"
+    );
+
+    animatedItems.forEach(item => {
+      item.classList.add("reveal-anim");
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    });
+
+    animatedItems.forEach(item => observer.observe(item));
+  });
+</script>
   
    
     <!-- Our Blogs Section -->

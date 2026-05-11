@@ -440,6 +440,22 @@
                 margin-top: 10px;
             }
         }
+
+
+         .blog-meta {
+        max-width: 720px;
+        margin: 0 auto 1.5rem;
+        text-align: left;
+        padding: 0 2px;
+    }
+
+    .blog-meta .badge {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+        border-radius: 8px;
+        white-space: normal;
+        line-height: 1.4;
+    }
     </style>
 </head>
 
@@ -657,7 +673,7 @@
                 <img src="${article.imageUrl || ""}" alt="${article.title || "Article Image"}" class="img-fluid w-100">
             </div>
 
-            <div class="d-flex justify-content-center flex-wrap align-items-center gap-3 mb-4">
+            <div class="blog-meta mb-4">
                                  <span class="badge bg-primary"> ${article.category || "Article"}</span>
             </div>
 
