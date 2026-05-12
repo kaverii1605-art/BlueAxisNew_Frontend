@@ -279,201 +279,189 @@
 
     </div>
 
-    <style>
+  <style>
+    /* SAME ANIMATION AS FORGOT PASSWORD */
 
-/* ===== BACKGROUND MOTION ===== */
+.login-container{
+    animation:cardFade 1s ease;
+}
+
+/* LEFT PANEL FLOAT */
+.left-panel{
+    position:relative;
+    overflow:hidden;
+}
+
+.left-panel::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    background:rgba(255,255,255,0.12);
+    border-radius:50%;
+    top:-80px;
+    right:-70px;
+    animation:floatBlob 6s ease-in-out infinite;
+}
+
+.left-panel::after{
+    content:"";
+    position:absolute;
+    width:170px;
+    height:170px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    bottom:-40px;
+    left:-40px;
+    animation:floatBlob2 7s ease-in-out infinite;
+}
+
+.logo-left{
+    animation:logoSlide 1s ease;
+}
+
+.left-content h2{
+    animation:leftText 1s ease;
+}
+
+.left-content p{
+    animation:leftText 1.2s ease;
+}
+
+.right-panel{
+    animation:rightFade 1s ease;
+}
+
+.input-group input{
+    transition:0.4s ease;
+}
+
+.input-group input:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 22px rgba(0,0,0,0.08);
+}
+
+.btn-login{
+    position:relative;
+    overflow:hidden;
+    animation:buttonPulse 2.5s infinite;
+}
+
+.btn-login::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:40%;
+    height:100%;
+    background:rgba(255,255,255,0.35);
+    transform:skewX(-20deg);
+}
+
+.btn-login:hover::after{
+    animation:shine 0.8s linear;
+}
 
 body{
     background-size:200% 200%;
     animation:bgMove 10s ease infinite;
 }
 
+@keyframes cardFade{
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(0.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes logoSlide{
+    from{
+        opacity:0;
+        transform:translateX(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes leftText{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes rightFade{
+    from{
+        opacity:0;
+        transform:translateX(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes floatBlob{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(22px);
+    }
+}
+
+@keyframes floatBlob2{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-18px);
+    }
+}
+
+@keyframes shine{
+    0%{
+        left:-120%;
+    }
+    100%{
+        left:150%;
+    }
+}
+
+@keyframes buttonPulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(0,86,210,0.28);
+    }
+    70%{
+        box-shadow:0 0 0 14px rgba(0,86,210,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(0,86,210,0);
+    }
+}
+
 @keyframes bgMove{
-
     0%{
-        background-position:0% 50%;
+        background-position:left top;
     }
-
     50%{
-        background-position:100% 50%;
+        background-position:right bottom;
     }
-
     100%{
-        background-position:0% 50%;
+        background-position:left top;
     }
-
 }
-
-/* ===== CARD GLASS SHIMMER ===== */
-
-.signup-container{
-    position:relative;
-    overflow:hidden;
-}
-
-.signup-container::before{
-    content:"";
-    position:absolute;
-    top:-150%;
-    left:-80%;
-    width:60%;
-    height:400%;
-    background:rgba(255,255,255,0.12);
-    transform:rotate(25deg);
-    animation:glassShine 7s linear infinite;
-    pointer-events:none;
-}
-
-@keyframes glassShine{
-
-    0%{
-        left:-100%;
-    }
-
-    100%{
-        left:180%;
-    }
-
-}
-
-/* ===== RIGHT PANEL SOFT FLOAT ===== */
-
-.right-panel{
-    animation:rightPanelFloat 6s ease-in-out infinite;
-}
-
-@keyframes rightPanelFloat{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-5px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-
-}
-
-/* ===== TITLE SHIMMER ===== */
-
-.right-panel h2{
-    background-size:200% auto;
-    animation:titleShimmer 4s linear infinite;
-}
-
-@keyframes titleShimmer{
-
-    to{
-        background-position:200% center;
-    }
-
-}
-
-/* ===== INPUT ICON STYLE FEEL ===== */
-
-.input-group{
-    animation:fadeInputs 0.8s ease forwards;
-    opacity:0;
-}
-
-.input-group:nth-child(1){
-    animation-delay:0.2s;
-}
-
-.input-group:nth-child(2){
-    animation-delay:0.4s;
-}
-
-.input-group:nth-child(3){
-    animation-delay:0.6s;
-}
-
-.input-group:nth-child(4){
-    animation-delay:0.8s;
-}
-
-.input-group:nth-child(5){
-    animation-delay:1s;
-}
-
-@keyframes fadeInputs{
-
-    from{
-        opacity:0;
-        transform:translateY(15px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-/* ===== INPUT ACTIVE EFFECT ===== */
-
-.input-group input:focus,
-.input-group select:focus{
-    transform:scale(1.02);
-}
-
-/* ===== BUTTON FLOAT ===== */
-
-button:hover{
-    animation:buttonFloat 1.2s ease-in-out infinite;
-}
-
-@keyframes buttonFloat{
-
-    0%{
-        transform:translateY(-3px);
-    }
-
-    50%{
-        transform:translateY(-6px);
-    }
-
-    100%{
-        transform:translateY(-3px);
-    }
-
-}
-
-/* ===== MESSAGE FADE ===== */
-
-#message{
-    animation:messageFade 0.5s ease;
-}
-
-@keyframes messageFade{
-
-    from{
-        opacity:0;
-        transform:translateY(10px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-/* ===== MOBILE LIGHTER ===== */
-
-@media(max-width:768px){
-
-    .signup-container::before{
-        animation-duration:10s;
-    }
-
-}
-
-</style>
+  </style>
 
     <script>
 
