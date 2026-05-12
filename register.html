@@ -298,6 +298,202 @@ button:hover {
 
 </div>
 
+<style>
+
+/* ===== BACKGROUND MOTION ===== */
+
+body{
+    background-size:200% 200%;
+    animation:bgMove 10s ease infinite;
+}
+
+@keyframes bgMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+/* ===== CARD GLASS SHIMMER ===== */
+
+.signup-container{
+    position:relative;
+    overflow:hidden;
+}
+
+.signup-container::before{
+    content:"";
+    position:absolute;
+    top:-150%;
+    left:-80%;
+    width:60%;
+    height:400%;
+    background:rgba(255,255,255,0.12);
+    transform:rotate(25deg);
+    animation:glassShine 7s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes glassShine{
+
+    0%{
+        left:-100%;
+    }
+
+    100%{
+        left:180%;
+    }
+
+}
+
+/* ===== RIGHT PANEL SOFT FLOAT ===== */
+
+.right-panel{
+    animation:rightPanelFloat 6s ease-in-out infinite;
+}
+
+@keyframes rightPanelFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-5px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* ===== TITLE SHIMMER ===== */
+
+.right-panel h2{
+    background-size:200% auto;
+    animation:titleShimmer 4s linear infinite;
+}
+
+@keyframes titleShimmer{
+
+    to{
+        background-position:200% center;
+    }
+
+}
+
+/* ===== INPUT ICON STYLE FEEL ===== */
+
+.input-group{
+    animation:fadeInputs 0.8s ease forwards;
+    opacity:0;
+}
+
+.input-group:nth-child(1){
+    animation-delay:0.2s;
+}
+
+.input-group:nth-child(2){
+    animation-delay:0.4s;
+}
+
+.input-group:nth-child(3){
+    animation-delay:0.6s;
+}
+
+.input-group:nth-child(4){
+    animation-delay:0.8s;
+}
+
+.input-group:nth-child(5){
+    animation-delay:1s;
+}
+
+@keyframes fadeInputs{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===== INPUT ACTIVE EFFECT ===== */
+
+.input-group input:focus,
+.input-group select:focus{
+    transform:scale(1.02);
+}
+
+/* ===== BUTTON FLOAT ===== */
+
+button:hover{
+    animation:buttonFloat 1.2s ease-in-out infinite;
+}
+
+@keyframes buttonFloat{
+
+    0%{
+        transform:translateY(-3px);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(-3px);
+    }
+
+}
+
+/* ===== MESSAGE FADE ===== */
+
+#message{
+    animation:messageFade 0.5s ease;
+}
+
+@keyframes messageFade{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===== MOBILE LIGHTER ===== */
+
+@media(max-width:768px){
+
+    .signup-container::before{
+        animation-duration:10s;
+    }
+
+}
+
+</style>
+
 <script>
 
 document.getElementById("registerForm").addEventListener("submit", async function(e) {

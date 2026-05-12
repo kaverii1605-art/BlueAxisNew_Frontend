@@ -663,7 +663,7 @@ document.addEventListener("click", function (event) {
 
 <!-- ABM at Scale Section -->
 <div class="pillars-section">
-    <div class="py-5 text-center my-5">
+    <div class="py-5 text-center">
         <h2 class="section-heading fw-bold text-uppercase tracking-widest">
             ABM at Scale: Close Bigger Deals Faster
         </h2>
@@ -1007,7 +1007,7 @@ h1, h2, h3, h4, h5, h6 {
 /* SECTION BACKGROUND */
 .pillars-section {
     background: linear-gradient(135deg, #f7fbff, #eef5ff);
-    padding: 60px 20px;
+    padding: 40px 20px;
 }
 
 /* HEADING */
@@ -1245,7 +1245,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 15px;
     padding: 22px;
     border-radius: 14px;
-    background: #ffffff;
+    background: linear-gradient(135deg, #f4f9ff, #9aa8c2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: all 0.35s ease;
     position: relative;
@@ -1389,6 +1389,185 @@ h1, h2, h3, h4, h5, h6 {
 
 </style>
 
+
+<style>
+
+/* ===== SCROLL REVEAL ===== */
+
+.ba-reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:all 0.7s ease;
+}
+
+.ba-reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== HERO TEXT ===== */
+
+.header-content h1{
+    animation:heroTop 0.8s ease forwards;
+}
+
+.header-content p{
+    opacity:0;
+    animation:heroFade 0.8s ease 0.2s forwards;
+}
+
+.header-content .cta-button{
+    opacity:0;
+    animation:heroFade 0.8s ease 0.4s forwards;
+}
+
+/* ===== BUTTON SHINE ===== */
+
+.cta-button{
+    position:relative;
+    overflow:hidden;
+}
+
+.cta-button::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:50%;
+    height:100%;
+    background:rgba(255,255,255,0.35);
+    transform:skewX(-20deg);
+    transition:0.6s;
+}
+
+.cta-button:hover::after{
+    left:140%;
+}
+
+/* ===== CARD FLOAT ===== */
+
+.feature-card,
+.pillar-card,
+.intent-item,
+.demand-gen-item,
+.footer-card{
+    transition:all 0.35s ease;
+}
+
+.feature-card:hover,
+.pillar-card:hover,
+.intent-item:hover,
+.demand-gen-item:hover,
+.footer-card:hover{
+    transform:translateY(-10px);
+}
+
+/* ===== ICON EFFECT ===== */
+
+.intent-item i,
+.footer-icon,
+.demand-icon{
+    transition:all 0.35s ease;
+}
+
+.intent-item:hover i,
+.footer-card:hover .footer-icon,
+.demand-gen-item:hover .demand-icon{
+    transform:rotate(8deg) scale(1.12);
+}
+
+/* ===== FLOAT ANIMATION ===== */
+
+.feature-card:nth-child(odd),
+.intent-item:nth-child(odd),
+.demand-gen-item:nth-child(odd){
+    animation:floatCard 5s ease-in-out infinite;
+}
+
+.feature-card:nth-child(even),
+.intent-item:nth-child(even),
+.demand-gen-item:nth-child(even){
+    animation:floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* ===== HERO ENTRY ===== */
+
+@keyframes heroTop{
+    from{
+        opacity:0;
+        transform:translateY(-35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes heroFade{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    .ba-reveal{
+        transform:translateY(20px);
+        transition:all 0.45s ease;
+    }
+
+}
+
+</style>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const items = document.querySelectorAll(
+        ".content-wrapper, .content-section1, .feature-card, .closing-text, .pillars-section .text-center, .pillar-card, .intent-data-section, .intent-item, .demand-gen-container, .demand-gen-item, .cta-section, .footer-card"
+    );
+
+    items.forEach((item,index)=>{
+        item.classList.add("ba-reveal");
+        item.style.transitionDelay = `${index * 0.05}s`;
+    });
+
+    const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    },{
+        threshold:0.12
+    });
+
+    items.forEach(item=>observer.observe(item));
+
+});
+
+</script>
     <!-- Footer Section -->
    
   <footer>
@@ -1438,6 +1617,9 @@ h1, h2, h3, h4, h5, h6 {
         </div>
     </div>
 </footer>
+
+
+
 
 <style>
 /* General Footer */

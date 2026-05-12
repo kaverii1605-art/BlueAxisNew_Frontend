@@ -380,6 +380,7 @@
         .whatwedo-hero {
             padding: 100px 0;
             background: linear-gradient(135deg, #f4f9ff, #9aa8c2);
+            margin-top: 25px;
         }
 
         .badge {
@@ -722,7 +723,7 @@
     </section>
     <style>
         .cta-modern {
-            padding: 100px 0;
+            padding: 50px 0;
             background: linear-gradient(135deg, #f4f9ff, #9aa8c2);
             /* color: #fff; */
             position: relative;
@@ -1137,6 +1138,215 @@
                 </div>
             </div>
         </div>
+
+
+        <style>
+
+/* ===== SCROLL REVEAL ===== */
+
+.ba-reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+}
+
+.ba-reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== HERO TEXT ===== */
+
+.main-title{
+    opacity:0;
+    animation:heroTop 0.9s ease forwards;
+}
+
+.hero-text{
+    opacity:0;
+    animation:heroFade 0.9s ease 0.2s forwards;
+}
+
+.btn-primary-custom{
+    opacity:0;
+    animation:heroFade 0.9s ease 0.4s forwards;
+}
+
+/* ===== BUTTON SHINE ===== */
+
+.btn-primary-custom,
+.cta-action,
+.strategy-cta{
+    position:relative;
+    overflow:hidden;
+}
+
+.btn-primary-custom::after,
+.cta-action::after,
+.strategy-cta::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:45%;
+    height:100%;
+    background:rgba(255,255,255,0.3);
+    transform:skewX(-20deg);
+    transition:0.7s;
+}
+
+.btn-primary-custom:hover::after,
+.cta-action:hover::after,
+.strategy-cta:hover::after{
+    left:140%;
+}
+
+/* ===== CARD HOVER ===== */
+
+.service-card,
+.service-box,
+.strategy-block,
+.footer-card{
+    transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service-card:hover,
+.service-box:hover,
+.strategy-block:hover,
+.footer-card:hover{
+    transform:translateY(-8px);
+}
+
+/* ===== ICON ANIMATION ===== */
+
+.service-box i,
+.strategy-icon,
+.footer-icon,
+.cta-icon{
+    transition:transform 0.35s ease;
+}
+
+.service-box:hover i,
+.strategy-block:hover .strategy-icon,
+.footer-card:hover .footer-icon,
+.cta-modern:hover .cta-icon{
+    transform:scale(1.08) rotate(5deg);
+}
+
+/* ===== FLOAT EFFECT ===== */
+
+.circle{
+    animation:floatSmooth 6s ease-in-out infinite;
+}
+
+.circle.two{
+    animation-delay:2s;
+}
+
+.circle.three{
+    animation-delay:4s;
+}
+
+@keyframes floatSmooth{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* ===== HERO ANIMATION ===== */
+
+@keyframes heroTop{
+
+    from{
+        opacity:0;
+        transform:translateY(-35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes heroFade{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    .ba-reveal{
+        transform:translateY(18px);
+        transition:opacity 0.5s ease, transform 0.5s ease;
+    }
+
+}
+
+</style>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const elements = document.querySelectorAll(
+        ".whatwedo-hero, .service-card, .services-new, .service-box, .cta-modern, .strategy-block, .footer-card"
+    );
+
+    elements.forEach((el,index)=>{
+
+        el.classList.add("ba-reveal");
+
+        el.style.transitionDelay = `${index * 0.05}s`;
+
+    });
+
+    const observer = new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:0.12
+
+    });
+
+    elements.forEach(el=>observer.observe(el));
+
+});
+
+</script>
 
         <!-- Footer Bottom (Black Section) -->
         <div class="footer-bottom py-4">

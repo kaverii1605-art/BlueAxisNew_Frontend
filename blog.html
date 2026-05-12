@@ -863,7 +863,7 @@
 
     <style>
         .article-hero {
-            padding: 160px 0 140px;
+            padding: 145px 0 130px;
             background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));
             color: #fff;
         }
@@ -1215,6 +1215,228 @@
     </div> -->
 
     <!-- Blog Container Section -->
+
+
+    <style>
+
+/* ===== SMOOTH SCROLL REVEAL ===== */
+
+.reveal-animation{
+    opacity:0;
+    transform:translateY(30px);
+    transition:all 0.8s ease;
+}
+
+.reveal-animation.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== FLOATING SHAPES ===== */
+
+.shape-1{
+    animation:floatShape1 7s ease-in-out infinite;
+}
+
+.shape-2{
+    animation:floatShape2 9s ease-in-out infinite;
+}
+
+@keyframes floatShape1{
+
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(18px) rotate(5deg);
+    }
+
+    100%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+}
+
+@keyframes floatShape2{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* ===== HERO TITLE GLOW ===== */
+
+.hero-title{
+    animation:textGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow{
+
+    from{
+        text-shadow:0 0 0px rgba(255,255,255,0);
+    }
+
+    to{
+        text-shadow:0 0 18px rgba(255,255,255,0.35);
+    }
+
+}
+
+/* ===== BLOG CARD HOVER ===== */
+
+.magazine-item{
+    transition:all 0.35s ease;
+}
+
+.magazine-item:hover{
+    transform:translateY(-8px);
+}
+
+/* ===== IMAGE ZOOM ===== */
+
+.magazine-thumb{
+    overflow:hidden;
+}
+
+.magazine-thumb img{
+    transition:transform 0.5s ease;
+}
+
+.magazine-item:hover .magazine-thumb img{
+    transform:scale(1.08);
+}
+
+/* ===== CATEGORY ANIMATION ===== */
+
+.mag-category{
+    position:relative;
+    overflow:hidden;
+}
+
+.mag-category::after{
+    content:"";
+    position:absolute;
+    left:-100%;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,82,255,0.12);
+    transition:0.5s;
+}
+
+.magazine-item:hover .mag-category::after{
+    left:100%;
+}
+
+/* ===== BUTTON SHINE ===== */
+
+.btn,
+.view-article-link{
+    position:relative;
+    overflow:hidden;
+}
+
+.btn::after,
+.view-article-link::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:45%;
+    height:100%;
+    background:rgba(255,255,255,0.25);
+    transform:skewX(-20deg);
+    transition:0.7s;
+}
+
+.btn:hover::after,
+.view-article-link:hover::after{
+    left:140%;
+}
+
+/* ===== FOOTER FLOAT ===== */
+
+.footer-card{
+    animation:footerFloat 6s ease-in-out infinite;
+}
+
+.footer-card:nth-child(2){
+    animation-duration:7s;
+}
+
+.footer-card:nth-child(3){
+    animation-duration:8s;
+}
+
+@keyframes footerFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-7px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+</style>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const elements = document.querySelectorAll(
+        ".magazine-item, .newsletter-card, .footer-card, .pagination, .article-hero"
+    );
+
+    elements.forEach((el,index)=>{
+
+        el.classList.add("reveal-animation");
+
+        el.style.transitionDelay = `${index * 0.08}s`;
+
+    });
+
+    const observer = new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("active");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:0.12
+
+    });
+
+    elements.forEach(el=>observer.observe(el));
+
+});
+
+</script>
 
     <script>
     let blogs = [];

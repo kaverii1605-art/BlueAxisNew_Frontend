@@ -85,7 +85,7 @@
             text-align: center;
             color: white;
             border-radius: 8px;
-            margin: 20px 10%;
+            margin: 10px ;
         }
 
         .cta-section h2 {
@@ -773,6 +773,201 @@
             </div>
         </div>
     </footer>
+
+    <style>
+
+/* ===== SMOOTH SCROLL REVEAL ===== */
+
+.ba-reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+}
+
+.ba-reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== HERO ENTRY ===== */
+
+.hero-content h1{
+    opacity:0;
+    animation:heroTop 0.9s ease forwards;
+}
+
+.hero-content p{
+    opacity:0;
+    animation:heroFade 0.9s ease 0.2s forwards;
+}
+
+.hero-btn{
+    opacity:0;
+    animation:heroFade 0.9s ease 0.4s forwards;
+}
+
+/* ===== BUTTON SHINE ===== */
+
+.hero-btn,
+.cta-button{
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-btn::after,
+.cta-button::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:45%;
+    height:100%;
+    background:rgba(255,255,255,0.28);
+    transform:skewX(-20deg);
+    transition:0.7s;
+}
+
+.hero-btn:hover::after,
+.cta-button:hover::after{
+    left:140%;
+}
+
+/* ===== CARD ANIMATION ===== */
+
+.feature-card,
+.footer-card{
+    transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.feature-card:hover,
+.footer-card:hover{
+    transform:translateY(-8px);
+}
+
+/* ===== ICON EFFECT ===== */
+
+.footer-icon{
+    transition:transform 0.35s ease;
+}
+
+.footer-card:hover .footer-icon{
+    transform:scale(1.08) rotate(5deg);
+}
+
+/* ===== FLOATING EFFECT ===== */
+
+.feature-card:nth-child(1){
+    animation:floatCard 5s ease-in-out infinite;
+}
+
+.feature-card:nth-child(2){
+    animation:floatCard 6s ease-in-out infinite;
+}
+
+.feature-card:nth-child(3){
+    animation:floatCard 7s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* ===== HERO KEYFRAMES ===== */
+
+@keyframes heroTop{
+
+    from{
+        opacity:0;
+        transform:translateY(-35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes heroFade{
+
+    from{
+        opacity:0;
+        transform:translateY(24px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    .ba-reveal{
+        transform:translateY(18px);
+        transition:opacity 0.5s ease, transform 0.5s ease;
+    }
+
+}
+
+</style>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const elements = document.querySelectorAll(
+        ".content-wrapper, .content-section1, .feature-card, .closing-text, .cta-section, .footer-card"
+    );
+
+    elements.forEach((el,index)=>{
+
+        el.classList.add("ba-reveal");
+
+        el.style.transitionDelay = `${index * 0.05}s`;
+
+    });
+
+    const observer = new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:0.12
+
+    });
+
+    elements.forEach(el=>observer.observe(el));
+
+});
+
+</script>
 
     <style>
         /* General Footer */

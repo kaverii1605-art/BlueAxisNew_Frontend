@@ -400,14 +400,15 @@
             }
         }</style>
 
+
                         <!-- Navbar end -->
 
     <!-- Animate.css for Animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!-- Header Section -->
-   <!-- HEADER SECTION -->
-<div class="hero-section mt-5">
+
+<div class="hero-section">
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
@@ -503,6 +504,126 @@
     <a href="../contact.html" class="cta-button">Get in Touch</a>
 </div>
 
+
+
+<style>
+.ba-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.ba-reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-content h1 {
+    animation: heroTitle 0.8s ease forwards;
+}
+
+.hero-content p {
+    opacity: 0;
+    animation: heroText 0.8s ease 0.2s forwards;
+}
+
+.hero-btn {
+    opacity: 0;
+    animation: heroText 0.8s ease 0.4s forwards;
+}
+
+@keyframes heroTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroText {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-btn,
+.cta-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-btn::after,
+.cta-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.35);
+    transform: skewX(-20deg);
+    transition: 0.6s;
+}
+
+.hero-btn:hover::after,
+.cta-button:hover::after {
+    left: 140%;
+}
+
+.feature-card,
+.pillar-card,
+.footer-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover,
+.pillar-card:hover,
+.footer-card:hover {
+    transform: translateY(-8px);
+}
+
+@media(max-width:768px){
+    .ba-reveal {
+        transform: translateY(20px);
+        transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(
+        ".content-wrapper, .content-section1, .feature-card, .closing-text, .pillars-section .text-center, .pillar-card, .cta-section, .footer-card"
+    );
+
+    items.forEach((item, index) => {
+        item.classList.add("ba-reveal");
+        item.style.transitionDelay = `${Math.min(index * 0.05, 0.25)}s`;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12
+    });
+
+    items.forEach(item => observer.observe(item));
+});
+</script>
+
 <style>
 /* === HEADER === */
 /* HERO SECTION */
@@ -520,6 +641,7 @@
 
 /* OVERLAY */
 .hero-overlay {
+    margin-top: 0px;
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, #0056d2, rgba(218, 32, 33, 255));

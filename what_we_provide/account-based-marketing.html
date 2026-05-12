@@ -1253,6 +1253,235 @@
     </section> -->
 
 
+
+    <style>
+
+/* ===== SCROLL REVEAL ===== */
+
+.ba-animate{
+    opacity:0;
+    transform:translateY(35px);
+    transition:all 0.8s ease;
+}
+
+.ba-animate.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== HERO ANIMATION ===== */
+
+.hero-content h1{
+    opacity:0;
+    animation:heroTop 0.9s ease forwards;
+}
+
+.hero-content p{
+    opacity:0;
+    animation:heroFade 0.9s ease 0.25s forwards;
+}
+
+.hero-content .hero-btn{
+    opacity:0;
+    animation:heroFade 0.9s ease 0.45s forwards;
+}
+
+/* ===== BUTTON SHINE ===== */
+
+.hero-btn,
+.cta-button{
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-btn::after,
+.cta-button::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:50%;
+    height:100%;
+    background:rgba(255,255,255,0.35);
+    transform:skewX(-20deg);
+    transition:0.7s;
+}
+
+.hero-btn:hover::after,
+.cta-button:hover::after{
+    left:140%;
+}
+
+/* ===== FLOATING CARD EFFECT ===== */
+
+.feature-card,
+.pillar-card,
+.footer-card,
+.about-card,
+.modern-accordion .accordion-item{
+    animation:floatCard 5s ease-in-out infinite;
+}
+
+.feature-card:nth-child(2),
+.pillar-card:nth-child(2),
+.footer-card:nth-child(2){
+    animation-duration:6s;
+}
+
+.feature-card:nth-child(3),
+.pillar-card:nth-child(3),
+.footer-card:nth-child(3){
+    animation-duration:7s;
+}
+
+@keyframes floatCard{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* ===== ICON ANIMATION ===== */
+
+.footer-icon,
+.pillar-img,
+.feature-card img{
+    transition:all 0.35s ease;
+}
+
+.footer-card:hover .footer-icon,
+.pillar-card:hover .pillar-img,
+.feature-card:hover img{
+    transform:scale(1.08) rotate(4deg);
+}
+
+/* ===== HERO ENTRY ===== */
+
+@keyframes heroTop{
+
+    from{
+        opacity:0;
+        transform:translateY(-35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes heroFade{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===== GLOW HOVER ===== */
+
+.feature-card:hover,
+.pillar-card:hover,
+.footer-card:hover,
+.about-card:hover,
+.modern-accordion .accordion-item:hover{
+
+    box-shadow:
+    0 15px 40px rgba(0,123,255,0.18);
+
+}
+
+/* ===== TEXT SHIMMER ===== */
+
+.section-heading,
+.head,
+.lead-heading{
+
+    background-size:200% auto;
+    animation:textShine 5s linear infinite;
+
+}
+
+@keyframes textShine{
+
+    to{
+        background-position:200% center;
+    }
+
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    .ba-animate{
+        transform:translateY(20px);
+        transition:all 0.5s ease;
+    }
+
+}
+
+</style>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const elements = document.querySelectorAll(
+        ".about-card, .content-section1, .feature-card, .pillars-section .text-center, .pillar-card, .lead-heading, .modern-accordion .accordion-item, .img-fluid, .cta-section, .footer-card"
+    );
+
+    elements.forEach((el,index)=>{
+
+        el.classList.add("ba-animate");
+
+        el.style.transitionDelay = `${index * 0.06}s`;
+
+    });
+
+    const observer = new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:0.12
+
+    });
+
+    elements.forEach(el=>observer.observe(el));
+
+});
+
+</script>
+
+
     <style>
         /* Lead Gen Section */
 
